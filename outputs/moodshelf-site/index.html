@@ -90,6 +90,87 @@
       z-index: 1;
     }
 
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 12px 20px;
+      margin-bottom: 18px;
+      border-radius: 28px;
+      background: linear-gradient(135deg, rgba(13,26,18,0.98), rgba(27,48,34,0.98));
+      color: var(--text-on-dark);
+      box-shadow: var(--shadow-md);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: max-content;
+    }
+
+    .mark {
+      width: 34px;
+      height: 34px;
+      flex: none;
+    }
+
+    .mark path,
+    .mark circle {
+      stroke: var(--text-on-dark);
+    }
+
+    .mark path[fill] {
+      fill: var(--gold-500);
+    }
+
+    .wordmark {
+      font-family: var(--font-display);
+      font-size: 28px;
+      line-height: 1;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      color: var(--text-on-dark);
+    }
+
+    .wordmark em {
+      font-style: italic;
+      color: var(--gold-300);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav button {
+      border: 0;
+      padding: 10px 14px;
+      border-radius: var(--radius-pill);
+      color: var(--text-on-dark-muted);
+      font-weight: 700;
+      background: transparent;
+      cursor: pointer;
+      transition: background 160ms ease, color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .nav button:hover {
+      color: var(--text-on-dark);
+      background: rgba(255,255,255,0.10);
+      transform: translateY(-1px);
+    }
+
+    .nav button[aria-selected="true"] {
+      color: #fdfae7;
+      background: linear-gradient(135deg, rgba(62,87,66,1), rgba(27,48,34,1));
+      box-shadow: 0 14px 24px rgba(13, 26, 18, 0.24);
+    }
+
     .hero {
       display: grid;
       grid-template-columns: 1.05fr 0.95fr;
@@ -376,45 +457,6 @@
       max-width: 56ch;
       color: var(--text-muted);
       line-height: 1.62;
-    }
-
-    .tabbar {
-      margin-top: 22px;
-      padding: 8px;
-      border-radius: 28px;
-      background: linear-gradient(180deg, rgba(27,48,34,0.98), rgba(45,74,55,0.98));
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .tabbar nav {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 10px;
-    }
-
-    .tabbar button {
-      border: 1px solid rgba(255,255,255,0.06);
-      background: rgba(255,255,255,0.08);
-      color: rgba(253,250,231,0.82);
-      border-radius: 22px;
-      padding: 14px 12px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease, color 160ms ease;
-    }
-
-    .tabbar button:hover {
-      transform: translateY(-1px);
-      color: #fdfae7;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .tabbar button[aria-selected="true"] {
-      background: linear-gradient(135deg, rgba(62,87,66,0.98), rgba(27,48,34,0.98));
-      color: #fdfae7;
-      box-shadow: 0 16px 28px rgba(13, 26, 18, 0.22);
-      border-color: transparent;
     }
 
     .panel {
@@ -1161,7 +1203,6 @@
         grid-template-columns: 1fr;
       }
 
-      .tabbar nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .pal-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .slot-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .feature-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -1170,11 +1211,12 @@
 
     @media (max-width: 760px) {
       .page { width: min(100%, calc(100% - 18px)); }
+      .topbar { flex-direction: column; align-items: flex-start; }
+      .nav { justify-content: flex-start; }
       .hero-copy, .hero-visual { border-radius: 26px; }
       .hero-copy { padding: 22px; }
       .hero h1 { font-size: clamp(2.9rem, 14vw, 4rem); }
       .hero-stats { grid-template-columns: 1fr; }
-      .tabbar nav { grid-template-columns: 1fr; }
       .pal-list,
       .slot-row,
       .post-grid,
@@ -1190,68 +1232,26 @@
 </head>
 <body>
   <main class="page">
-    <div class="tabbar" aria-label="Sections Book Nook">
-      <nav>
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Book Nook accueil">
+        <svg class="mark" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <path d="M32 22.5C26 18.8 19.5 18.4 11.8 20.4C10.7 20.7 10 21.7 10 22.8V43.3C10 44.8 11.4 45.9 12.8 45.6C19.4 44.1 25.7 44.6 32 47.8" stroke="#1F1914" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M32 22.5C38 18.8 44.5 18.4 52.2 20.4C53.3 20.7 54 21.7 54 22.8V43.3C54 44.8 52.6 45.9 51.2 45.6C44.6 44.1 38.3 44.6 32 47.8" stroke="#1F1914" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M32 23.5V47" stroke="#1F1914" stroke-width="2.6" stroke-linecap="round"/>
+          <path d="M32 6C32 6 27.5 10.2 27.5 13.4C27.5 15.9 29.5 17.6 32 17.6C34.5 17.6 36.5 15.9 36.5 13.4C36.5 10.2 32 6 32 6Z" fill="#D1A14F"/>
+        </svg>
+        <div class="wordmark">Book<em>Nook</em></div>
+      </a>
+      <nav class="nav" aria-label="Navigation principale">
         <button data-tab="library" aria-selected="true" type="button">Bibliothèque</button>
-        <button data-tab="pal" aria-selected="false" type="button">PAL</button>
+        <button data-tab="pal" aria-selected="false" type="button">Pile à lire (PAL)</button>
         <button data-tab="moodboards" aria-selected="false" type="button">Fiches &amp; Moodboards</button>
         <button data-tab="community" aria-selected="false" type="button">Communauté</button>
         <button data-tab="profile" aria-selected="false" type="button">Profil</button>
       </nav>
-    </div>
+    </header>
 
     <section class="panel" id="panel-library" role="tabpanel" aria-labelledby="tab-library">
-      <div class="hero library-intro">
-        <article class="hero-copy">
-          <div class="eyebrow">Toujours à portée</div>
-          <h1>Les livres font la maison.</h1>
-          <p>
-            Une bibliothèque intime, des piles vivantes, des traces de lecture, et une
-            communauté qui parle la même langue.
-          </p>
-        </article>
-
-        <aside class="hero-visual">
-          <div class="shelf-note">
-            <div>
-              <div class="eyebrow" style="background: rgba(255,255,255,0.88); color: var(--text-soft);">Toujours à portée</div>
-              <strong>Les livres font la maison.</strong>
-              <p>Une bibliothèque intime, des piles vivantes, des traces de lecture, et une communauté qui parle la même langue.</p>
-            </div>
-            <div class="shelf-count">47</div>
-          </div>
-
-          <div class="shelf-scene" aria-hidden="true">
-            <div class="shelf-row">
-              <div class="books">
-                <div class="book gold"><div class="label"><strong>Woolf</strong><span>Rangé</span></div></div>
-                <div class="book green tall"><div class="label"><strong>Le Guin</strong><span>PAL</span></div></div>
-                <div class="book plum wide"><div class="label"><strong>Murakami</strong><span>Annoté</span></div></div>
-                <div class="book dark"><div class="label"><strong>Morrison</strong><span>Relu</span></div></div>
-                <div class="book rose"><div class="label"><strong>Clarke</strong><span>Citation</span></div></div>
-              </div>
-            </div>
-            <div class="shelf-row">
-              <div class="books">
-                <div class="book sand tall"><div class="label"><strong>Hugo</strong><span>Classique</span></div></div>
-                <div class="book gold"><div class="label"><strong>Borges</strong><span>Bel objet</span></div></div>
-                <div class="book green"><div class="label"><strong>Zauner</strong><span>Souvenir</span></div></div>
-                <div class="book rose wide"><div class="label"><strong>Awad</strong><span>Étrange</span></div></div>
-              </div>
-            </div>
-            <div class="shelf-row">
-              <div class="books">
-                <div class="book plum"><div class="label"><strong>Salt</strong><span>En attente</span></div></div>
-                <div class="book blue"><div class="label"><strong>Gothic</strong><span>Moodboard</span></div></div>
-                <div class="book dark tall"><div class="label"><strong>Piranesi</strong><span>Regard</span></div></div>
-                <div class="book gold"><div class="label"><strong>Circé</strong><span>Palette</span></div></div>
-                <div class="book sand"><div class="label"><strong>Longing</strong><span>Lecture</span></div></div>
-              </div>
-            </div>
-          </div>
-        </aside>
-      </div>
-
       <div class="workspace-grid">
         <aside class="panel-card pad">
           <div class="panel-head">Classements</div>
