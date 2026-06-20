@@ -1,0 +1,112 @@
+/* ============================================================
+   MoodShelf — Color tokens
+   A candlelit, dark-academia palette: warm espresso inks, aged
+   parchment, and a single candlelight-gold accent, with oxblood,
+   sage and plum as literary supporting voices.
+   Base scale first, then semantic aliases, then emotion palette.
+   ============================================================ */
+
+:root {
+  /* ---- Warm neutral ink → parchment scale ---- */
+  --ink-900: #241A12;   /* espresso, near-black warm brown */
+  --ink-800: #2E231A;
+  --ink-700: #3B2D20;
+  --ink-600: #4F3D2C;
+  --ink-500: #6B543E;
+  --clay-400: #8A6F52;
+  --clay-350: #7A6650;  /* muted brown for secondary text */
+  --sand-300: #B49A78;
+  --paper-200: #E7D8BE; /* aged paper, sunken surfaces & borders */
+  --paper-150: #EFE2C9;
+  --paper-100: #F2E7D0; /* parchment */
+  --paper-50:  #F8F1E2; /* cream, page background */
+  --paper-0:   #FFFCF4; /* warm white, raised cards */
+
+  /* ---- Candlelight gold — the primary accent ---- */
+  --candle-700: #97681F;
+  --candle-600: #B07C2C;
+  --candle-500: #C8913A; /* default accent */
+  --candle-400: #DCA94F;
+  --candle-300: #EAC480;
+  --candle-100: #F6E6C2;
+
+  /* ---- Oxblood — heartbreak, emphasis, "books that destroyed me" ---- */
+  --oxblood-700: #5E211E;
+  --oxblood-600: #7A2E2A;
+  --oxblood-500: #97433D;
+  --oxblood-200: #E6C9C2;
+
+  /* ---- Sage — calm, comfort, growth ---- */
+  --sage-600: #4C583F;
+  --sage-500: #5F6B52;
+  --sage-300: #A7AE92;
+  --sage-100: #DFE2CF;
+
+  /* ---- Plum — longing, the "reading aura", the mystical ---- */
+  --plum-600: #4C3050;
+  --plum-500: #6A4569;
+  --plum-300: #A684A4;
+  --plum-100: #E3D4E2;
+
+  /* ---- Dusk slate — "books that feel like rain", cool counterpoint ---- */
+  --dusk-600: #2F3B49;
+  --dusk-500: #3C4A5A;
+  --dusk-300: #8B97A4;
+
+  /* ---- Dusty rose — tenderness, romance ---- */
+  --rose-500: #B5786A;
+  --rose-400: #C99183;
+  --rose-200: #ECD4CB;
+
+  /* =========================================================
+     SEMANTIC ALIASES  (default = warm parchment "Reading Room")
+     ========================================================= */
+
+  /* surfaces */
+  --surface-page:     var(--paper-50);
+  --surface-card:     var(--paper-0);
+  --surface-raised:   #FFFFFF;
+  --surface-sunken:   var(--paper-150);
+  --surface-inset:    var(--paper-200);
+  --surface-inverse:  var(--ink-800);   /* dark moody sections, hero, share cards */
+  --surface-inverse-2:var(--ink-700);
+
+  /* text */
+  --text-strong:    var(--ink-900);
+  --text-body:      var(--ink-700);
+  --text-muted:     var(--clay-350);
+  --text-faint:     var(--sand-300);
+  --text-on-dark:        var(--paper-100);
+  --text-on-dark-muted:  #C9B79A;
+  --text-on-accent:      #2A1C09;
+
+  /* accent */
+  --accent:         var(--candle-500);
+  --accent-strong:  var(--candle-600);
+  --accent-deep:    var(--candle-700);
+  --accent-soft:    var(--candle-100);
+  --accent-ink:     var(--oxblood-600);  /* secondary emphasis */
+
+  /* lines */
+  --border:         #E2D3B5;
+  --border-strong:  #CBB68F;
+  --border-on-dark: rgba(246,230,194,0.16);
+  --hairline:       rgba(59,45,32,0.10);
+
+  /* states */
+  --focus-ring:     var(--candle-400);
+  --selection:      rgba(200,145,58,0.28);
+
+  /* =========================================================
+     EMOTION PALETTE  — for mood tags, auras, emotional stats.
+     Each emotion = a fill + an on-color for legible labels.
+     ========================================================= */
+  --emo-joy:        #D99A2B;  --emo-joy-on:        #2A1C05;
+  --emo-heartbreak: #8A332E;  --emo-heartbreak-on: #F4E6E2;
+  --emo-comfort:    #6E7A57;  --emo-comfort-on:    #F1F2E5;
+  --emo-longing:    #6A4569;  --emo-longing-on:    #EFE3EE;
+  --emo-eerie:      #3C4A5A;  --emo-eerie-on:      #E3E9EF;
+  --emo-tender:     #C18A78;  --emo-tender-on:     #2E1812;
+  --emo-wonder:     #4E7C76;  --emo-wonder-on:     #E4F0EE;
+  --emo-rage:       #A8431F;  --emo-rage-on:       #F6E4DA;
+}

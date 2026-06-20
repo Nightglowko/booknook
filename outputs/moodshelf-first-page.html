@@ -1,0 +1,1582 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MoodShelf — Homepage</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink-900: #1F1914;
+    --ink-800: #2A221C;
+    --ink-700: #3A3129;
+    --ink-600: #4C433A;
+    --sand-300: #BDAE9B;
+    --paper-200: #E8DDCF;
+    --paper-100: #F5EEDF;
+    --paper-50: #FBF7F0;
+    --paper-0: #FFFDFC;
+    --gold-600: #B9893A;
+    --gold-500: #D1A14F;
+    --gold-300: #E7C580;
+    --sage-600: #55604E;
+    --sage-400: #7C8A72;
+    --rose-500: #B97C70;
+    --plum-500: #73516F;
+    --surface-page: #FAF5ED;
+    --surface-card: #FFFFFF;
+    --surface-quiet: #F4EBDD;
+    --surface-dark: #201913;
+    --border: rgba(58,49,41,0.12);
+    --border-strong: rgba(58,49,41,0.18);
+    --text-strong: var(--ink-900);
+    --text-body: var(--ink-700);
+    --text-muted: #72665B;
+    --text-soft: #8E8072;
+    --text-on-dark: #FAF5ED;
+    --text-on-dark-muted: rgba(250,245,237,0.74);
+    --accent: var(--gold-500);
+    --accent-strong: var(--gold-600);
+    --shadow-sm: 0 8px 20px rgba(43, 32, 24, 0.08);
+    --shadow-md: 0 24px 60px rgba(43, 32, 24, 0.14);
+    --shadow-lg: 0 32px 80px rgba(43, 32, 24, 0.18);
+    --radius-md: 16px;
+    --radius-lg: 22px;
+    --radius-xl: 30px;
+    --radius-pill: 999px;
+    --radius-book: 4px;
+    --wash-hero: radial-gradient(circle at 20% 18%, rgba(232, 197, 128, 0.92), rgba(209, 161, 79, 0.74) 38%, rgba(98, 115, 92, 0.58) 78%, rgba(32, 25, 19, 0.96) 100%);
+    --wash-soft: radial-gradient(circle at 12% 16%, rgba(240, 228, 210, 0.9), rgba(245, 235, 221, 0.72) 34%, rgba(250, 245, 237, 0.96) 100%);
+    --wash-aura: radial-gradient(circle at 35% 15%, rgba(184, 124, 112, 0.92), rgba(115, 81, 111, 0.88) 44%, rgba(32, 25, 19, 0.96) 100%);
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-serif: 'Spectral', Georgia, serif;
+    --font-sans: 'Hanken Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; min-height: 100%; }
+  body {
+    font-family: var(--font-sans);
+    color: var(--text-body);
+    background:
+      radial-gradient(1000px 600px at 50% 0%, rgba(209,161,79,0.12), transparent 55%),
+      radial-gradient(800px 500px at 12% 10%, rgba(124,138,114,0.10), transparent 44%),
+      radial-gradient(800px 500px at 100% 6%, rgba(185,124,112,0.08), transparent 40%),
+      var(--surface-page);
+  }
+
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; }
+
+  .page {
+    width: min(1280px, calc(100% - 32px));
+    margin: 0 auto;
+    padding: 20px 0 32px;
+  }
+
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 10px 0 22px;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: max-content;
+  }
+
+  .mark {
+    width: 34px;
+    height: 34px;
+    flex: none;
+  }
+
+  .wordmark {
+    font-family: var(--font-display);
+    font-size: 28px;
+    line-height: 1;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    color: var(--text-strong);
+  }
+
+  .wordmark em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .nav a {
+    padding: 10px 12px;
+    border-radius: var(--radius-pill);
+    color: var(--text-muted);
+    font-weight: 600;
+    transition: background 160ms ease, color 160ms ease, transform 160ms ease;
+  }
+
+  .nav a:hover {
+    color: var(--text-strong);
+    background: rgba(255,255,255,0.72);
+    transform: translateY(-1px);
+  }
+
+  .nav .cta {
+    background: linear-gradient(135deg, rgba(209,161,79,0.96), rgba(185,137,58,0.98));
+    color: #281B0B;
+    box-shadow: 0 14px 24px rgba(209,161,79,0.18);
+  }
+
+  .hero {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 24px;
+    align-items: stretch;
+    margin-top: 8px;
+  }
+
+  .hero-copy,
+  .hero-visual {
+    border-radius: 32px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+  }
+
+  .hero-copy {
+    padding: 34px;
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.76), rgba(255,255,255,0.92)),
+      var(--wash-soft);
+    border: 1px solid rgba(58,49,41,0.08);
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: var(--radius-pill);
+    background: rgba(255,255,255,0.86);
+    border: 1px solid rgba(58,49,41,0.08);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-soft);
+  }
+
+  .hero h1 {
+    margin: 18px 0 0;
+    font-family: var(--font-display);
+    font-size: clamp(3.2rem, 5.2vw, 5.5rem);
+    line-height: 0.92;
+    letter-spacing: -0.04em;
+    color: var(--text-strong);
+    font-weight: 600;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero p {
+    margin: 18px 0 0;
+    max-width: 58ch;
+    font-family: var(--font-serif);
+    font-size: 1.06rem;
+    line-height: 1.74;
+    color: var(--text-body);
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 24px;
+  }
+
+  .btn {
+    min-height: 48px;
+    border: 0;
+    border-radius: var(--radius-pill);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 160ms ease, box-shadow 160ms ease, filter 160ms ease;
+  }
+
+  .btn:hover { transform: translateY(-1px); }
+  .btn:active { transform: translateY(0) scale(0.98); }
+
+  .btn-primary {
+    color: #271A0B;
+    background: linear-gradient(135deg, rgba(225,187,107,1), rgba(209,161,79,1));
+    box-shadow: 0 16px 28px rgba(209,161,79,0.24);
+  }
+
+  .btn-secondary {
+    color: var(--text-strong);
+    background: rgba(255,255,255,0.9);
+    border: 1px solid rgba(58,49,41,0.12);
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 28px;
+  }
+
+  .stat {
+    padding: 16px 14px;
+    border-radius: var(--radius-lg);
+    background: rgba(255,255,255,0.78);
+    border: 1px solid rgba(58,49,41,0.08);
+  }
+
+  .stat strong {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 2rem;
+    line-height: 1;
+    color: var(--text-strong);
+    font-weight: 600;
+  }
+
+  .stat span {
+    display: block;
+    margin-top: 6px;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-soft);
+  }
+
+  .hero-visual {
+    background:
+      radial-gradient(circle at 18% 14%, rgba(240,228,210,0.12), transparent 30%),
+      var(--wash-hero);
+    border: 1px solid rgba(58,49,41,0.08);
+    display: grid;
+    grid-template-rows: auto auto;
+    gap: 14px;
+    padding: 18px;
+  }
+
+  .shelf-scene {
+    display: grid;
+    gap: 14px;
+    min-height: 420px;
+    padding: 12px 6px 4px;
+  }
+
+  .shelf-row {
+    position: relative;
+    min-height: 120px;
+    border-bottom: 14px solid rgba(38, 30, 23, 0.42);
+    border-radius: 0 0 18px 18px;
+  }
+
+  .shelf-row::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -14px;
+    height: 14px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(0,0,0,0.22));
+    border-radius: 0 0 18px 18px;
+  }
+
+  .books {
+    position: absolute;
+    inset: 16px 0 0;
+    display: flex;
+    align-items: end;
+    gap: 12px;
+    padding: 0 10px;
+  }
+
+  .book {
+    position: relative;
+    width: 70px;
+    height: 108px;
+    border-radius: var(--radius-book);
+    overflow: hidden;
+    box-shadow: 0 12px 18px rgba(15, 10, 7, 0.22);
+    border: 1px solid rgba(255,255,255,0.12);
+    flex: none;
+  }
+
+  .book.wide { width: 84px; height: 120px; }
+  .book.tall { height: 132px; }
+  .book .art {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 30% 20%, rgba(255,255,255,0.16), transparent 26%),
+      linear-gradient(180deg, rgba(255,255,255,0.05), transparent 30%);
+  }
+
+  .book.gold .art { background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.14), transparent 24%), linear-gradient(180deg, #E0B963, #B9893A 68%, #85551B); }
+  .book.green .art { background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.16), transparent 24%), linear-gradient(180deg, #8CA084, #55604E 72%, #364037); }
+  .book.rose .art { background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.18), transparent 24%), linear-gradient(180deg, #D39A91, #B97C70 72%, #7B453F); }
+  .book.plum .art { background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.14), transparent 24%), linear-gradient(180deg, #92708D, #73516F 72%, #46324A); }
+  .book.dark .art { background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.12), transparent 24%), linear-gradient(180deg, #5E5146, #302722 72%, #1E1814); }
+
+  .book .label {
+    position: absolute;
+    inset: auto 0 0 0;
+    padding: 13px 10px 12px;
+    color: #FFF7ED;
+    background: linear-gradient(180deg, transparent, rgba(15,10,7,0.72) 34%, rgba(15,10,7,0.92));
+  }
+
+  .book .label strong {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 15px;
+    line-height: 1;
+    font-weight: 600;
+  }
+
+  .book .label span {
+    display: block;
+    margin-top: 5px;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.82;
+  }
+
+  .shelf-note {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 14px 16px;
+    border-radius: var(--radius-lg);
+    background: rgba(255,255,255,0.10);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: var(--text-on-dark);
+  }
+
+  .shelf-note .eyebrow {
+    background: rgba(255,255,255,0.88);
+    color: var(--text-soft);
+    margin-bottom: 10px;
+  }
+
+  .shelf-note strong {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.7rem;
+    line-height: 1;
+    font-weight: 600;
+  }
+
+  .shelf-note p {
+    margin: 8px 0 0;
+    max-width: 34ch;
+    color: var(--text-on-dark-muted);
+    line-height: 1.58;
+  }
+
+  .shelf-count {
+    font-family: var(--font-display);
+    font-size: 2.8rem;
+    line-height: 1;
+    font-weight: 600;
+    color: var(--gold-300);
+    align-self: end;
+  }
+
+  .section {
+    margin-top: 28px;
+    display: grid;
+    gap: 18px;
+  }
+
+  .section-head {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 18px;
+  }
+
+  .section-head h2 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 3.2vw, 3rem);
+    line-height: 0.96;
+    color: var(--text-strong);
+    font-weight: 600;
+  }
+
+  .section-head p {
+    margin: 0;
+    max-width: 56ch;
+    color: var(--text-muted);
+    line-height: 1.62;
+  }
+
+  .feature-menu {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .feature {
+    padding: 18px;
+    border-radius: var(--radius-xl);
+    background: var(--surface-card);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+    display: grid;
+    gap: 12px;
+    min-height: 170px;
+  }
+
+  .feature .icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 16px;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(180deg, rgba(209,161,79,0.18), rgba(209,161,79,0.08));
+    border: 1px solid rgba(209,161,79,0.18);
+    color: var(--accent-strong);
+  }
+
+  .feature h3,
+  .shelf-card h3,
+  .cta-card h3 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    line-height: 1.06;
+    color: var(--text-strong);
+    font-weight: 600;
+  }
+
+  .feature p,
+  .shelf-card p,
+  .cta-card p {
+    margin: 0;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  .shelves-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .shelf-card {
+    padding: 18px;
+    border-radius: var(--radius-xl);
+    background:
+      radial-gradient(circle at 20% 18%, rgba(232, 197, 128, 0.12), transparent 30%),
+      var(--surface-card);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+    display: grid;
+    gap: 14px;
+    cursor: pointer;
+    outline: none;
+    transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease, background 180ms ease;
+  }
+
+  .shelf-card:hover,
+  .shelf-card:focus-visible {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 40px rgba(43, 32, 24, 0.12);
+    border-color: rgba(209,161,79,0.26);
+  }
+
+  .shelf-card.active {
+    border-color: rgba(209,161,79,0.42);
+    box-shadow: 0 24px 52px rgba(43, 32, 24, 0.16);
+    background:
+      radial-gradient(circle at 20% 18%, rgba(232, 197, 128, 0.18), transparent 30%),
+      #FFFDFC;
+  }
+
+  .shelf-mini {
+    display: flex;
+    gap: 10px;
+    align-items: end;
+    min-height: 122px;
+  }
+
+  .shelf-mini .spine {
+    width: 34px;
+    border-radius: 12px 12px 6px 6px;
+    height: 100px;
+    box-shadow: 0 12px 16px rgba(25,18,12,0.12);
+    flex: none;
+  }
+
+  .spine.gold { background: linear-gradient(180deg, #E0B963, #B9893A); }
+  .spine.green { background: linear-gradient(180deg, #94A58D, #55604E); height: 110px; }
+  .spine.rose { background: linear-gradient(180deg, #D3A79E, #B97C70); height: 94px; }
+  .spine.plum { background: linear-gradient(180deg, #92708D, #73516F); height: 118px; }
+  .spine.dark { background: linear-gradient(180deg, #5E5146, #302722); height: 104px; }
+
+  .shelf-card .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .tag {
+    padding: 7px 12px;
+    border-radius: var(--radius-pill);
+    background: var(--surface-quiet);
+    border: 1px solid rgba(58,49,41,0.08);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-body);
+  }
+
+  .tag.sage { background: rgba(124,138,114,0.10); border-color: rgba(124,138,114,0.16); }
+  .tag.rose { background: rgba(185,124,112,0.12); border-color: rgba(185,124,112,0.18); }
+  .tag.plum { background: rgba(115,81,111,0.10); border-color: rgba(115,81,111,0.16); }
+  .tag.gold { background: rgba(209,161,79,0.12); border-color: rgba(209,161,79,0.18); }
+
+  .shelf-card .meta {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .shelf-card .count {
+    font-family: var(--font-display);
+    font-size: 2.6rem;
+    line-height: 1;
+    font-weight: 600;
+    color: var(--accent-strong);
+  }
+
+  .shelf-card.active .count {
+    color: var(--gold-500);
+  }
+
+  .aura-row {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 16px;
+  }
+
+  .aura-card {
+    padding: 22px;
+    border-radius: var(--radius-xl);
+    background: var(--wash-aura);
+    color: var(--text-on-dark);
+    box-shadow: var(--shadow-md);
+    display: grid;
+    gap: 14px;
+    align-content: start;
+  }
+
+  .orb {
+    width: 154px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background:
+      radial-gradient(circle at 28% 22%, rgba(255,255,255,0.36), transparent 24%),
+      radial-gradient(circle at 48% 52%, rgba(255,255,255,0.08), transparent 56%),
+      linear-gradient(135deg, rgba(245, 232, 239, 0.42), rgba(115,81,111,0.92));
+    box-shadow:
+      0 0 0 1px rgba(255,255,255,0.12) inset,
+      0 28px 40px rgba(15,10,7,0.26);
+  }
+
+  .aura-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    line-height: 1;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .aura-card p {
+    margin: 0;
+    color: var(--text-on-dark-muted);
+    line-height: 1.6;
+    max-width: 32ch;
+  }
+
+  .quote-card {
+    padding: 22px;
+    border-radius: var(--radius-xl);
+    background: var(--surface-card);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+    display: grid;
+    gap: 12px;
+    align-content: start;
+  }
+
+  .quote-card .quote {
+    font-family: var(--font-serif);
+    font-size: 1.03rem;
+    line-height: 1.72;
+    color: var(--text-body);
+    font-style: italic;
+  }
+
+  .quote-card .signature {
+    font-size: 1.2rem;
+    color: var(--accent-strong);
+    font-weight: 700;
+  }
+
+  .cta-card {
+    margin-top: 18px;
+    padding: 24px;
+    border-radius: 32px;
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.62), rgba(255,255,255,0.92)),
+      radial-gradient(circle at 10% 15%, rgba(209,161,79,0.12), transparent 26%),
+      radial-gradient(circle at 90% 20%, rgba(124,138,114,0.10), transparent 24%);
+    border: 1px solid rgba(58,49,41,0.10);
+    box-shadow: var(--shadow-md);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+  }
+
+  .cta-card h3 {
+    font-size: 2rem;
+  }
+
+  .cta-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .workspace {
+    margin-top: 28px;
+    display: grid;
+    gap: 18px;
+  }
+
+  .workspace-grid {
+    display: grid;
+    grid-template-columns: 280px minmax(0, 1fr) 340px;
+    gap: 16px;
+    align-items: start;
+  }
+
+  .panel {
+    background: var(--surface-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .pal-panel,
+  .detail-panel {
+    position: sticky;
+    top: 18px;
+    padding: 18px;
+  }
+
+  .shelves-panel {
+    padding: 18px;
+  }
+
+  .panel-head {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    line-height: 1;
+    font-weight: 600;
+    color: var(--text-strong);
+  }
+
+  .panel-sub {
+    margin-top: 6px;
+    color: var(--text-soft);
+    line-height: 1.5;
+  }
+
+  .panel-foot {
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--text-soft);
+  }
+
+  .pal-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 14px;
+    max-height: 720px;
+    overflow: auto;
+    padding-right: 4px;
+    align-items: start;
+  }
+
+  .pal-list::-webkit-scrollbar,
+  .detail-panel::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .pal-list::-webkit-scrollbar-thumb,
+  .detail-panel::-webkit-scrollbar-thumb {
+    background: rgba(58,49,41,0.18);
+    border-radius: 999px;
+  }
+
+  .book-spine {
+    border: 0;
+    width: 100%;
+    min-height: 104px;
+    border-radius: 14px 14px 8px 8px;
+    padding: 12px 10px;
+    color: #FFF8F0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    cursor: grab;
+    box-shadow: 0 14px 18px rgba(15,10,7,0.16);
+    transition: transform 160ms ease, box-shadow 160ms ease, outline-color 160ms ease, opacity 160ms ease;
+    outline: 2px solid transparent;
+  }
+
+  .book-spine:active { cursor: grabbing; }
+
+  .book-spine:hover,
+  .book-spine:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 24px rgba(15,10,7,0.18);
+  }
+
+  .book-spine.selected {
+    outline-color: rgba(231,197,128,0.9);
+    box-shadow: 0 18px 26px rgba(15,10,7,0.22);
+  }
+
+  .book-spine .spine-title {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+  }
+
+  .book-spine .spine-author {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    opacity: 0.84;
+  }
+
+  .book-spine.gold { background: linear-gradient(180deg, #E1BC6A, #C5953B 60%, #8B5B1F); }
+  .book-spine.green { background: linear-gradient(180deg, #97A98D, #667359 60%, #425040); }
+  .book-spine.rose { background: linear-gradient(180deg, #D39A91, #B97C70 60%, #824D44); }
+  .book-spine.plum { background: linear-gradient(180deg, #A0809C, #73516F 60%, #4D394E); }
+  .book-spine.dark { background: linear-gradient(180deg, #685A4E, #3D342D 60%, #241F1B); }
+  .book-spine.sand { background: linear-gradient(180deg, #C9B49D, #A88E73 60%, #7B654F); }
+  .book-spine.blue { background: linear-gradient(180deg, #90A2B3, #607287 60%, #465261); }
+
+  .shelves-board {
+    display: grid;
+    gap: 14px;
+    margin-top: 14px;
+  }
+
+  .shelf-line {
+    padding: 14px 12px 16px;
+    border-radius: 24px;
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.68), rgba(255,255,255,0.94)),
+      linear-gradient(180deg, rgba(58,49,41,0.06), rgba(58,49,41,0.02));
+    border: 1px solid var(--border);
+  }
+
+  .shelf-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+
+  .shelf-label strong {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 600;
+  }
+
+  .shelf-label span {
+    color: var(--text-soft);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+
+  .slot-row {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .slot {
+    min-height: 184px;
+    padding: 8px;
+    border-radius: 18px;
+    background: rgba(244, 235, 221, 0.72);
+    border: 1px dashed rgba(58,49,41,0.16);
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
+  }
+
+  .slot.drag-over {
+    background: rgba(209,161,79,0.10);
+    border-color: rgba(209,161,79,0.38);
+    transform: translateY(-2px);
+  }
+
+  .slot.empty .slot-empty {
+    display: grid;
+  }
+
+  .slot-empty {
+    display: none;
+    place-items: center;
+    gap: 4px;
+    min-height: 100%;
+    color: var(--text-soft);
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  .slot-empty strong {
+    font-size: 14px;
+    color: var(--text-body);
+  }
+
+  .slot .book-spine {
+    width: 58px;
+    min-height: 160px;
+  }
+
+  .detail-panel {
+    max-height: calc(100vh - 40px);
+    overflow: auto;
+  }
+
+  .detail-view {
+    margin-top: 14px;
+    display: grid;
+    gap: 14px;
+  }
+
+  .detail-empty {
+    min-height: 420px;
+    padding: 24px;
+    border-radius: 22px;
+    border: 1px dashed var(--border);
+    background: var(--surface-quiet);
+    display: grid;
+    place-items: center;
+    text-align: center;
+    color: var(--text-soft);
+    line-height: 1.6;
+  }
+
+  .detail-card {
+    display: grid;
+    gap: 14px;
+  }
+
+  .detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    gap: 12px;
+  }
+
+  .detail-title {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    line-height: 0.94;
+    font-weight: 600;
+    color: var(--text-strong);
+  }
+
+  .detail-author {
+    margin-top: 6px;
+    color: var(--text-soft);
+  }
+
+  .detail-score {
+    font-family: var(--font-display);
+    font-size: 2.4rem;
+    line-height: 1;
+    font-weight: 600;
+    color: var(--accent-strong);
+  }
+
+  .detail-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .detail-badge {
+    padding: 7px 10px;
+    border-radius: var(--radius-pill);
+    background: var(--surface-quiet);
+    border: 1px solid var(--border);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-body);
+  }
+
+  .detail-note {
+    padding: 16px;
+    border-radius: 20px;
+    background: var(--surface-quiet);
+    border: 1px solid var(--border);
+    font-family: var(--font-serif);
+    line-height: 1.7;
+    color: var(--text-body);
+  }
+
+  .detail-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .feature-strip {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .feature-pill {
+    padding: 16px;
+    border-radius: 22px;
+    background: var(--surface-card);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+    display: grid;
+    gap: 6px;
+    min-height: 110px;
+  }
+
+  .feature-pill strong {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    line-height: 1;
+    font-weight: 600;
+  }
+
+  .feature-pill span {
+    color: var(--text-muted);
+    line-height: 1.5;
+    font-size: 0.95rem;
+  }
+
+  .footer {
+    padding: 18px 2px 8px;
+    text-align: center;
+    color: var(--text-soft);
+    font-size: 12px;
+  }
+
+  @media (max-width: 1100px) {
+    .hero,
+    .workspace-grid { grid-template-columns: 1fr; }
+    .feature-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .detail-panel,
+    .pal-panel { position: static; }
+    .detail-panel { max-height: none; }
+  }
+
+  @media (max-width: 760px) {
+    .page { width: min(100%, calc(100% - 18px)); }
+    .topbar { flex-direction: column; align-items: flex-start; }
+    .nav { justify-content: flex-start; }
+    .hero-copy, .hero-visual { border-radius: 26px; }
+    .hero-copy { padding: 22px; }
+    .hero h1 { font-size: clamp(2.9rem, 14vw, 4rem); }
+    .hero-stats { grid-template-columns: 1fr; }
+    .workspace-grid,
+    .feature-strip { grid-template-columns: 1fr; }
+    .pal-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .slot-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .detail-header,
+    .detail-actions { flex-direction: column; align-items: stretch; }
+    .slot .book-spine { width: 52px; }
+  }
+</style>
+</head>
+<body>
+  <main class="page">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="MoodShelf accueil">
+        <svg class="mark" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <path d="M32 22.5C26 18.8 19.5 18.4 11.8 20.4C10.7 20.7 10 21.7 10 22.8V43.3C10 44.8 11.4 45.9 12.8 45.6C19.4 44.1 25.7 44.6 32 47.8" stroke="#1F1914" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M32 22.5C38 18.8 44.5 18.4 52.2 20.4C53.3 20.7 54 21.7 54 22.8V43.3C54 44.8 52.6 45.9 51.2 45.6C44.6 44.1 38.3 44.6 32 47.8" stroke="#1F1914" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M32 23.5V47" stroke="#1F1914" stroke-width="2.6" stroke-linecap="round"/>
+          <path d="M32 6C32 6 27.5 10.2 27.5 13.4C27.5 15.9 29.5 17.6 32 17.6C34.5 17.6 36.5 15.9 36.5 13.4C36.5 10.2 32 6 32 6Z" fill="#D1A14F"/>
+        </svg>
+        <div class="wordmark">Mood<em>Shelf</em></div>
+      </a>
+      <nav class="nav" aria-label="Navigation principale">
+        <a href="#bibliotheque">Bibliothèque</a>
+        <a href="#fonctionnalites">Fonctionnalités</a>
+        <a href="#profil">Profil</a>
+        <a href="#bibliotheque" class="cta">Ranger</a>
+      </nav>
+    </header>
+
+    <section class="workspace" id="bibliotheque">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow" style="background: rgba(255,255,255,0.84); color: var(--text-soft);">Une bibliothèque qui vous ressemble</div>
+          <h2>La pile à lire à gauche, les étagères au centre, la fiche livre à droite.</h2>
+        </div>
+        <p>
+          MoodShelf vous accueille directement dans votre bibliothèque. Glissez un livre depuis la PAL vers une étagère,
+          ou remettez-le en attente. Cliquez sur n’importe quel livre pour ouvrir son module de caractéristiques à droite.
+        </p>
+      </div>
+
+      <div class="workspace-grid">
+        <aside class="panel pal-panel">
+          <div class="panel-head">Pile à lire</div>
+          <div class="panel-sub">Les livres en attente de place, visibles de côté.</div>
+          <div id="palList" class="pal-list" aria-label="Pile à lire"></div>
+          <div class="panel-foot">Astuce: vous pouvez les glisser sur une case vide du centre, ou les faire revenir ici.</div>
+        </aside>
+
+        <section class="panel shelves-panel">
+          <div class="panel-head">Étagères centrales</div>
+          <div class="panel-sub">Trois rangées, des cases libres, et des livres que vous organisez comme vous voulez.</div>
+          <div id="shelvesBoard" class="shelves-board" aria-label="Étagères"></div>
+        </section>
+
+        <aside class="panel detail-panel">
+          <div class="panel-head">Caractéristiques</div>
+          <div class="panel-sub">Le module se remplit dès qu’un livre est sélectionné.</div>
+          <div id="detailView" class="detail-view">
+            <div class="detail-empty">
+              <div>
+                <strong style="font-family: var(--font-display); font-size: 1.6rem; color: var(--text-body); display:block; margin-bottom:8px;">Cliquez un livre</strong>
+                <span>Ses détails, son humeur et son statut apparaîtront ici.</span>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="fonctionnalites">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow" style="background: rgba(255,255,255,0.8); color: var(--text-soft);">Menu des features</div>
+          <h2>Tout ce qui suit votre bibliothèque.</h2>
+        </div>
+        <p>
+          Un menu de navigation plus léger, pour rejoindre vos recaps, votre aura, vos souvenirs et votre profil sans quitter la page.
+        </p>
+      </div>
+
+      <div class="feature-strip">
+        <article class="feature-pill">
+          <strong>Bibliothèque</strong>
+          <span>Explorer, sélectionner et ranger vos livres.</span>
+        </article>
+        <article class="feature-pill">
+          <strong>Étagères</strong>
+          <span>Organiser les tranches comme vous l’entendez.</span>
+        </article>
+        <article class="feature-pill">
+          <strong>Aura</strong>
+          <span>Voir l’ambiance de lecture du mois.</span>
+        </article>
+        <article class="feature-pill">
+          <strong>Recaps</strong>
+          <span>Retrouver les temps forts de votre année.</span>
+        </article>
+        <article class="feature-pill" id="profil">
+          <strong>Profil</strong>
+          <span>Votre espace personnel, simple et chaleureux.</span>
+        </article>
+      </div>
+    </section>
+
+    <div class="footer">MoodShelf — homepage web moderne et cozy</div>
+  </main>
+  <script>
+    (function () {
+      const books = [
+        {
+          id: 'sh',
+          title: 'The Secret History',
+          author: 'Donna Tartt',
+          color: 'gold',
+          status: 'Terminé',
+          mood: 'Étrange, brillant, feutré',
+          pages: '559 pages',
+          year: 'Liseuse 2024',
+          note: 'Un livre parfait pour une étagère de nuits longues et de conversations un peu trop brillantes.',
+          tags: ['dark academia', 'culpabilité', 'élégance'],
+          location: 'slot-a1',
+        },
+        {
+          id: 'pi',
+          title: 'Piranesi',
+          author: 'Susanna Clarke',
+          color: 'plum',
+          status: 'Terminé',
+          mood: 'Silencieux, merveilleux',
+          pages: '272 pages',
+          year: 'Liseuse 2024',
+          note: 'À ranger là où la lumière tombe doucement. Il a une présence calme, presque architecturale.',
+          tags: ['merveille', 'silence', 'imaginaire'],
+          location: 'slot-a3',
+        },
+        {
+          id: 'be',
+          title: 'Beloved',
+          author: 'Toni Morrison',
+          color: 'dark',
+          status: 'En cours',
+          mood: 'Hanté, intense',
+          pages: '324 pages',
+          year: 'Lecture actuelle',
+          note: 'Un livre à garder proche, comme un objet précieux et grave.',
+          tags: ['mémoire', 'hantise', 'force'],
+          location: 'slot-b2',
+        },
+        {
+          id: 'al',
+          title: 'A Little Life',
+          author: 'Hanya Yanagihara',
+          color: 'rose',
+          status: 'Terminé',
+          mood: 'Déchirant, tendre',
+          pages: '720 pages',
+          year: 'Liseuse 2023',
+          note: 'À placer dans la PAL quand il faut être courageuse. À reprendre quand on a du temps et un plaid.',
+          tags: ['tendresse', 'choc', 'loyauté'],
+          location: 'pal',
+        },
+        {
+          id: 'no',
+          title: 'Norwegian Wood',
+          author: 'Haruki Murakami',
+          color: 'green',
+          status: 'Terminé',
+          mood: 'Nostalgique, doux',
+          pages: '296 pages',
+          year: 'Liseuse 2023',
+          note: 'Parfait pour une rangée calme, un peu plus basse, avec des matières chaudes autour.',
+          tags: ['nostalgie', 'pluie', 'mémoire'],
+          location: 'slot-b1',
+        },
+        {
+          id: 'pr',
+          title: 'The Price of Salt',
+          author: 'Patricia Highsmith',
+          color: 'rose',
+          status: 'À lire',
+          mood: 'Tendre, suspendu',
+          pages: '262 pages',
+          year: 'PAL',
+          note: 'Je le laisserais volontiers en attente, tout près du regard, pour plus tard.',
+          tags: ['attente', 'désir', 'romance'],
+          location: 'pal',
+        },
+        {
+          id: 'ci',
+          title: 'Circe',
+          author: 'Madeline Miller',
+          color: 'plum',
+          status: 'À lire',
+          mood: 'Magique, puissant',
+          pages: '393 pages',
+          year: 'PAL',
+          note: 'Une couverture à réserver à une étagère plus lumineuse, là où les livres de force trouvent leur place.',
+          tags: ['mythe', 'pouvoir', 'littéraire'],
+          location: 'pal',
+        },
+        {
+          id: 'bx',
+          title: 'Bunny',
+          author: 'Mona Awad',
+          color: 'dark',
+          status: 'À lire',
+          mood: 'Fou, inquiétant',
+          pages: '336 pages',
+          year: 'PAL',
+          note: 'Un peu trop bizarre pour le jour, parfait pour une étagère de nuit.',
+          tags: ['weird', 'satire', 'obsession'],
+          location: 'pal',
+        },
+        {
+          id: 'cr',
+          title: 'Crying in H Mart',
+          author: 'Michelle Zauner',
+          color: 'gold',
+          status: 'Terminé',
+          mood: 'Douceur, deuil, cuisine',
+          pages: '239 pages',
+          year: 'Liseuse 2024',
+          note: 'Une page à garder près du réconfort, pour les jours qui demandent beaucoup de douceur.',
+          tags: ['mémoire', 'famille', 'tendresse'],
+          location: 'slot-c1',
+        },
+        {
+          id: 'mg',
+          title: 'Mexican Gothic',
+          author: 'Silvia Moreno-Garcia',
+          color: 'blue',
+          status: 'À lire',
+          mood: 'Etrange, élégant',
+          pages: '320 pages',
+          year: 'PAL',
+          note: 'Très bien pour la PAL si vous aimez les livres qui font penser aux couloirs humides et aux secrets.',
+          tags: ['gothique', 'brouillard', 'mystère'],
+          location: 'pal',
+        },
+        {
+          id: 'lt',
+          title: 'The Left Hand of Darkness',
+          author: 'Ursula K. Le Guin',
+          color: 'sand',
+          status: 'À lire',
+          mood: 'Froid, clair, profond',
+          pages: '304 pages',
+          year: 'PAL',
+          note: 'Une belle colonne de la PAL, fine et calme, qui attend sa place dans le bon rayon.',
+          tags: ['SF', 'intemporel', 'silence'],
+          location: 'pal',
+        },
+      ];
+
+      const slotRows = [
+        { label: 'rangée du matin', note: 'pages lumineuses et douces', slots: ['slot-a1', 'slot-a2', 'slot-a3', 'slot-a4'] },
+        { label: 'rangée du calme', note: 'humeurs lentes et confortables', slots: ['slot-b1', 'slot-b2', 'slot-b3', 'slot-b4'] },
+        { label: 'rangée des nuits', note: 'livres étranges et plus intimes', slots: ['slot-c1', 'slot-c2', 'slot-c3', 'slot-c4'] },
+      ];
+
+      const slotLabels = {
+        'slot-a1': 'case 1',
+        'slot-a2': 'case 2',
+        'slot-a3': 'case 3',
+        'slot-a4': 'case 4',
+        'slot-b1': 'case 5',
+        'slot-b2': 'case 6',
+        'slot-b3': 'case 7',
+        'slot-b4': 'case 8',
+        'slot-c1': 'case 9',
+        'slot-c2': 'case 10',
+        'slot-c3': 'case 11',
+        'slot-c4': 'case 12',
+      };
+
+      const palList = document.getElementById('palList');
+      const shelvesBoard = document.getElementById('shelvesBoard');
+      const detailView = document.getElementById('detailView');
+
+      let selectedBookId = 'sh';
+      let draggedBookId = null;
+
+      function escapeHtml(value) {
+        return String(value)
+          .replaceAll('&', '&amp;')
+          .replaceAll('<', '&lt;')
+          .replaceAll('>', '&gt;')
+          .replaceAll('"', '&quot;')
+          .replaceAll("'", '&#39;');
+      }
+
+      function bookById(id) {
+        return books.find((book) => book.id === id);
+      }
+
+      function bookAtLocation(location) {
+        return books.find((book) => book.location === location);
+      }
+
+      function emptySlotId() {
+        const slot = slotRows.flatMap((row) => row.slots).find((id) => !bookAtLocation(id));
+        return slot || null;
+      }
+
+      function locationLabel(book) {
+        if (book.location === 'pal') return 'Pile à lire';
+        return slotLabels[book.location] || 'Étagère';
+      }
+
+      function bookMarkup(book, compact = false) {
+        return `
+          <button
+            type="button"
+            class="book-spine ${book.color}${book.id === selectedBookId ? ' selected' : ''}${compact ? ' compact' : ''}"
+            draggable="true"
+            data-book-id="${book.id}"
+            aria-label="${escapeHtml(book.title)} de ${escapeHtml(book.author)}"
+          >
+            <span class="spine-title">${escapeHtml(book.title)}</span>
+            <span class="spine-author">${escapeHtml(book.author)}</span>
+          </button>
+        `;
+      }
+
+      function renderPal() {
+        const available = books.filter((book) => book.location === 'pal');
+        palList.innerHTML = available.length
+          ? available.map((book) => bookMarkup(book)).join('')
+          : '<div class="detail-empty" style="min-height: 220px;"><div><strong style="font-family: var(--font-display); font-size: 1.5rem; color: var(--text-body); display:block; margin-bottom:8px;">Aucun livre en attente</strong><span>Tout est rangé sur les étagères centrales.</span></div></div>';
+      }
+
+      function renderShelves() {
+        shelvesBoard.innerHTML = slotRows.map((row) => {
+          const slots = row.slots.map((slotId) => {
+            const book = bookAtLocation(slotId);
+            return `
+              <div class="slot ${book ? '' : 'empty'}" data-slot-id="${slotId}">
+                ${book ? bookMarkup(book, true) : `
+                  <div class="slot-empty">
+                    <strong>Case libre</strong>
+                    <span>déposez un livre ici</span>
+                  </div>
+                `}
+              </div>
+            `;
+          }).join('');
+
+          return `
+            <div class="shelf-line" data-row="${escapeHtml(row.label)}">
+              <div class="shelf-label">
+                <div>
+                  <strong>${escapeHtml(row.label)}</strong>
+                  <span>${escapeHtml(row.note)}</span>
+                </div>
+              </div>
+              <div class="slot-row">${slots}</div>
+            </div>
+          `;
+        }).join('');
+      }
+
+      function renderDetail() {
+        const book = bookById(selectedBookId);
+        if (!book) {
+          detailView.innerHTML = `
+            <div class="detail-empty">
+              <div>
+                <strong style="font-family: var(--font-display); font-size: 1.6rem; color: var(--text-body); display:block; margin-bottom:8px;">Cliquez un livre</strong>
+                <span>Ses détails, son humeur et son statut apparaîtront ici.</span>
+              </div>
+            </div>
+          `;
+          return;
+        }
+
+        const actionLabel = book.location === 'pal' ? 'Placer au centre' : 'Remettre en PAL';
+        const actionTarget = book.location === 'pal' ? emptySlotId() : 'pal';
+
+        detailView.innerHTML = `
+          <div class="detail-card">
+            <div class="detail-header">
+              <div>
+                <div class="detail-title">${escapeHtml(book.title)}</div>
+                <div class="detail-author">${escapeHtml(book.author)}</div>
+              </div>
+              <div class="detail-score">${escapeHtml(book.color === 'dark' ? '★' : '♥')}</div>
+            </div>
+
+            <div class="detail-badges">
+              <span class="detail-badge">${escapeHtml(book.status)}</span>
+              <span class="detail-badge">${escapeHtml(book.mood)}</span>
+              <span class="detail-badge">${escapeHtml(book.pages)}</span>
+              <span class="detail-badge">${escapeHtml(locationLabel(book))}</span>
+            </div>
+
+            <div class="detail-note">${escapeHtml(book.note)}</div>
+
+            <div class="detail-badges">
+              ${book.tags.map((tag) => `<span class="detail-badge">${escapeHtml(tag)}</span>`).join('')}
+            </div>
+
+            <div class="detail-actions">
+              <button type="button" class="btn btn-primary" data-action="move">
+                ${actionTarget ? actionLabel : 'Aucune case libre'}
+              </button>
+              <button type="button" class="btn btn-secondary" data-action="close">Fermer</button>
+            </div>
+          </div>
+        `;
+
+        detailView.querySelector('[data-action="move"]')?.addEventListener('click', () => {
+          const target = book.location === 'pal' ? emptySlotId() : 'pal';
+          if (target) {
+            moveBook(book.id, target);
+            selectBook(book.id);
+          }
+        });
+
+        detailView.querySelector('[data-action="close"]')?.addEventListener('click', () => {
+          selectedBookId = null;
+          renderDetail();
+          renderShelves();
+          renderPal();
+        });
+      }
+
+      function renderAll() {
+        renderPal();
+        renderShelves();
+        renderDetail();
+      }
+
+      function selectBook(bookId) {
+        selectedBookId = bookId;
+        renderDetail();
+        renderPal();
+        renderShelves();
+      }
+
+      function moveBook(bookId, targetLocation) {
+        const book = bookById(bookId);
+        if (!book) return;
+
+        const sourceLocation = book.location;
+        const targetOccupant = targetLocation === 'pal' ? null : bookAtLocation(targetLocation);
+
+        if (targetLocation !== 'pal' && targetOccupant && targetOccupant.id !== bookId) {
+          if (sourceLocation === 'pal') {
+            targetOccupant.location = 'pal';
+          } else {
+            targetOccupant.location = sourceLocation;
+          }
+        }
+
+        book.location = targetLocation;
+
+        if (selectedBookId) {
+          const selected = bookById(selectedBookId);
+          if (selected) selectedBookId = selected.id;
+        }
+
+        renderAll();
+      }
+
+      function handleSelectionFromEvent(target) {
+        const button = target.closest('.book-spine');
+        if (!button) return;
+        const id = button.dataset.bookId;
+        if (id) selectBook(id);
+      }
+
+      palList.addEventListener('click', (event) => handleSelectionFromEvent(event.target));
+      shelvesBoard.addEventListener('click', (event) => handleSelectionFromEvent(event.target));
+
+      palList.addEventListener('keydown', (event) => {
+        const button = event.target.closest('.book-spine');
+        if (!button) return;
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          selectBook(button.dataset.bookId);
+        }
+      });
+
+      shelvesBoard.addEventListener('keydown', (event) => {
+        const button = event.target.closest('.book-spine');
+        if (!button) return;
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          selectBook(button.dataset.bookId);
+        }
+      });
+
+      document.addEventListener('dragstart', (event) => {
+        const button = event.target.closest('.book-spine');
+        if (!button) return;
+        draggedBookId = button.dataset.bookId;
+        event.dataTransfer.effectAllowed = 'move';
+        event.dataTransfer.setData('text/plain', draggedBookId);
+      });
+
+      document.addEventListener('dragend', () => {
+        draggedBookId = null;
+        document.querySelectorAll('.slot.drag-over').forEach((slot) => slot.classList.remove('drag-over'));
+      });
+
+      shelvesBoard.addEventListener('dragover', (event) => {
+        const slot = event.target.closest('.slot');
+        if (!slot) return;
+        event.preventDefault();
+        slot.classList.add('drag-over');
+      });
+
+      shelvesBoard.addEventListener('dragleave', (event) => {
+        const slot = event.target.closest('.slot');
+        if (!slot) return;
+        slot.classList.remove('drag-over');
+      });
+
+      shelvesBoard.addEventListener('drop', (event) => {
+        const slot = event.target.closest('.slot');
+        if (!slot) return;
+        event.preventDefault();
+        slot.classList.remove('drag-over');
+        const bookId = draggedBookId || event.dataTransfer.getData('text/plain');
+        const slotId = slot.dataset.slotId;
+        if (bookId && slotId) {
+          moveBook(bookId, slotId);
+          selectBook(bookId);
+        }
+      });
+
+      palList.addEventListener('dragover', (event) => event.preventDefault());
+      palList.addEventListener('drop', (event) => {
+        event.preventDefault();
+        const bookId = draggedBookId || event.dataTransfer.getData('text/plain');
+        if (bookId) {
+          moveBook(bookId, 'pal');
+          selectBook(bookId);
+        }
+      });
+
+      renderAll();
+      selectBook('sh');
+    })();
+  </script>
+</body>
+</html>

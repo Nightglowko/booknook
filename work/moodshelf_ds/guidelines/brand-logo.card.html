@@ -1,0 +1,39 @@
+<!-- @dsCard group="Brand" viewport="700x230" name="Logo & Monogram" subtitle="Open-book + candlelight mark, on light and dark" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; padding: 26px; background: var(--surface-page); }
+  .row { display: flex; gap: 18px; align-items: stretch; }
+  .tile { flex: 1; border-radius: var(--radius-lg); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 26px 16px; }
+  .light { background: var(--surface-card); border: 1px solid var(--border); }
+  .dark  { background: var(--ink-800); background-image: var(--texture-vignette); }
+  .mark { width: 56px; height: 56px; }
+  .lock { display: flex; align-items: center; gap: 12px; }
+  .lock .mark { width: 40px; height: 40px; }
+  .wm { font-family: var(--font-display); font-weight: 600; font-size: 30px; letter-spacing: -0.02em; line-height: 1; }
+  .wm .em { font-style: italic; color: var(--accent); }
+  .cap { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="tile light">
+      <div class="lock">
+        <div class="mark" style="color: var(--ink-800)"><svg viewBox="0 0 64 64" width="40" height="40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M32 22.5C26 18.8 19.5 18.4 11.8 20.4C10.7 20.7 10 21.7 10 22.8V43.3C10 44.8 11.4 45.9 12.8 45.6C19.4 44.1 25.7 44.6 32 47.8" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M32 22.5C38 18.8 44.5 18.4 52.2 20.4C53.3 20.7 54 21.7 54 22.8V43.3C54 44.8 52.6 45.9 51.2 45.6C44.6 44.1 38.3 44.6 32 47.8" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M32 23.5V47" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><path d="M32 6C32 6 27.5 10.2 27.5 13.4C27.5 15.9 29.5 17.6 32 17.6C34.5 17.6 36.5 15.9 36.5 13.4C36.5 10.2 32 6 32 6Z" fill="#C8913A"/></svg></div>
+        <div class="wm" style="color: var(--ink-900)">Mood<span class="em">Shelf</span></div>
+      </div>
+      <div class="cap" style="color: var(--text-muted)">Primary — on parchment</div>
+    </div>
+    <div class="tile dark">
+      <div class="lock">
+        <div class="mark" style="color: var(--paper-100)"><svg viewBox="0 0 64 64" width="40" height="40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M32 22.5C26 18.8 19.5 18.4 11.8 20.4C10.7 20.7 10 21.7 10 22.8V43.3C10 44.8 11.4 45.9 12.8 45.6C19.4 44.1 25.7 44.6 32 47.8" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M32 22.5C38 18.8 44.5 18.4 52.2 20.4C53.3 20.7 54 21.7 54 22.8V43.3C54 44.8 52.6 45.9 51.2 45.6C44.6 44.1 38.3 44.6 32 47.8" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M32 23.5V47" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><path d="M32 6C32 6 27.5 10.2 27.5 13.4C27.5 15.9 29.5 17.6 32 17.6C34.5 17.6 36.5 15.9 36.5 13.4C36.5 10.2 32 6 32 6Z" fill="#DCA94F"/></svg></div>
+        <div class="wm" style="color: var(--paper-50)">Mood<span class="em" style="color: var(--candle-400)">Shelf</span></div>
+      </div>
+      <div class="cap" style="color: var(--text-on-dark-muted)">Reversed — on espresso</div>
+    </div>
+  </div>
+</body>
+</html>

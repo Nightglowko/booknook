@@ -1,0 +1,24 @@
+<!-- @dsCard group="Spacing" viewport="700x190" name="Radii & Shadows" subtitle="Soft corners; warm, brown-tinted candlelight shadows" -->
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin:0; padding:26px 28px; background:var(--surface-page); font-family:var(--font-sans); display:flex; gap:26px; align-items:center; flex-wrap:wrap; }
+  .grp { display:flex; gap:14px; align-items:flex-end; }
+  .box { width:64px; height:64px; background:var(--surface-card); border:1px solid var(--border); display:flex; align-items:flex-end; justify-content:center; padding-bottom:5px; font-size:10px; color:var(--text-muted); }
+  .sh { width:72px; height:64px; background:var(--surface-raised); border-radius:var(--radius-md); display:flex; align-items:flex-end; justify-content:center; padding-bottom:5px; font-size:10px; color:var(--text-muted); }
+  .sep { width:1px; align-self:stretch; background:var(--border); }
+</style></head><body>
+  <div class="grp">
+    <div class="box" style="border-radius:var(--radius-sm)">sm·8</div>
+    <div class="box" style="border-radius:var(--radius-md)">md·12</div>
+    <div class="box" style="border-radius:var(--radius-lg)">lg·18</div>
+    <div class="box" style="border-radius:var(--radius-xl)">xl·26</div>
+  </div>
+  <div class="sep"></div>
+  <div class="grp">
+    <div class="sh" style="box-shadow:var(--shadow-sm)">sm</div>
+    <div class="sh" style="box-shadow:var(--shadow-md)">md</div>
+    <div class="sh" style="box-shadow:var(--shadow-lg)">lg</div>
+    <div class="sh" style="box-shadow:var(--shadow-book); border-radius:var(--radius-book)">book</div>
+  </div>
+</body></html>

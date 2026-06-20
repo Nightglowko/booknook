@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MoodShelf - Profil Archiviste</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&amp;family=Source+Sans+3:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface": "#fdfae7",
+                        "on-primary-fixed": "#0b2013",
+                        "error": "#ba1a1a",
+                        "primary": "#061b0e",
+                        "tertiary-fixed-dim": "#a6d47e",
+                        "on-error-container": "#93000a",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed": "#c2f198",
+                        "tertiary": "#0a1b00",
+                        "primary-container": "#1b3022",
+                        "secondary-fixed-dim": "#f9b98d",
+                        "on-tertiary-container": "#749f50",
+                        "on-primary": "#ffffff",
+                        "on-background": "#1c1c11",
+                        "outline-variant": "#c3c8c1",
+                        "on-secondary": "#ffffff",
+                        "inverse-surface": "#313124",
+                        "on-secondary-fixed-variant": "#683c1a",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#0c2000",
+                        "on-primary-fixed-variant": "#364c3c",
+                        "surface-container": "#f1eedb",
+                        "surface-tint": "#4d6453",
+                        "secondary-fixed": "#ffdcc6",
+                        "surface-variant": "#e6e3d0",
+                        "surface-container-low": "#f7f4e1",
+                        "surface-container-high": "#ece9d6",
+                        "on-error": "#ffffff",
+                        "on-surface-variant": "#434843",
+                        "surface-bright": "#fdfae7",
+                        "on-tertiary-fixed-variant": "#2b5008",
+                        "on-primary-container": "#819986",
+                        "primary-fixed": "#d0e9d4",
+                        "inverse-on-surface": "#f4f1de",
+                        "surface-container-highest": "#e6e3d0",
+                        "outline": "#737973",
+                        "primary-fixed-dim": "#b4cdb8",
+                        "inverse-primary": "#b4cdb8",
+                        "background": "#fdfae7",
+                        "surface-dim": "#dddbc8",
+                        "tertiary-container": "#173200",
+                        "on-surface": "#1c1c11",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#ffbe93",
+                        "on-secondary-fixed": "#301400",
+                        "secondary": "#84532f"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "container-max": "1280px",
+                        "base": "8px",
+                        "margin-mobile": "20px",
+                        "margin-desktop": "64px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Playfair Display"],
+                        "label-caps": ["\"Source Sans 3\""],
+                        "title-lg": ["Playfair Display"],
+                        "body-lg": ["\"Source Sans 3\""],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "body-md": ["\"Source Sans 3\""],
+                        "headline-md": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["56px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-caps": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                        "title-lg": ["24px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display-lg-mobile": ["36px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .parchment-texture {
+            background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+        }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #b4cdb8; border-radius: 2px; }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface flex min-h-screen">
+<!-- Sidebar Navigation (From JSON Authority) -->
+<aside class="hidden md:flex flex-col h-full py-lg px-md fixed top-0 left-0 w-64 bg-surface-container-low dark:bg-surface-container-low shadow-sm z-50 border-r border-outline/10">
+<div class="mb-12 px-4">
+<h1 class="text-headline-md font-headline-md text-primary dark:text-primary-fixed mb-1">MoodShelf</h1>
+<p class="text-label-caps text-on-surface-variant opacity-60">Your Digital Sanctuary</p>
+</div>
+<nav class="flex-grow space-y-2">
+<!-- Navigation Links from JSON -->
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant dark:text-on-surface-variant opacity-80 hover:bg-surface-container-high dark:hover:bg-surface-container-high transition-colors duration-200 group" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="font-label-md text-label-md">Bibliothèque</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant dark:text-on-surface-variant opacity-80 hover:bg-surface-container-high dark:hover:bg-surface-container-high transition-colors duration-200 group" href="#">
+<span class="material-symbols-outlined">hourglass_empty</span>
+<span class="font-label-md text-label-md">PAL</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant dark:text-on-surface-variant opacity-80 hover:bg-surface-container-high dark:hover:bg-surface-container-high transition-colors duration-200 group" href="#">
+<span class="material-symbols-outlined">edit_note</span>
+<span class="font-label-md text-label-md">Atelier</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant dark:text-on-surface-variant opacity-80 hover:bg-surface-container-high dark:hover:bg-surface-container-high transition-colors duration-200 group" href="#">
+<span class="material-symbols-outlined">auto_awesome</span>
+<span class="font-label-md text-label-md">Moods</span>
+</a>
+<!-- ACTIVE Navigation: Profil (Semantic Mapping) -->
+<a class="flex items-center gap-4 px-4 py-3 text-primary dark:text-primary-fixed font-bold bg-surface-container-high/50 scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-label-md text-label-md">Profil</span>
+</a>
+</nav>
+<div class="mt-auto px-4 py-6 border-t border-outline/10">
+<button class="w-full flex items-center justify-center gap-2 bg-primary-container text-on-primary-container py-3 px-4 rounded-full transition-transform active:scale-95">
+<span class="material-symbols-outlined text-[20px]">add</span>
+<span class="font-label-caps">Add New Book</span>
+</button>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-grow ml-64 parchment-texture min-h-screen relative">
+<!-- Header (Dark Tonal Overlay) -->
+<header class="w-full h-80 bg-primary-container relative overflow-hidden flex flex-col justify-end px-margin-desktop pb-12">
+<!-- Background Decoration (Atmospheric Shader-like Visuals via CSS/SVG) -->
+<div class="absolute inset-0 opacity-20 pointer-events-none">
+<div class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent to-primary-container"></div>
+<div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-tertiary-fixed blur-3xl opacity-30"></div>
+</div>
+<div class="relative z-10 flex items-center gap-8">
+<div class="relative group">
+<div class="w-32 h-32 rounded-full overflow-hidden border-2 border-surface/20 ring-4 ring-primary-container ring-offset-0">
+<img class="w-full h-full object-cover" data-alt="A sophisticated close-up portrait of a scholar-like individual with thoughtful eyes, set against a backdrop of ancient wooden bookshelves filled with leather-bound volumes. The lighting is low-key and dramatic, echoing a private library's intimate atmosphere. Deep forest greens and warm paper tones dominate the palette, following a scholarly and premium aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCU6072sn0Yvn2rA0-YbNV6w11z3ZCbn_I0BnTcRmMHm5tx3XWGRm3nUXupp7fVoTb69fyNHUhjJyQtgS7VhRou4T4MtOteizlakLpvszMIFUEPA77wSERjKidpGxSWea3-sd0HIBbgz-L4aEPJBJHDsbN7FEwiG2EECJloB0stslc2SyoNqzwyIV9Agd399hghC35Ds30mLOU_H1qr3XIuU1sNi5ss9xUMdZMW6swpa2Xi3OlB1rq-AeAIjZ1-5qL2frWHf6VT_cx"/>
+</div>
+<button class="absolute bottom-0 right-0 p-2 bg-surface text-primary rounded-full shadow-lg hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[18px]">photo_camera</span>
+</button>
+</div>
+<div class="flex flex-col">
+<span class="text-label-caps text-on-primary-container tracking-widest mb-1">LECTEUR ARCHIVISTE</span>
+<h2 class="text-display-lg font-display-lg text-surface">Julian Vane</h2>
+<div class="flex items-center gap-6 mt-4 text-on-primary-container/80 font-label-caps">
+<span class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px]">location_on</span> Paris, FR</span>
+<span class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px]">calendar_today</span> Membre depuis 2021</span>
+</div>
+</div>
+<div class="ml-auto flex gap-4 self-end">
+<button class="bg-surface/10 hover:bg-surface/20 text-surface border border-surface/20 px-6 py-2 flex items-center gap-2 transition-colors">
+<span class="material-symbols-outlined text-[20px]">share</span>
+<span class="font-label-caps">Partager</span>
+</button>
+<button class="bg-surface text-primary-container px-6 py-2 flex items-center gap-2 hover:bg-surface-bright transition-colors">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+<span class="font-label-caps">Modifier</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Profile Content -->
+<div class="max-w-6xl mx-auto px-margin-desktop py-16 grid grid-cols-12 gap-gutter">
+<!-- Left Column: Statistics & Badges -->
+<div class="col-span-12 lg:col-span-8 space-y-12">
+<!-- Bento Grid Statistics -->
+<section>
+<h3 class="text-title-lg font-title-lg text-primary mb-8 flex items-center gap-3">
+<span class="material-symbols-outlined">analytics</span>
+                        Annales de Lecture
+                    </h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Stat Card 1 -->
+<div class="bg-surface border border-primary/10 p-8 flex flex-col items-center justify-center text-center group hover:border-primary/30 transition-all duration-300">
+<span class="text-display-lg font-display-lg text-primary mb-2">14,208</span>
+<span class="text-label-caps text-on-surface-variant">Pages Explorées</span>
+</div>
+<!-- Stat Card 2 -->
+<div class="bg-surface border border-primary/10 p-8 flex flex-col items-center justify-center text-center group hover:border-primary/30 transition-all duration-300">
+<span class="text-display-lg font-display-lg text-primary mb-2">42</span>
+<span class="text-label-caps text-on-surface-variant">Livres / An</span>
+</div>
+<!-- Stat Card 3 -->
+<div class="bg-surface border border-primary/10 p-8 flex flex-col items-center justify-center text-center group hover:border-primary/30 transition-all duration-300 relative overflow-hidden">
+<!-- Ex Libris Seal Background -->
+<div class="absolute -right-4 -bottom-4 opacity-5 group-hover:opacity-10 transition-opacity">
+<span class="material-symbols-outlined text-[120px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<span class="text-display-lg font-display-lg text-primary mb-2">89%</span>
+<span class="text-label-caps text-on-surface-variant">Taux de Complétion</span>
+</div>
+</div>
+</section>
+<!-- Activity Visualization (Placeholding for a scholarly graph vibe) -->
+<section class="bg-surface border border-primary/10 p-8">
+<div class="flex justify-between items-center mb-8">
+<h4 class="text-title-lg font-title-lg text-primary">Intensité de Réflexion</h4>
+<div class="flex gap-2">
+<span class="w-3 h-3 bg-tertiary-fixed rounded-full"></span>
+<span class="text-label-caps text-on-surface-variant">Fiction</span>
+<span class="w-3 h-3 bg-secondary rounded-full ml-4"></span>
+<span class="text-label-caps text-on-surface-variant">Essai</span>
+</div>
+</div>
+<div class="h-48 flex items-end gap-2 px-2">
+<!-- Simplified bar chart logic -->
+<div class="flex-grow bg-primary/5 h-24 hover:bg-primary/10 transition-colors"></div>
+<div class="flex-grow bg-primary/5 h-32 hover:bg-primary/10 transition-colors"></div>
+<div class="flex-grow bg-primary/5 h-16 hover:bg-primary/10 transition-colors"></div>
+<div class="flex-grow bg-primary/5 h-40 hover:bg-primary/10 transition-colors"></div>
+<div class="flex-grow bg-primary/5 h-28 hover:bg-primary/10 transition-colors"></div>
+<div class="flex-grow bg-primary/5 h-36 hover:bg-primary/10 transition-colors"></div>
+<div class="flex-grow bg-primary/5 h-44 hover:bg-primary/10 transition-colors"></div>
+<div class="flex-grow bg-primary/5 h-20 hover:bg-primary/10 transition-colors"></div>
+<div class="flex-grow bg-primary/5 h-30 hover:bg-primary/10 transition-colors"></div>
+<div class="flex-grow bg-primary/5 h-48 hover:bg-primary/10 transition-colors"></div>
+<div class="flex-grow bg-primary/5 h-32 hover:bg-primary/10 transition-colors"></div>
+<div class="flex-grow bg-primary/5 h-24 hover:bg-primary/10 transition-colors"></div>
+</div>
+<div class="mt-4 pt-4 border-t border-primary/5 flex justify-between text-label-caps text-on-surface-variant opacity-60">
+<span>Janvier</span>
+<span>Juin</span>
+<span>Décembre</span>
+</div>
+</section>
+</div>
+<!-- Right Column: Settings & Sidebar -->
+<div class="col-span-12 lg:col-span-4">
+<div class="sticky top-24 space-y-8">
+<!-- Settings Menu -->
+<div class="bg-surface-container-high p-8 border border-primary/5">
+<h3 class="text-label-caps text-primary border-b border-primary/10 pb-4 mb-6">PARAMÈTRES DU SANCTUAIRE</h3>
+<nav class="space-y-4">
+<a class="flex items-center justify-between group py-2" href="#">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary/60 group-hover:text-primary transition-colors">account_circle</span>
+<span class="font-body-lg text-primary">Informations du Profil</span>
+</div>
+<span class="material-symbols-outlined text-[16px] text-outline opacity-0 group-hover:opacity-100 transition-opacity">chevron_right</span>
+</a>
+<a class="flex items-center justify-between group py-2" href="#">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary/60 group-hover:text-primary transition-colors">notifications</span>
+<span class="font-body-lg text-primary">Notifications &amp; Rappels</span>
+</div>
+<span class="material-symbols-outlined text-[16px] text-outline opacity-0 group-hover:opacity-100 transition-opacity">chevron_right</span>
+</a>
+<a class="flex items-center justify-between group py-2" href="#">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary/60 group-hover:text-primary transition-colors">palette</span>
+<span class="font-body-lg text-primary">Apparence de l'Atelier</span>
+</div>
+<span class="material-symbols-outlined text-[16px] text-outline opacity-0 group-hover:opacity-100 transition-opacity">chevron_right</span>
+</a>
+<a class="flex items-center justify-between group py-2" href="#">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary/60 group-hover:text-primary transition-colors">lock</span>
+<span class="font-body-lg text-primary">Sécurité &amp; Archives</span>
+</div>
+<span class="material-symbols-outlined text-[16px] text-outline opacity-0 group-hover:opacity-100 transition-opacity">chevron_right</span>
+</a>
+<div class="pt-6 mt-6 border-t border-primary/10">
+<button class="w-full flex items-center gap-4 py-2 text-error hover:text-on-error-container transition-colors group">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-body-lg">Se Déconnecter</span>
+</button>
+</div>
+</nav>
+</div>
+<!-- Ex Libris Featured Section -->
+<div class="bg-primary-container p-8 text-surface relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-[80px]">auto_stories</span>
+</div>
+<h4 class="text-label-caps text-on-primary-container mb-4">DERNIÈRE ARCHIVE</h4>
+<div class="flex gap-4 items-start relative z-10">
+<div class="w-20 h-28 bg-surface-container shadow-xl overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="A vintage, leather-bound book cover with intricate gold leaf filigree and a title in elegant serif typography. The book looks well-worn, suggesting a classic piece of literature. The surrounding environment is dimly lit with a candle-like warmth, matching the scholarly and tactile aesthetic of MoodShelf." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGm07ftlSgTq1KWLhZ8EP6nLrLrt5tqYAzpBC42oAYN7Y3piJzCrUQyLmPP_QTO7Gs7qeCi0No4xgzjuekGwF8cgisPghKAn90K0X_He4qBZbAc3Wc3y6c26-7Rj1HwSW8XmU7f_Q5-KYiNACe07JKj-2AfZoy_YZpO2VxBop49MeB8mUBbSyxgRDvlN4kV9hHuSNuGlv9Rx0p5ix5mjbcGDosLOM1NYMWjykzDVTtMM5LH_z9kgjsdusay67Xf4aVWzzHbB4oQkNH"/>
+</div>
+<div>
+<p class="font-title-lg text-[18px] leading-tight mb-1">Le Nom de la Rose</p>
+<p class="text-label-caps text-on-primary-container opacity-60">Umberto Eco</p>
+<div class="mt-4 flex items-center gap-2">
+<span class="text-secondary font-bold">4.8</span>
+<div class="flex gap-1">
+<span class="material-symbols-outlined text-[12px] text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[12px] text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[12px] text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[12px] text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[12px] text-secondary" style="font-variation-settings: 'FILL' 1;">star_half</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Scroll-triggered footer fade -->
+<footer class="w-full py-12 px-margin-desktop border-t border-primary/5 flex justify-between items-center bg-surface/50">
+<div class="flex items-center gap-2">
+<span class="text-primary font-headline-md text-[18px]">MoodShelf</span>
+<span class="text-label-caps opacity-40 ml-4">© 2024 Archives de Lecture Numérique</span>
+</div>
+<div class="flex gap-8 text-label-caps opacity-60">
+<a class="hover:text-primary transition-colors" href="#">Mentions Légales</a>
+<a class="hover:text-primary transition-colors" href="#">Confidentialité</a>
+<a class="hover:text-primary transition-colors" href="#">Aide</a>
+</div>
+</footer>
+</main>
+<!-- Floating Action Button (FAB) - Suppressed per rules for Profile Screen, but included hidden if required by logic -->
+<!-- Determined as Suppressed for Profile Screen -->
+<script>
+        // Micro-interactions for smooth scrolling and hover states
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Simple scroll effect for the header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            const scrollPos = window.scrollY;
+            if (scrollPos > 100) {
+                header.classList.add('backdrop-blur-sm');
+            } else {
+                header.classList.remove('backdrop-blur-sm');
+            }
+        });
+    </script>
+</body></html>

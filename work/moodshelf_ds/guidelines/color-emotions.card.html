@@ -1,0 +1,21 @@
+<!-- @dsCard group="Colors" viewport="700x210" name="Emotion Palette" subtitle="Mood tags, auras & emotional stats — each emotion has a hue" -->
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin:0; padding:22px; background:var(--surface-page); }
+  .grid { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
+  .chip { border-radius:var(--radius-md); padding:12px 14px; min-height:62px; display:flex; flex-direction:column; justify-content:space-between; box-shadow:var(--shadow-xs); }
+  .lab { font-family:var(--font-hand); font-size:22px; font-weight:600; line-height:1; }
+  .meta { font-size:10px; opacity:.85; font-variant-numeric:tabular-nums; }
+</style></head><body>
+  <div class="grid">
+    <div class="chip" style="background:var(--emo-joy)"><span class="lab" style="color:var(--emo-joy-on)">joy</span><span class="meta" style="color:var(--emo-joy-on)">#D99A2B</span></div>
+    <div class="chip" style="background:var(--emo-heartbreak)"><span class="lab" style="color:var(--emo-heartbreak-on)">heartbreak</span><span class="meta" style="color:var(--emo-heartbreak-on)">#8A332E</span></div>
+    <div class="chip" style="background:var(--emo-comfort)"><span class="lab" style="color:var(--emo-comfort-on)">comfort</span><span class="meta" style="color:var(--emo-comfort-on)">#6E7A57</span></div>
+    <div class="chip" style="background:var(--emo-longing)"><span class="lab" style="color:var(--emo-longing-on)">longing</span><span class="meta" style="color:var(--emo-longing-on)">#6A4569</span></div>
+    <div class="chip" style="background:var(--emo-eerie)"><span class="lab" style="color:var(--emo-eerie-on)">eerie</span><span class="meta" style="color:var(--emo-eerie-on)">#3C4A5A</span></div>
+    <div class="chip" style="background:var(--emo-tender)"><span class="lab" style="color:var(--emo-tender-on)">tender</span><span class="meta" style="color:var(--emo-tender-on)">#C18A78</span></div>
+    <div class="chip" style="background:var(--emo-wonder)"><span class="lab" style="color:var(--emo-wonder-on)">wonder</span><span class="meta" style="color:var(--emo-wonder-on)">#4E7C76</span></div>
+    <div class="chip" style="background:var(--emo-rage)"><span class="lab" style="color:var(--emo-rage-on)">rage</span><span class="meta" style="color:var(--emo-rage-on)">#A8431F</span></div>
+  </div>
+</body></html>

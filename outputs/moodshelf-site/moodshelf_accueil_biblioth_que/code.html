@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MoodShelf | Votre Sanctuaire Numérique</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Montserrat:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline-variant": "#d2c4bb",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-container": "#bba08c",
+                    "on-tertiary-fixed-variant": "#444937",
+                    "on-error": "#ffffff",
+                    "on-surface": "#1d1c0d",
+                    "on-tertiary-fixed": "#191d0e",
+                    "surface-container-high": "#ede9cf",
+                    "primary-container": "#4a3728",
+                    "primary-fixed": "#fbddc7",
+                    "on-secondary-fixed-variant": "#623f18",
+                    "on-primary-fixed-variant": "#574333",
+                    "secondary-fixed-dim": "#f0bd8b",
+                    "background": "#fefae0",
+                    "inverse-surface": "#323120",
+                    "tertiary-container": "#383d2c",
+                    "surface": "#fefae0",
+                    "tertiary-fixed": "#e0e5cc",
+                    "on-error-container": "#93000a",
+                    "primary": "#322214",
+                    "on-background": "#1d1c0d",
+                    "surface-container-low": "#f8f4db",
+                    "on-surface-variant": "#4e453e",
+                    "secondary-container": "#ffca98",
+                    "inverse-primary": "#dec1ac",
+                    "primary-fixed-dim": "#dec1ac",
+                    "tertiary": "#232717",
+                    "on-tertiary-container": "#a3a891",
+                    "secondary-fixed": "#ffdcbd",
+                    "surface-dim": "#dedbc2",
+                    "outline": "#80756d",
+                    "error-container": "#ffdad6",
+                    "surface-container-highest": "#e7e3ca",
+                    "surface-container": "#f2efd5",
+                    "surface-bright": "#fefae0",
+                    "surface-variant": "#e7e3ca",
+                    "secondary": "#7d562d",
+                    "surface-tint": "#705a49",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed": "#2c1600",
+                    "tertiary-fixed-dim": "#c4c9b1",
+                    "on-primary": "#ffffff",
+                    "inverse-on-surface": "#f5f1d8",
+                    "error": "#ba1a1a",
+                    "on-primary-fixed": "#28180b",
+                    "on-secondary-container": "#7a532a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "sm": "12px",
+                    "gutter": "20px",
+                    "margin-mobile": "24px",
+                    "xs": "4px",
+                    "margin-desktop": "64px",
+                    "base": "8px",
+                    "md": "24px",
+                    "lg": "48px",
+                    "xl": "80px"
+            },
+            "fontFamily": {
+                    "body-md": ["Montserrat"],
+                    "headline-lg": ["Playfair Display"],
+                    "label-md": ["Montserrat"],
+                    "headline-md": ["Playfair Display"],
+                    "display-lg": ["Playfair Display"],
+                    "body-lg": ["Montserrat"],
+                    "headline-lg-mobile": ["Playfair Display"],
+                    "label-sm": ["Montserrat"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "letterSpacing": "0.01em", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #fefae0;
+            color: #322214;
+            scroll-behavior: smooth;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .shelf-depth {
+            box-shadow: inset 0 20px 40px -20px rgba(50, 34, 20, 0.1), inset 0 -2px 4px rgba(255, 255, 255, 0.5);
+            background: linear-gradient(180deg, rgba(50, 34, 20, 0.05) 0%, rgba(50, 34, 20, 0) 10%);
+        }
+        .book-shadow {
+            box-shadow: 4px 0 8px -2px rgba(50, 34, 20, 0.2), 1px 0 2px rgba(50, 34, 20, 0.1);
+        }
+        .vellum-effect {
+            backdrop-filter: blur(8px);
+            background-color: rgba(254, 250, 224, 0.85);
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #d2c4bb; border-radius: 10px; }
+    </style>
+</head>
+<body class="font-body-md text-on-surface">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-desktop py-base max-w-full bg-surface/80 backdrop-blur-md">
+<div class="text-headline-md font-headline-md text-primary">MoodShelf</div>
+<div class="hidden md:flex items-center space-x-lg">
+<a class="text-primary font-bold border-b-2 border-primary pb-1 text-label-md font-label-md" href="#">Bibliothèque</a>
+<a class="text-on-surface-variant opacity-70 hover:text-primary transition-colors duration-300 text-label-md font-label-md" href="#">PAL</a>
+<a class="text-on-surface-variant opacity-70 hover:text-primary transition-colors duration-300 text-label-md font-label-md" href="#">Atelier</a>
+<a class="text-on-surface-variant opacity-70 hover:text-primary transition-colors duration-300 text-label-md font-label-md" href="#">Moods</a>
+<a class="text-on-surface-variant opacity-70 hover:text-primary transition-colors duration-300 text-label-md font-label-md" href="#">Profil</a>
+</div>
+<div class="flex items-center space-x-md">
+<button class="material-symbols-outlined text-primary hover:opacity-80 transition-opacity">add</button>
+<button class="material-symbols-outlined text-primary hover:opacity-80 transition-opacity">auto_awesome</button>
+<button class="material-symbols-outlined text-primary hover:opacity-80 transition-opacity">format_quote</button>
+<button class="material-symbols-outlined text-primary hover:opacity-80 transition-opacity">queue_music</button>
+</div>
+</nav>
+<!-- Side Navigation (Desktop Only) -->
+<aside class="hidden lg:flex fixed left-0 top-0 h-full w-64 bg-surface-container-low flex-col py-lg px-md z-40 border-r border-outline-variant/20 pt-32">
+<div class="mb-xl">
+<h2 class="text-headline-md font-headline-md text-primary mb-xs">MoodShelf</h2>
+<p class="text-label-sm font-label-sm text-on-surface-variant opacity-80">Your Digital Sanctuary</p>
+</div>
+<nav class="flex-grow space-y-md">
+<div class="flex items-center space-x-sm text-primary font-bold transition-all hover:bg-surface-container-high p-sm cursor-pointer">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="text-label-md font-label-md">Bibliothèque</span>
+</div>
+<div class="flex items-center space-x-sm text-on-surface-variant opacity-80 hover:bg-surface-container-high p-sm cursor-pointer transition-all">
+<span class="material-symbols-outlined">hourglass_empty</span>
+<span class="text-label-md font-label-md">PAL</span>
+</div>
+<div class="flex items-center space-x-sm text-on-surface-variant opacity-80 hover:bg-surface-container-high p-sm cursor-pointer transition-all">
+<span class="material-symbols-outlined">edit_note</span>
+<span class="text-label-md font-label-md">Atelier</span>
+</div>
+<div class="flex items-center space-x-sm text-on-surface-variant opacity-80 hover:bg-surface-container-high p-sm cursor-pointer transition-all">
+<span class="material-symbols-outlined">auto_awesome</span>
+<span class="text-label-md font-label-md">Moods</span>
+</div>
+<div class="flex items-center space-x-sm text-on-surface-variant opacity-80 hover:bg-surface-container-high p-sm cursor-pointer transition-all">
+<span class="material-symbols-outlined">person</span>
+<span class="text-label-md font-label-md">Profil</span>
+</div>
+</nav>
+<button class="mt-auto bg-primary text-surface-container-lowest py-md font-label-md uppercase tracking-wider hover:opacity-90 transition-opacity">
+            Add New Book
+        </button>
+</aside>
+<main class="lg:ml-64 pt-32 pb-xl">
+<!-- Hero Section -->
+<header class="px-margin-mobile md:px-margin-desktop mb-xl">
+<div class="max-w-4xl">
+<h1 class="font-display-lg text-display-lg text-primary mb-md leading-tight">Une bibliothèque <br/> à habiter.</h1>
+<div class="flex flex-wrap gap-md">
+<button class="bg-primary text-surface-container-lowest px-lg py-md font-label-md uppercase tracking-widest hover:opacity-90 transition-all active:scale-95 shadow-lg shadow-primary/10">
+                        Entrer dans la bibliothèque
+                    </button>
+<button class="border border-primary text-primary px-lg py-md font-label-md uppercase tracking-widest hover:bg-primary/5 transition-all active:scale-95">
+                        Voir les espaces
+                    </button>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<div class="flex flex-col xl:flex-row px-margin-mobile md:px-margin-desktop gap-xl">
+<!-- Library Shelves (Center) -->
+<section class="flex-grow">
+<div class="flex items-center justify-between mb-lg">
+<h2 class="font-headline-lg text-headline-lg text-primary">Ma Bibliothèque</h2>
+<div class="flex space-x-sm">
+<button class="material-symbols-outlined p-xs border border-outline-variant rounded-full text-outline hover:bg-primary hover:text-white transition-all">chevron_left</button>
+<button class="material-symbols-outlined p-xs border border-outline-variant rounded-full text-outline hover:bg-primary hover:text-white transition-all">chevron_right</button>
+</div>
+</div>
+<!-- Shelf 1 -->
+<div class="relative w-full bg-surface-container mb-xl p-base rounded-lg shelf-depth">
+<div class="flex items-end gap-xs h-64 overflow-x-auto no-scrollbar pb-1">
+<!-- Book 1 -->
+<div class="h-full w-12 bg-primary-container shrink-0 rounded-l-sm book-shadow transform hover:-translate-y-2 transition-transform cursor-pointer group flex items-center justify-center relative">
+<span class="[writing-mode:vertical-rl] text-surface-container-lowest font-label-sm opacity-80 uppercase tracking-tighter">L'Étranger</span>
+</div>
+<!-- Book 2 -->
+<div class="h-[90%] w-10 bg-[#574333] shrink-0 book-shadow transform hover:-translate-y-2 transition-transform cursor-pointer flex items-center justify-center">
+<span class="[writing-mode:vertical-rl] text-primary-fixed font-label-sm text-[10px] uppercase">Camus</span>
+</div>
+<!-- Empty Spot -->
+<div class="h-full w-24 shrink-0 border-2 border-dashed border-outline-variant/30 flex items-center justify-center hover:bg-surface-variant/50 cursor-pointer transition-colors group">
+<span class="material-symbols-outlined text-outline-variant group-hover:scale-125 transition-transform">add</span>
+</div>
+<!-- Book 3 -->
+<div class="h-[95%] w-14 bg-secondary shrink-0 book-shadow transform hover:-translate-y-2 transition-transform cursor-pointer flex items-center justify-center">
+<span class="[writing-mode:vertical-rl] text-white font-label-sm uppercase">Proust</span>
+</div>
+<!-- Book 4 -->
+<div class="h-[80%] w-8 bg-tertiary-container shrink-0 book-shadow transform hover:-translate-y-2 transition-transform cursor-pointer flex items-center justify-center">
+<span class="[writing-mode:vertical-rl] text-tertiary-fixed text-[8px] uppercase">Balzac</span>
+</div>
+<!-- Book 5 -->
+<div class="h-full w-16 bg-primary shrink-0 book-shadow transform hover:-translate-y-2 transition-transform cursor-pointer flex items-center justify-center">
+<div class="absolute top-2 w-full h-[1px] bg-white/20"></div>
+<div class="absolute bottom-2 w-full h-[1px] bg-white/20"></div>
+<span class="[writing-mode:vertical-rl] text-surface-container-lowest font-label-sm uppercase">Hugo</span>
+</div>
+<!-- Book 6 -->
+<div class="h-[85%] w-12 bg-on-tertiary-container shrink-0 book-shadow transform hover:-translate-y-2 transition-transform cursor-pointer"></div>
+</div>
+<!-- Wooden Shelf Base -->
+<div class="h-4 w-full bg-[#4a3728] mt-1 rounded-b-sm shadow-md"></div>
+</div>
+<!-- Shelf 2 -->
+<div class="relative w-full bg-surface-container p-base rounded-lg shelf-depth">
+<div class="flex items-end gap-xs h-64 overflow-x-auto no-scrollbar pb-1">
+<div class="h-[75%] w-20 bg-outline shrink-0 book-shadow transform hover:-translate-y-2 transition-transform cursor-pointer"></div>
+<div class="h-full w-10 bg-on-primary-container shrink-0 book-shadow transform hover:-translate-y-2 transition-transform cursor-pointer"></div>
+<div class="h-[92%] w-14 bg-secondary-fixed-dim shrink-0 book-shadow transform hover:-translate-y-2 transition-transform cursor-pointer"></div>
+<div class="h-full w-24 shrink-0 border-2 border-dashed border-outline-variant/30 flex items-center justify-center hover:bg-surface-variant/50 cursor-pointer">
+<span class="material-symbols-outlined text-outline-variant">add</span>
+</div>
+<div class="h-[88%] w-9 bg-primary-fixed-dim shrink-0 book-shadow transform hover:-translate-y-2 transition-transform cursor-pointer"></div>
+<div class="h-full w-12 bg-on-secondary-container shrink-0 book-shadow transform hover:-translate-y-2 transition-transform cursor-pointer"></div>
+<div class="h-[95%] w-14 bg-tertiary shrink-0 book-shadow transform hover:-translate-y-2 transition-transform cursor-pointer"></div>
+</div>
+<!-- Wooden Shelf Base -->
+<div class="h-4 w-full bg-[#4a3728] mt-1 rounded-b-sm shadow-md"></div>
+</div>
+<!-- Navigation Slider -->
+<div class="mt-lg w-full flex items-center gap-md">
+<span class="text-label-sm text-outline">01</span>
+<div class="h-[2px] flex-grow bg-outline-variant overflow-hidden">
+<div class="h-full w-1/3 bg-primary transition-all duration-500"></div>
+</div>
+<span class="text-label-sm text-outline">12</span>
+</div>
+</section>
+<!-- PAL (Right Sidebar) -->
+<aside class="xl:w-80 shrink-0">
+<div class="bg-surface-container-low p-md border border-outline-variant/10 shadow-xl shadow-primary/5">
+<div class="flex items-center justify-between mb-lg">
+<h3 class="font-headline-md text-headline-md text-primary">À Lire (PAL)</h3>
+<span class="text-label-sm bg-primary/10 text-primary px-xs py-[2px]">8 livres</span>
+</div>
+<div class="space-y-lg">
+<!-- PAL Item 1 -->
+<div class="flex gap-md group cursor-pointer">
+<div class="w-16 h-24 bg-surface-container shadow-sm flex-shrink-0 relative overflow-hidden">
+<div class="w-full h-full bg-cover bg-center" data-alt="A vintage, slightly worn book cover for a classic French novel with elegant serif typography and muted earthy tones, set against a warm sun-drenched library background. The lighting is soft and directional, creating a sense of history and intellectual depth. High-end editorial photography style." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD1bNuuIq8egLklULJxkFR8htWKyELfFhwCmfhUQe0hVzt5ciDMfnbEJgOPqi09Y0urt81TZgMS1wsI8F_b4guH7hWPnL3fMGt1RMZrw-brEHkmOn8Gk_hziEHCQkm5HvSnFkh-O1RS1mlVTuGUAKgNcWNXdmkBHhQgqjyUgP3yL5pG-kStvdYwiNn3yIqp4lfuNcRIfwTuN9ywfqpBQP7M-7rZTLgsTD2ghsi3k9jiOtusG_wpEppu2vljDi7jZkHnBD8b7Gx4uHq-')"></div>
+</div>
+<div>
+<h4 class="font-bold text-body-md text-primary group-hover:text-secondary transition-colors">Les Liaisons Dangereuses</h4>
+<p class="text-label-sm text-on-surface-variant mb-xs">Laclos</p>
+<div class="flex items-center gap-xs">
+<div class="h-1 w-12 bg-outline-variant rounded-full overflow-hidden">
+<div class="h-full w-0 bg-primary"></div>
+</div>
+<span class="text-[10px] text-outline uppercase font-bold tracking-widest">En attente</span>
+</div>
+</div>
+</div>
+<!-- PAL Item 2 -->
+<div class="flex gap-md group cursor-pointer">
+<div class="w-16 h-24 bg-surface-container shadow-sm flex-shrink-0 overflow-hidden">
+<div class="w-full h-full bg-cover bg-center" data-alt="Close-up of a modern hardcover book with a minimalist white and gold design, featuring a single delicate botanical illustration. The background is a blurred high-end interior with warm wooden textures and soft ambient lighting. Luxury lifestyle book photography." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCs3MqsuU9VEyyKLtBq4GaHnnphgbmvsozW1gWubj5kN7iWWMwQsfKzd1YNP0GOtdFf13prexC3a87HwTOUTo5UegKo4emnkyhMx9eInKgF4Y0FqNFMNbDYVMx_wtQBBRoKPuNR62c3iOgskdGbZI0oULUTU3sdlM7SaPZ0U8e_XZYgmWYFT3zuJDWU6Djh_5OpztBXVa2Jvc4ZK1MMWslNoErLkyd-vhTFZQAYblW8Vtd60O6mSXIOfyg0tzkT2IYsbTKCYwg12aRc')"></div>
+</div>
+<div>
+<h4 class="font-bold text-body-md text-primary group-hover:text-secondary transition-colors">La Panthère des Neiges</h4>
+<p class="text-label-sm text-on-surface-variant mb-xs">Sylvain Tesson</p>
+<div class="flex items-center gap-xs">
+<div class="h-1 w-12 bg-outline-variant rounded-full overflow-hidden">
+<div class="h-full w-1/4 bg-primary"></div>
+</div>
+<span class="text-[10px] text-outline uppercase font-bold tracking-widest">Page 45</span>
+</div>
+</div>
+</div>
+<!-- PAL Item 3 -->
+<div class="flex gap-md group cursor-pointer opacity-80">
+<div class="w-16 h-24 bg-surface-container shadow-sm flex-shrink-0 overflow-hidden">
+<div class="w-full h-full bg-cover bg-center" data-alt="Detailed shot of an old leather-bound book spine with gold-leafed lettering, resting on a textured linen cloth in a warmly lit, intimate library nook. The scene suggests timelessness and the quiet luxury of digital minimalist study. Soft shadows and rich mahogany tones." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAe-Yg5Qt5I4Jv6tr0oNPfEBPrlZyhJD64aP-SHexF5Csdd_X9g5S6uA9xRWffaiNZthxhVuJOuW4J5c0wQSVgZ3PAgAh6uK3LU4fwZ0sobq5GeLF0_bqls-MR6u0EqlcKsZNjXNHgfmEPPID28zESuBILKa07Sq2ntoycaDB90LbylBlYPWi_H0_zSk7ud75wBkrOHLkcjO8YIslxOWpC0nmy2goU1OIMMbCQXT0NA9HLxYlpuM-pA4mORmU1KFffeBgwLENklvCn4')"></div>
+</div>
+<div>
+<h4 class="font-bold text-body-md text-primary group-hover:text-secondary transition-colors">Le Monde d'Hier</h4>
+<p class="text-label-sm text-on-surface-variant mb-xs">Stefan Zweig</p>
+<div class="flex items-center gap-xs">
+<div class="h-1 w-12 bg-outline-variant rounded-full"></div>
+<span class="text-[10px] text-outline uppercase font-bold tracking-widest">À venir</span>
+</div>
+</div>
+</div>
+</div>
+<button class="w-full mt-xl py-sm border border-outline text-label-sm uppercase tracking-widest hover:bg-primary hover:text-white transition-all">
+                        Gérer ma pile
+                    </button>
+</div>
+</aside>
+</div>
+<!-- Menu of Spaces (Bento Grid) -->
+<section class="mt-xl px-margin-mobile md:px-margin-desktop">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-lg">Explorer vos Espaces</h2>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-gutter">
+<!-- Card 1: Bibliothèque -->
+<div class="aspect-square bg-surface-container-high p-md flex flex-col justify-between hover:bg-secondary/5 transition-colors cursor-pointer group shadow-sm">
+<span class="material-symbols-outlined text-primary text-3xl">menu_book</span>
+<div>
+<h3 class="font-bold text-body-lg text-primary">Bibliothèque</h3>
+<p class="text-label-sm text-on-surface-variant opacity-70">124 volumes</p>
+</div>
+</div>
+<!-- Card 2: PAL -->
+<div class="aspect-square bg-surface-container p-md flex flex-col justify-between hover:bg-secondary/5 transition-colors cursor-pointer group shadow-sm">
+<span class="material-symbols-outlined text-primary text-3xl">hourglass_empty</span>
+<div>
+<h3 class="font-bold text-body-lg text-primary">PAL</h3>
+<p class="text-label-sm text-on-surface-variant opacity-70">8 en attente</p>
+</div>
+</div>
+<!-- Card 3: Notes -->
+<div class="aspect-square bg-surface-container-low p-md flex flex-col justify-between hover:bg-secondary/5 transition-colors cursor-pointer group shadow-sm">
+<span class="material-symbols-outlined text-primary text-3xl">edit_note</span>
+<div>
+<h3 class="font-bold text-body-lg text-primary">Notes</h3>
+<p class="text-label-sm text-on-surface-variant opacity-70">42 citations</p>
+</div>
+</div>
+<!-- Card 4: Moods -->
+<div class="aspect-square bg-primary-fixed p-md flex flex-col justify-between hover:bg-primary-fixed-dim transition-colors cursor-pointer group shadow-sm">
+<span class="material-symbols-outlined text-primary text-3xl">auto_awesome</span>
+<div>
+<h3 class="font-bold text-body-lg text-primary">Moods</h3>
+<p class="text-label-sm text-on-surface-variant opacity-70">Atmosphères</p>
+</div>
+</div>
+<!-- Card 5: Playlists -->
+<div class="aspect-square bg-surface-container p-md flex flex-col justify-between hover:bg-secondary/5 transition-colors cursor-pointer group shadow-sm">
+<span class="material-symbols-outlined text-primary text-3xl">queue_music</span>
+<div>
+<h3 class="font-bold text-body-lg text-primary">Playlists</h3>
+<p class="text-label-sm text-on-surface-variant opacity-70">6 ambiances</p>
+</div>
+</div>
+<!-- Card 6: Profil -->
+<div class="aspect-square bg-surface-container-high p-md flex flex-col justify-between hover:bg-secondary/5 transition-colors cursor-pointer group shadow-sm">
+<span class="material-symbols-outlined text-primary text-3xl">person</span>
+<div>
+<h3 class="font-bold text-body-lg text-primary">Profil</h3>
+<p class="text-label-sm text-on-surface-variant opacity-70">Paramètres</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Floating Action Button -->
+<div class="fixed bottom-margin-mobile right-margin-mobile z-50">
+<button class="bg-primary text-white w-14 h-14 rounded-full flex items-center justify-center shadow-xl shadow-primary/30 hover:scale-110 active:scale-95 transition-all">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+<!-- Mobile Bottom Navigation (Visible only on small screens) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-surface/90 backdrop-blur-md flex justify-around items-center py-sm px-md z-50 border-t border-outline-variant/10">
+<button class="flex flex-col items-center gap-xs text-primary font-bold">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="text-[10px] uppercase font-bold tracking-tighter">Library</span>
+</button>
+<button class="flex flex-col items-center gap-xs text-on-surface-variant opacity-60">
+<span class="material-symbols-outlined">hourglass_empty</span>
+<span class="text-[10px] uppercase font-bold tracking-tighter">PAL</span>
+</button>
+<button class="flex flex-col items-center gap-xs text-on-surface-variant opacity-60">
+<span class="material-symbols-outlined">edit_note</span>
+<span class="text-[10px] uppercase font-bold tracking-tighter">Notes</span>
+</button>
+<button class="flex flex-col items-center gap-xs text-on-surface-variant opacity-60">
+<span class="material-symbols-outlined">auto_awesome</span>
+<span class="text-[10px] uppercase font-bold tracking-tighter">Moods</span>
+</button>
+<button class="flex flex-col items-center gap-xs text-on-surface-variant opacity-60">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] uppercase font-bold tracking-tighter">Profile</span>
+</button>
+</nav>
+<script>
+        // Micro-interactions and subtle effects
+        document.addEventListener('DOMContentLoaded', () => {
+            const books = document.querySelectorAll('.book-shadow');
+            books.forEach(book => {
+                book.addEventListener('mouseenter', () => {
+                    book.style.transform = 'translateY(-8px) scale(1.02)';
+                });
+                book.addEventListener('mouseleave', () => {
+                    book.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+
+            // Parallax-like movement on mouse move for the hero title
+            const hero = document.querySelector('h1');
+            document.addEventListener('mousemove', (e) => {
+                const moveX = (e.clientX - window.innerWidth / 2) / 100;
+                const moveY = (e.clientY - window.innerHeight / 2) / 100;
+                hero.style.transform = `translate(${moveX}px, ${moveY}px)`;
+            });
+        });
+    </script>
+</body></html>

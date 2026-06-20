@@ -1,0 +1,98 @@
+/* ============================================================
+   MoodShelf — Library Themes
+   The product sells customizable library themes. Each theme is a
+   scope you set with data-theme on a container; it re-points the
+   surface/text/accent semantic aliases. Default (no attribute) is
+   the warm parchment "Reading Room".
+   Usage:  <div data-theme="dark-academia"> … </div>
+   ============================================================ */
+
+/* — Dark Academia Library — candlelit, leather, oxblood & gold — */
+[data-theme="dark-academia"] {
+  --surface-page:   #1E1712;
+  --surface-card:   #2A2018;
+  --surface-raised: #322619;
+  --surface-sunken: #181109;
+  --surface-inverse:#F2E7D0;
+  --text-strong:    #F4EAD6;
+  --text-body:      #E2D2B4;
+  --text-muted:     #B49A78;
+  --text-faint:     #8A6F52;
+  --accent:         #DCA94F;
+  --accent-strong:  #C8913A;
+  --accent-ink:     #B5564B;
+  --border:         rgba(220,169,79,0.18);
+  --border-strong:  rgba(220,169,79,0.30);
+  --hairline:       rgba(244,234,214,0.10);
+  color-scheme: dark;
+}
+
+/* — Cozy Cottage Shelf — soft cream, sage, warm linen — */
+[data-theme="cozy-cottage"] {
+  --surface-page:   #F4EFE2;
+  --surface-card:   #FBF7EC;
+  --surface-raised: #FFFFFF;
+  --surface-sunken: #E9E2CF;
+  --text-strong:    #3A3527;
+  --text-body:      #4F4A38;
+  --text-muted:     #837B62;
+  --accent:         #7C8A5E;
+  --accent-strong:  #65724A;
+  --accent-ink:     #B5786A;
+  --border:         #E4DCC6;
+  --border-strong:  #CFC4A6;
+}
+
+/* — Gothic Romance — ink black, oxblood, candle gold, dramatic — */
+[data-theme="gothic-romance"] {
+  --surface-page:   #15110F;
+  --surface-card:   #221A18;
+  --surface-raised: #2B2120;
+  --surface-sunken: #0E0A09;
+  --surface-inverse:#EFE3DF;
+  --text-strong:    #F0E4DF;
+  --text-body:      #D8C4BE;
+  --text-muted:     #A88379;
+  --accent:         #B5564B;
+  --accent-strong:  #97433D;
+  --accent-ink:     #D7A24E;
+  --border:         rgba(181,86,75,0.22);
+  --border-strong:  rgba(181,86,75,0.36);
+  --hairline:       rgba(240,228,223,0.09);
+  color-scheme: dark;
+}
+
+/* — Japanese Minimal Library — paper white, sumi ink, vermilion — */
+[data-theme="japanese-minimal"] {
+  --surface-page:   #F6F4EF;
+  --surface-card:   #FCFBF7;
+  --surface-raised: #FFFFFF;
+  --surface-sunken: #ECE9E1;
+  --text-strong:    #1F1D1A;
+  --text-body:      #3A372F;
+  --text-muted:     #7C7666;
+  --accent:         #B14B3A;
+  --accent-strong:  #97402F;
+  --accent-ink:     #2F2A24;
+  --border:         #E6E2D8;
+  --border-strong:  #CFC9BA;
+}
+
+/* — Witchy Reading Room — deep plum, moss, moonlight — */
+[data-theme="witchy"] {
+  --surface-page:   #171420;
+  --surface-card:   #221B2C;
+  --surface-raised: #2A2236;
+  --surface-sunken: #100D17;
+  --surface-inverse:#EBE4F0;
+  --text-strong:    #EDE6F2;
+  --text-body:      #CFC2DC;
+  --text-muted:     #9A8AAC;
+  --accent:         #A684A4;
+  --accent-strong:  #8A6789;
+  --accent-ink:     #88A06E;
+  --border:         rgba(166,132,164,0.20);
+  --border-strong:  rgba(166,132,164,0.34);
+  --hairline:       rgba(237,230,242,0.09);
+  color-scheme: dark;
+}

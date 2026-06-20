@@ -1,0 +1,62 @@
+<!-- @dsCard group="Components" viewport="700x400" name="Reading — Covers, Tags, Aura, Shelf" subtitle="The signature objects: book covers, emotion tags, aura orb, shelf tile" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>
+  body { margin:0; padding:24px; background:var(--surface-page); }
+  .grid { display:flex; gap:24px; align-items:flex-start; flex-wrap:wrap; }
+  .col { display:flex; flex-direction:column; gap:12px; }
+  .lab { font:600 11px var(--font-sans); letter-spacing:.16em; text-transform:uppercase; color:var(--text-muted); }
+  .tags { display:flex; gap:8px; flex-wrap:wrap; max-width:230px; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+  const { BookCover, EmotionTag, AuraOrb, ShelfCard } = window.MoodShelfDesignSystem_76979c;
+  const shelfBooks = [
+    { title: 'A Little Life', author: 'Yanagihara' },
+    { title: 'Beloved', author: 'Morrison' },
+    { title: 'Piranesi', author: 'Clarke' },
+    { title: 'The Secret History', author: 'Tartt' },
+  ];
+  function Demo() {
+    return (
+      <div className="grid">
+        <div className="col">
+          <span className="lab">Book covers</span>
+          <div style={{display:'flex', gap:14}}>
+            <BookCover title="The Secret History" author="Donna Tartt" width={96} />
+            <BookCover title="Piranesi" author="Susanna Clarke" width={96} />
+          </div>
+        </div>
+        <div className="col">
+          <span className="lab">Emotion tags</span>
+          <div className="tags">
+            <EmotionTag emotion="heartbreak">destroyed me</EmotionTag>
+            <EmotionTag emotion="comfort">like rain</EmotionTag>
+            <EmotionTag emotion="longing">aching</EmotionTag>
+            <EmotionTag emotion="wonder">lit me up</EmotionTag>
+          </div>
+        </div>
+        <div className="col">
+          <span className="lab">Reading aura</span>
+          <AuraOrb size={140} colors={['var(--emo-longing)','var(--emo-wonder)','var(--emo-joy)']} label="Longing" caption="June aura" />
+        </div>
+        <div className="col" style={{width:240}}>
+          <span className="lab">Shelf tile</span>
+          <ShelfCard name="books that destroyed me" count={12} books={shelfBooks} />
+        </div>
+      </div>
+    );
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(<Demo />);
+</script>
+</body>
+</html>

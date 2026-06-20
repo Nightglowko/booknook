@@ -1,0 +1,62 @@
+/* ============================================================
+   MoodShelf — Effects: radii, shadows, borders, textures, motion
+   Shadows are warm and soft, like candlelight falling on paper.
+   Book covers cast a directional shelf shadow.
+   ============================================================ */
+
+:root {
+  /* ---- corner radii (soft, never sharp) ---- */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 26px;
+  --radius-2xl: 34px;
+  --radius-pill: 999px;
+  --radius-book: 3px;   /* book covers have a tight, real radius */
+
+  /* ---- warm soft shadows (brown-tinted, never gray) ---- */
+  --shadow-xs: 0 1px 2px rgba(58,40,20,0.06);
+  --shadow-sm: 0 1px 2px rgba(58,40,20,0.07), 0 2px 5px rgba(58,40,20,0.06);
+  --shadow-md: 0 4px 12px rgba(54,36,16,0.10), 0 2px 4px rgba(54,36,16,0.07);
+  --shadow-lg: 0 18px 40px -14px rgba(46,30,14,0.30), 0 4px 12px rgba(46,30,14,0.10);
+  --shadow-xl: 0 32px 70px -22px rgba(36,24,10,0.45);
+
+  /* a book on a shelf — directional, like a treasured object */
+  --shadow-book: -6px 10px 22px -6px rgba(38,24,10,0.40), -1px 2px 3px rgba(38,24,10,0.22);
+
+  /* candlelight glow for accents / auras */
+  --glow-candle: 0 0 0 1px rgba(200,145,58,0.30), 0 8px 30px -6px rgba(200,145,58,0.45);
+  --glow-aura:   0 0 60px -8px rgba(106,69,105,0.55);
+
+  /* inset for pressed inputs / sunken paper wells */
+  --shadow-inset: inset 0 1px 2px rgba(58,40,20,0.10);
+
+  /* ---- borders ---- */
+  --border-w: 1px;
+  --border-thick: 2px;
+  --border-hair: 1px solid var(--hairline);
+  --border-line: 1px solid var(--border);
+  --border-emph: 1.5px solid var(--border-strong);
+
+  /* ---- textures (subtle paper grain via layered gradients) ---- */
+  --texture-paper:
+    radial-gradient(120% 120% at 0% 0%, rgba(255,255,255,0.5), rgba(255,255,255,0) 40%),
+    radial-gradient(120% 120% at 100% 100%, rgba(120,90,50,0.06), rgba(120,90,50,0) 45%); /* @kind other */
+  --texture-vignette:
+    radial-gradient(130% 100% at 50% -10%, rgba(255,247,228,0.05), rgba(0,0,0,0) 60%); /* @kind other */
+
+  /* gradient washes */
+  --wash-candle: linear-gradient(135deg, #DCA94F 0%, #C8913A 45%, #B07C2C 100%); /* @kind color */
+  --wash-dusk:   linear-gradient(160deg, #2E231A 0%, #3C2E3B 70%, #4C3050 100%); /* @kind color */
+  --wash-aura:   linear-gradient(150deg, #6A4569 0%, #97433D 55%, #C8913A 110%); /* @kind color */
+
+  /* ---- motion ---- */
+  --ease-soft: cubic-bezier(0.22, 0.61, 0.36, 1);  /* @kind other */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);       /* @kind other */
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);   /* @kind other */
+  --dur-fast: 140ms;  /* @kind other */
+  --dur-base: 220ms;  /* @kind other */
+  --dur-slow: 420ms;  /* @kind other */
+  --dur-page: 600ms;  /* @kind other */
+}

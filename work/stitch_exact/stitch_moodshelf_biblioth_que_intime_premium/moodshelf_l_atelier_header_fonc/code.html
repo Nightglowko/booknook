@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MoodShelf - Atelier Personnel</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Montserrat:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Config with "Vert et Boisé" Design System -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary": "#1b3022", // Deep Forest Green
+                    "on-primary": "#ffffff",
+                    "primary-container": "#2d4a37",
+                    "on-primary-container": "#c9d9cc",
+                    "secondary": "#4a3728", // Dark Oak Brown
+                    "on-secondary": "#ffffff",
+                    "secondary-container": "#d2c4bb",
+                    "on-secondary-container": "#28180b",
+                    "tertiary": "#5d6e52",
+                    "on-tertiary": "#ffffff",
+                    "background": "#fdfae7", // Soft Parchment
+                    "on-background": "#1b1912", // Dark Brown/Black for text
+                    "surface": "#fdfae7",
+                    "on-surface": "#1b1912",
+                    "surface-variant": "#e9e6d1",
+                    "on-surface-variant": "#4a473e",
+                    "outline": "#807c6e",
+                    "outline-variant": "#d2cebc",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-low": "#f7f4e1",
+                    "surface-container": "#f1eedb",
+                    "surface-container-high": "#ebe8d5",
+                    "surface-container-highest": "#e5e2cf",
+                    "inverse-surface": "#323028",
+                    "inverse-on-surface": "#f6f0e3"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "sm": "12px",
+                    "gutter": "20px",
+                    "margin-mobile": "24px",
+                    "xs": "4px",
+                    "margin-desktop": "64px",
+                    "base": "8px",
+                    "md": "24px",
+                    "lg": "48px",
+                    "xl": "80px"
+            },
+            "fontFamily": {
+                    "body-md": ["Montserrat"],
+                    "headline-lg": ["Playfair Display"],
+                    "label-md": ["Montserrat"],
+                    "headline-md": ["Playfair Display"],
+                    "display-lg": ["Playfair Display"],
+                    "body-lg": ["Montserrat"],
+                    "headline-lg-mobile": ["Playfair Display"],
+                    "label-sm": ["Montserrat"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "letterSpacing": "0.01em", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #fdfae7;
+            color: #1b1912;
+        }
+        .paper-texture {
+            background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+            background-color: #f7f4e1;
+        }
+        .soft-shadow {
+            box-shadow: 0 10px 30px -5px rgba(27, 48, 34, 0.1);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #d2cebc;
+            border-radius: 10px;
+        }
+        .glow-hover:hover {
+            box-shadow: 0 0 20px rgba(27, 48, 34, 0.15);
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface selection:bg-surface-container-highest">
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-desktop py-base max-w-full bg-primary/90 text-on-primary backdrop-blur-md border-b border-on-primary/20 soft-shadow" style="background-color: #0d1a12; color: #fdfae7;">
+<div class="text-headline-md font-headline-md text-on-primary" style="color: #fdfae7;">MoodShelf</div>
+<nav class="hidden md:flex gap-md items-center">
+<a class="text-on-primary opacity-80 hover:opacity-100 transition-colors duration-300 font-label-md text-label-md" href="#" style="color: #fdfae7;">Bibliothèque</a>
+<a class="text-on-primary opacity-80 hover:opacity-100 transition-colors duration-300 font-label-md text-label-md" href="#" style="color: #fdfae7;">PAL</a>
+<a class="text-on-primary font-bold border-b-2 border-on-primary pb-1 font-label-md text-label-md" href="#" style="color: #fdfae7;">Atelier</a>
+<a class="text-on-primary opacity-80 hover:opacity-100 transition-colors duration-300 font-label-md text-label-md" href="#" style="color: #fdfae7;">Moods</a>
+<a class="text-on-primary opacity-80 hover:opacity-100 transition-colors duration-300 font-label-md text-label-md" href="#" style="color: #fdfae7;">Profil</a>
+</nav>
+<div class="flex items-center gap-base">
+<button class="p-xs text-on-primary hover:bg-primary-container rounded-full transition-colors" style="color: #fdfae7;"><span class="material-symbols-outlined">search</span></button>
+<button class="p-xs text-on-primary hover:bg-primary-container rounded-full transition-colors" style="color: #fdfae7;"><span class="material-symbols-outlined">add</span></button>
+<button class="p-xs text-on-primary hover:bg-primary-container rounded-full transition-colors" style="color: #fdfae7;"><span class="material-symbols-outlined">auto_awesome</span></button>
+</div>
+</header>
+<!-- SideNavBar (Hidden on small) -->
+<aside class="hidden md:flex flex-col fixed left-0 top-0 h-full w-64 py-lg px-md text-on-primary shadow-sm z-40 pt-32 bg-primary-container"><div class="mb-xl flex flex-col items-center text-center">
+<div class="w-16 h-16 rounded-full bg-primary-container mb-sm flex items-center justify-center overflow-hidden border-2 border-on-primary/20">
+<img class="w-full h-full object-cover" data-alt="A refined, close-up portrait of a chic bibliophile with a soft focus. The person has a serene expression, looking away from the camera. The lighting is warm and golden, suggesting a sunset in a library. The background consists of blurred bookshelves and rich mahogany wood, following a premium digital sanctuary aesthetic with forest green and parchment tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyJRu1Zzfj32QA1ubC00Ryjzm77igcI3Uynkt30EkN1yx1y_gRcbTkqweA99Wf8vXFQuecF0QkncJDK85MO99XQGelySoEfzgZVsX8oDnzZJ8hUEG4WoCbDiUnKAIpN3__22lqu1FhewyamD2lgfjm6tTpSdaBOi3dv2aGItKbmMcjPVOCk8ZIsnGwM3yYuHyNFm7XsZet-xKsYIhpfCDsgQZIzEE9jNuYz-lqxLLEvyHxvqPTqQ5ilgg6fwS8exEtR0E6sp8-AggS"/>
+</div>
+<div class="font-headline-md text-headline-md text-on-primary">MoodShelf</div>
+<div class="text-label-sm font-label-sm text-on-primary opacity-60 uppercase tracking-widest">Atelier Personnel</div>
+</div>
+<nav class="flex flex-col gap-sm flex-grow">
+<a class="flex items-center gap-sm p-sm rounded-lg text-on-primary opacity-70 hover:bg-primary-container transition-colors" href="#"><span class="material-symbols-outlined">menu_book</span> <span class="font-label-md text-label-md">Bibliothèque</span></a>
+<a class="flex items-center gap-sm p-sm rounded-lg text-on-primary opacity-70 hover:bg-primary-container transition-colors" href="#"><span class="material-symbols-outlined">hourglass_empty</span> <span class="font-label-md text-label-md">PAL</span></a>
+<a class="flex items-center gap-sm p-sm rounded-lg text-on-primary font-bold bg-primary-container transition-colors" href="#"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">edit_note</span> <span class="font-label-md text-label-md">Atelier</span></a>
+<a class="flex items-center gap-sm p-sm rounded-lg text-on-primary opacity-70 hover:bg-primary-container transition-colors" href="#"><span class="material-symbols-outlined">auto_awesome</span> <span class="font-label-md text-label-md">Moods</span></a>
+<a class="flex items-center gap-sm p-sm rounded-lg text-on-primary opacity-70 hover:bg-primary-container transition-colors" href="#"><span class="material-symbols-outlined">person</span> <span class="font-label-md text-label-md">Profil</span></a>
+</nav>
+<button class="mt-auto bg-on-primary text-primary font-label-md text-label-md py-base px-md rounded-full flex items-center justify-center gap-sm hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-body-md">add</span> Ajouter un Livre
+        </button></aside>
+<!-- Main Content Canvas -->
+<main class="md:ml-64 pt-24 px-margin-mobile md:px-margin-desktop pb-xl min-h-screen">
+<!-- Breadcrumbs / Meta Header -->
+<div class="flex items-center gap-base mb-lg text-on-surface-variant opacity-60">
+<span class="font-label-sm text-label-sm uppercase tracking-tighter">Atelier</span>
+<span class="material-symbols-outlined text-body-md">chevron_right</span>
+<span class="font-label-sm text-label-sm uppercase tracking-tighter">Lecture en cours</span>
+</div>
+<!-- Book Detail Grid (Bento Layout) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-lg items-start">
+<!-- Left Column: The Anchor (Cover & Core Info) -->
+<div class="lg:col-span-4 flex flex-col gap-md sticky top-32">
+<div class="relative group aspect-[2/3] overflow-hidden rounded-xl soft-shadow bg-surface-container-high">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A stunning, high-contrast book cover for a classic French novel, placed on a dark green felt surface. The cover features minimalist serif typography and a single, elegant line drawing of a wilted rose. Moody, forest-like shadows play across the scene, creating a tactile, editorial magazine feel. The color palette is composed of deep greens, parchments, and dark wood browns." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmi1NjXGFEkG5H9QkHueAgh0jmntfSiN-4t58tMCdytjJ4oEeY_5mXSS-mqGy3kRwfdb4B44SfV2W_5ZvvJrZMt6nst0aH0XPVtmZ9Gsvt1mtDIK1xhshbTnEeIB1sOiBSUVIs_NzLok0S07d4lu8OJ8yNPaTu1ITzrP94rK6HQQnjiDoxiGWctnub7QsJUYKq3QFmU7Iga_Re9QBb_q7hmVhYVYFjWtZY4SnaytgXPQ38_QsZO-8XKVlsGRVHop-zlVpKJp4dQxAc"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-md">
+<button class="bg-surface/90 backdrop-blur-sm text-primary px-md py-base rounded-full text-label-sm font-label-sm flex items-center gap-xs">
+<span class="material-symbols-outlined text-body-md">zoom_in</span> Agrandir
+                        </button>
+</div>
+</div>
+<div class="flex flex-col gap-xs">
+<h1 class="font-display-lg text-display-lg text-primary leading-tight">À la recherche du temps perdu</h1>
+<p class="font-headline-md text-headline-md text-secondary italic opacity-80">Marcel Proust</p>
+</div>
+<div class="flex flex-wrap gap-xs">
+<span class="bg-primary/10 text-primary px-sm py-xs rounded-full font-label-sm text-label-sm">Classique</span>
+<span class="bg-primary/10 text-primary px-sm py-xs rounded-full font-label-sm text-label-sm">Philosophie</span>
+<span class="bg-primary/10 text-primary px-sm py-xs rounded-full font-label-sm text-label-sm">Mémoire</span>
+</div>
+<!-- Spotify Widget Mockup -->
+<div class="mt-md p-md bg-surface-container-high rounded-xl flex items-center gap-md soft-shadow">
+<div class="w-12 h-12 bg-primary-container rounded flex items-center justify-center text-on-primary-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A square album art for a classical music playlist, featuring a vintage piano in a dark, wood-paneled room. The image is grainy and nostalgic, with a deep green and brown tint. The lighting is ethereal, creating a sense of calm and focused contemplation in a forest sanctuary style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-miNVYOlkxr4oKcn4YbNelrxvRPrbEKRCkFUyjdI5FRnGgB9dkKETgmFFBjQl-IraHkAUdu7eBJ9VRt5dt6s8TFK1kgpZA03o3DqYr6I8D7jo4x1x0S_RW59iQ3Nnm7Z0jedZIVo3XWK9kwrZdYWu-fzBHF0-ZPFmX9i6NJWREkyLBP_Gs0r_zAymswXri6EnPPkZ3RbCIfwNlol9YTEjQ1LSsV3JODX4BmaAUfHBmRYejE2orw62pRX-XuCqXx_e1qLG4ooEd26U"/>
+</div>
+<div class="flex-grow">
+<p class="font-label-md text-label-md text-primary truncate">Sons de la Madeleine</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant opacity-70">Proustian Ambiance</p>
+</div>
+<button class="w-10 h-10 bg-primary text-on-primary rounded-full flex items-center justify-center hover:scale-105 transition-transform">
+<span class="material-symbols-outlined fill" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+</div>
+</div>
+<!-- Right Column: The Atelier (Interactive Notes & Boards) -->
+<div class="lg:col-span-8 flex flex-col gap-xl">
+<!-- Personal Notes Section (Paper Texture) -->
+<section class="paper-texture p-lg rounded-xl soft-shadow border border-outline-variant/30 min-h-[400px] flex flex-col">
+<div class="flex justify-between items-center mb-lg">
+<h2 class="font-headline-md text-headline-md text-primary flex items-center gap-sm">
+<span class="material-symbols-outlined">edit_note</span> Mes Réflexions
+                        </h2>
+<span class="text-label-sm font-label-sm text-on-surface-variant opacity-50 uppercase">Dernière édition: 14 Oct.</span>
+</div>
+<div class="flex-grow font-body-lg text-body-lg text-secondary leading-relaxed italic space-y-md">
+<p class="">« Longtemps, je me suis couché de bonne heure. »</p>
+<p class="">Cette phrase résonne différemment ce matin. Il y a une lenteur nécessaire dans la prose de Proust qui m'oblige à ralentir mon propre rythme. L'atelier se remplit de cette atmosphère de vellum et de thé tiède sous la canopée...</p>
+<p class="">La mémoire involontaire : comment une simple odeur de papier jauni peut-elle me ramener à la bibliothèque de mon grand-père ? C'est ce que j'essaie de capturer ici, dans ce sanctuaire boisé.</p>
+</div>
+<div class="mt-lg pt-md border-t border-outline-variant/50 flex justify-end">
+<button class="text-primary font-label-md text-label-md flex items-center gap-xs hover:underline decoration-secondary transition-all">
+                            Continuer d'écrire <span class="material-symbols-outlined text-body-md">arrow_forward</span>
+</button>
+</div>
+</section>
+<!-- Mood Board & Quotes Split -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+<!-- Elegant Quotes List -->
+<div class="flex flex-col gap-md">
+<h3 class="font-headline-md text-headline-md text-primary">Citations Marquantes</h3>
+<div class="flex flex-col gap-base">
+<blockquote class="p-md bg-surface-container rounded-lg border-l-4 border-primary/30 italic font-body-md text-body-md text-secondary hover:bg-surface-container-high transition-colors">
+                                "Le véritable voyage de découverte ne consiste pas à chercher de nouveaux paysages, mais à avoir de nouveaux yeux."
+                            </blockquote>
+<blockquote class="p-md bg-surface-container rounded-lg border-l-4 border-primary/30 italic font-body-md text-body-md text-secondary hover:bg-surface-container-high transition-colors">
+                                "Une heure n'est pas qu'une heure, c'est un vase rempli de parfums, de sons, de projets et de climats."
+                            </blockquote>
+</div>
+</div>
+<!-- Visual Mood Board -->
+<div class="flex flex-col gap-md">
+<div class="flex justify-between items-center">
+<h3 class="font-headline-md text-headline-md text-primary">Atmosphère</h3>
+<button class="text-primary font-label-sm text-label-sm hover:underline">+ Ajouter</button>
+</div>
+<div class="grid grid-cols-3 gap-xs">
+<div class="aspect-square bg-primary-container rounded-lg overflow-hidden soft-shadow">
+<img class="w-full h-full object-cover" data-alt="Close-up of a warm cup of herbal tea in a dark ceramic mug, steam rising, set against a background of dark wooden shelves and old books. The lighting is low and atmospheric, emphasizing deep shadows and rich forest green tones. Part of a curated mood board for a woodsy literature app." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCi37RMxSn-OnqQQg30OmHBsTU3Wu812T25ak-MHr7ui9O8Pzym74zD55deHwWq0ygeOIWGyHzDWJI9iVD_xzRRUtOPPVdWZswiz2mVt4XrDpw0oyooZql3vK7l4M0r4kxksf5Zre3QlfOSifZR9sKtl9kUi5CHssgRVG9_UeuueksZwESuuJFouxBB5mcjPr9BkRr4heNgkPL2xHWL469L1WUAfab90P8GoTL0guvucn2c4kv7F_Bh3hVUWX2kgcYo10iKyJ9oV2q7"/>
+</div>
+<div class="aspect-square bg-surface-container-highest rounded-lg overflow-hidden soft-shadow">
+<img class="w-full h-full object-cover" data-alt="Detailed macro shot of an antique compass resting on a dark mossy surface. The image is atmospheric and mysterious, suggesting long journeys and hidden forest paths. Editorial photography style with rich textures of deep green and brown." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgHFUM-pXTV3Pb4zDeQ_FQaTsrelJ7VgEoDNndy6qPMLOFcqZpLMaPlpqDc3LyykGFaXzb7yI7owgJvVETBHs5T1jxBrxQNNMjYCnjDLj8TOswNC8EO3iAr7GamLw7ayL1GpP66PEDHp-Fa6tCu23Cieq9fpNDlwcSUt0Mr9i_Ul7_9u86oeMDzUx-t1QnrLW8qVPQrsBw0WTEqpN9wiRMLmXkm0tZVhEpq_-zLbeMWZrj5kcETa3IFW-abvb4qdpgM-BmoWPowqeC"/>
+</div>
+<div class="aspect-square bg-surface-variant rounded-lg overflow-hidden soft-shadow">
+<img class="w-full h-full object-cover" data-alt="A soft-focus image of a sunlit forest clearing through a high library window. Sheer curtains blow gently, revealing tall pines. The overall mood is peaceful and grounded, following the Vert et Boisé aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKSoAnpymgERKKcH9qiS4Zez7kTovfeozFuDgU555vh7q0T-STdDD3tt_nmqwtFGRuC-jM8rLpC5hvKjY-hZzVKr52FKGjd8KFwiBUcGX8JuBXLtJ4W91lySO537vY7Qr0gTnv5vxmc_tbg3ynjwhhtk97YYd-xlJ4glMTgLYd4L1Y6Oa72HDFXR6WdVVEwTyLS7cggdutAZqBnq8IQN06E1iAA55yF3nq3Krc7se3BtPlTPrQ7QZLhovlXdTFgmqOsTIgF9c3Rx47"/>
+</div>
+<div class="col-span-2 aspect-video bg-outline-variant rounded-lg overflow-hidden soft-shadow">
+<img class="w-full h-full object-cover" data-alt="A wide-angle, cinematic shot of a secluded forest cabin library. Dark wood walls are lined with books, and a large window looks out onto a misty pine forest. A warm, green-tinted glow emanates from a small reading lamp. Majestic yet intimate." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZG8TwhZhJ8bGMwyYN1Ma034kOspf8LK_VERnp3dAS0qtTiIcwoQR2sSFaVRcabCHDJNTVmACc2oz_uOkyaEKB6LuN6lKSwJQr_cpBOZBdNgY3z3lnv8mhFxKpGORK88SpDsvN6RnrqvhBTX414XC1T_CwHk_t_TtoerbAH4wRaRAMdvS3UmNVO-zj7ihJgFiGx7N9lQb486KYib6atTHt-HAe2h5kexK5UeofzFX3rpGGgtgIR2dsV6LXCR0uOxtW7eqbKC1UEYtc"/>
+</div>
+<div class="aspect-square rounded-lg flex flex-col gap-xs">
+<div class="flex-grow bg-[#1b3022] rounded-md shadow-inner"></div> <!-- Primary Green -->
+<div class="flex-grow bg-[#4a3728] rounded-md shadow-inner"></div> <!-- Secondary Brown -->
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Interactive Stats -->
+<div class="p-lg bg-surface-container-low rounded-xl border border-outline-variant/20 flex flex-wrap gap-xl justify-around items-center">
+<div class="text-center">
+<div class="font-display-lg text-display-lg text-primary">642</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant opacity-60 uppercase">Pages lues</div>
+</div>
+<div class="text-center">
+<div class="font-display-lg text-display-lg text-primary">12</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant opacity-60 uppercase">Notes</div>
+</div>
+<div class="text-center">
+<div class="font-display-lg text-display-lg text-primary">74%</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant opacity-60 uppercase">Progression</div>
+</div>
+<div class="flex-grow max-w-xs">
+<div class="h-1 w-full bg-outline-variant/30 rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 74%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Mobile BottomNavBar -->
+<footer class="md:hidden fixed bottom-0 left-0 w-full bg-surface/80 backdrop-blur-md flex justify-around items-center py-base px-md z-50 border-t border-outline-variant/10">
+<a class="flex flex-col items-center gap-xs text-on-surface-variant opacity-70" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="text-[10px] font-label-sm">Biblio</span>
+</a>
+<a class="flex flex-col items-center gap-xs text-on-surface-variant opacity-70" href="#">
+<span class="material-symbols-outlined">hourglass_empty</span>
+<span class="text-[10px] font-label-sm">PAL</span>
+</a>
+<a class="flex flex-col items-center gap-xs text-primary font-bold" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">edit_note</span>
+<span class="text-[10px] font-label-sm">Atelier</span>
+</a>
+<a class="flex flex-col items-center gap-xs text-on-surface-variant opacity-70" href="#">
+<span class="material-symbols-outlined">auto_awesome</span>
+<span class="text-[10px] font-label-sm">Moods</span>
+</a>
+<a class="flex flex-col items-center gap-xs text-on-surface-variant opacity-70" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-label-sm">Profil</span>
+</a>
+</footer>
+<script>
+        // Micro-interactions
+        document.querySelectorAll('.group').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                // Potential for haptic-like visual feedback or sound
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,16 @@
+/* ============================================================
+   MoodShelf — Webfonts
+   Loaded from Google Fonts CDN. See readme.md → VISUAL FOUNDATIONS.
+   Substitution note: these are curated Google Fonts (no proprietary
+   brand fonts were provided). Swap freely if licensed faces arrive.
+   ------------------------------------------------------------
+   Cormorant Garamond — romantic high-contrast display serif (titles)
+   Spectral           — literary readable serif (quotes, editorial body)
+   Hanken Grotesk     — warm humanist sans (all UI text)
+   Caveat             — handwriting, for margin notes & emotion tags
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap');
