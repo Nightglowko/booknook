@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Book Nook | Refuge des lecteurs</title>
+  <title>Book Nook | Bibliothèque</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -652,6 +652,29 @@
       user-select: none;
     }
 
+    .book-spine.front {
+      writing-mode: horizontal-tb;
+      text-orientation: initial;
+      width: 100%;
+      min-height: 190px;
+      padding: 18px 14px 16px;
+      justify-content: end;
+      align-items: center;
+      gap: 10px;
+      text-align: center;
+    }
+
+    .book-spine.front .spine-title {
+      font-size: 1.36rem;
+      line-height: 0.98;
+    }
+
+    .book-spine.front .spine-author {
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      line-height: 1.35;
+    }
+
     .book-spine:hover,
     .book-spine:focus-visible {
       transform: translateY(-2px);
@@ -766,6 +789,11 @@
     .slot .book-spine {
       width: 58px;
       min-height: 160px;
+    }
+
+    .slot .book-spine.front {
+      width: 100%;
+      min-height: 190px;
     }
 
     .detail-panel {
@@ -1264,69 +1292,6 @@
       </nav>
     </header>
 
-    <section class="hero">
-      <article class="hero-copy">
-        <div class="eyebrow">Refuge des lecteurs</div>
-        <h1>Une maison pour <em>les lectures</em> qui comptent.</h1>
-        <p>
-          Book Nook rassemble tout ce qu’un lecteur veut garder près de lui:
-          une bibliothèque pour retrouver les livres déjà lus, une PAL pour
-          les envies à venir, des fiches &amp; moodboards pour les notes, une
-          communauté pour les coups de coeur, et un profil qui raconte votre
-          manière de lire.
-        </p>
-        <div class="hero-actions">
-          <button class="btn btn-primary" type="button">Ajouter un livre</button>
-          <button class="btn btn-secondary" type="button">Créer une fiche moodboard</button>
-        </div>
-        <div class="hero-stats">
-          <div class="stat"><strong>124</strong><span>Livres rangés</span></div>
-          <div class="stat"><strong>18</strong><span>Lectures en attente</span></div>
-          <div class="stat"><strong>36</strong><span>Notes et moodboards</span></div>
-        </div>
-      </article>
-
-      <aside class="hero-visual">
-        <div class="shelf-note">
-          <div>
-            <div class="eyebrow" style="background: rgba(255,255,255,0.88); color: var(--text-soft);">Toujours à portée</div>
-            <strong>Les livres font la maison.</strong>
-            <p>Une bibliothèque intime, des piles vivantes, des traces de lecture, et une communauté qui parle la même langue.</p>
-          </div>
-          <div class="shelf-count">47</div>
-        </div>
-
-        <div class="shelf-scene" aria-hidden="true">
-          <div class="shelf-row">
-            <div class="books">
-              <div class="book gold"><div class="label"><strong>Woolf</strong><span>Rangé</span></div></div>
-              <div class="book green tall"><div class="label"><strong>Le Guin</strong><span>PAL</span></div></div>
-              <div class="book plum wide"><div class="label"><strong>Murakami</strong><span>Annoté</span></div></div>
-              <div class="book dark"><div class="label"><strong>Morrison</strong><span>Relu</span></div></div>
-              <div class="book rose"><div class="label"><strong>Clarke</strong><span>Citation</span></div></div>
-            </div>
-          </div>
-          <div class="shelf-row">
-            <div class="books">
-              <div class="book sand tall"><div class="label"><strong>Hugo</strong><span>Classique</span></div></div>
-              <div class="book gold"><div class="label"><strong>Borges</strong><span>Bel objet</span></div></div>
-              <div class="book green"><div class="label"><strong>Zauner</strong><span>Souvenir</span></div></div>
-              <div class="book rose wide"><div class="label"><strong>Awad</strong><span>Étrange</span></div></div>
-            </div>
-          </div>
-          <div class="shelf-row">
-            <div class="books">
-              <div class="book plum"><div class="label"><strong>Salt</strong><span>En attente</span></div></div>
-              <div class="book blue"><div class="label"><strong>Gothic</strong><span>Moodboard</span></div></div>
-              <div class="book dark tall"><div class="label"><strong>Piranesi</strong><span>Regard</span></div></div>
-              <div class="book gold"><div class="label"><strong>Circé</strong><span>Palette</span></div></div>
-              <div class="book sand"><div class="label"><strong>Longing</strong><span>Lecture</span></div></div>
-            </div>
-          </div>
-        </div>
-      </aside>
-    </section>
-
     <div class="tabbar" aria-label="Sections Book Nook">
       <nav>
         <button data-tab="library" aria-selected="true" type="button">Bibliothèque</button>
@@ -1338,15 +1303,55 @@
     </div>
 
     <section class="panel" id="panel-library" role="tabpanel" aria-labelledby="tab-library">
-      <div class="section-head">
-        <div>
-          <div class="eyebrow" style="background: rgba(255,255,255,0.84); color: var(--text-soft);">Bibliothèque</div>
-          <h2>Les livres lus, rangés comme vous voulez.</h2>
-        </div>
-        <p>
-          Retrouvez tous les livres déjà lus, ajoutez-en de nouveaux en quelques secondes,
-          et organisez-les avec tags, catégories, couleurs, auteurs ou humeurs.
-        </p>
+      <div class="hero library-intro">
+        <article class="hero-copy">
+          <div class="eyebrow">Toujours à portée</div>
+          <h1>Les livres font la maison.</h1>
+          <p>
+            Une bibliothèque intime, des piles vivantes, des traces de lecture, et une
+            communauté qui parle la même langue.
+          </p>
+        </article>
+
+        <aside class="hero-visual">
+          <div class="shelf-note">
+            <div>
+              <div class="eyebrow" style="background: rgba(255,255,255,0.88); color: var(--text-soft);">Toujours à portée</div>
+              <strong>Les livres font la maison.</strong>
+              <p>Une bibliothèque intime, des piles vivantes, des traces de lecture, et une communauté qui parle la même langue.</p>
+            </div>
+            <div class="shelf-count">47</div>
+          </div>
+
+          <div class="shelf-scene" aria-hidden="true">
+            <div class="shelf-row">
+              <div class="books">
+                <div class="book gold"><div class="label"><strong>Woolf</strong><span>Rangé</span></div></div>
+                <div class="book green tall"><div class="label"><strong>Le Guin</strong><span>PAL</span></div></div>
+                <div class="book plum wide"><div class="label"><strong>Murakami</strong><span>Annoté</span></div></div>
+                <div class="book dark"><div class="label"><strong>Morrison</strong><span>Relu</span></div></div>
+                <div class="book rose"><div class="label"><strong>Clarke</strong><span>Citation</span></div></div>
+              </div>
+            </div>
+            <div class="shelf-row">
+              <div class="books">
+                <div class="book sand tall"><div class="label"><strong>Hugo</strong><span>Classique</span></div></div>
+                <div class="book gold"><div class="label"><strong>Borges</strong><span>Bel objet</span></div></div>
+                <div class="book green"><div class="label"><strong>Zauner</strong><span>Souvenir</span></div></div>
+                <div class="book rose wide"><div class="label"><strong>Awad</strong><span>Étrange</span></div></div>
+              </div>
+            </div>
+            <div class="shelf-row">
+              <div class="books">
+                <div class="book plum"><div class="label"><strong>Salt</strong><span>En attente</span></div></div>
+                <div class="book blue"><div class="label"><strong>Gothic</strong><span>Moodboard</span></div></div>
+                <div class="book dark tall"><div class="label"><strong>Piranesi</strong><span>Regard</span></div></div>
+                <div class="book gold"><div class="label"><strong>Circé</strong><span>Palette</span></div></div>
+                <div class="book sand"><div class="label"><strong>Longing</strong><span>Lecture</span></div></div>
+              </div>
+            </div>
+          </div>
+        </aside>
       </div>
 
       <div class="workspace-grid">
@@ -1371,33 +1376,33 @@
 
         <section class="panel-card pad">
           <div class="panel-head">Étagères centrales</div>
-          <div class="panel-sub">Trois rangées, des cases libres, et des livres que vous organisez comme vous voulez.</div>
+          <div class="panel-sub">Trois rangées, des cases libres, et des livres en vue de face comme sur une étagère ouverte.</div>
           <div class="shelves-board">
             <div class="shelf-line">
               <div class="shelf-label"><strong>Rangée du matin</strong><span>pages lumineuses et calmes</span></div>
               <div class="slot-row">
-                <div class="slot"><button class="book-spine gold selected" data-book="secret-history" type="button"><span class="spine-title">The Secret History</span><span class="spine-author">Donna Tartt</span></button></div>
-                <div class="slot"><button class="book-spine green" data-book="piranesi" type="button"><span class="spine-title">Piranesi</span><span class="spine-author">Susanna Clarke</span></button></div>
+                <div class="slot"><button class="book-spine front gold selected" data-book="secret-history" type="button"><span class="spine-title">The Secret History</span><span class="spine-author">Donna Tartt</span></button></div>
+                <div class="slot"><button class="book-spine front green" data-book="piranesi" type="button"><span class="spine-title">Piranesi</span><span class="spine-author">Susanna Clarke</span></button></div>
                 <div class="slot empty"><div class="slot-empty"><strong>Ajouter</strong><span>une nouvelle lecture</span></div></div>
-                <div class="slot"><button class="book-spine plum" data-book="circe" type="button"><span class="spine-title">Circé</span><span class="spine-author">Madeline Miller</span></button></div>
+                <div class="slot"><button class="book-spine front plum" data-book="circe" type="button"><span class="spine-title">Circé</span><span class="spine-author">Madeline Miller</span></button></div>
               </div>
             </div>
             <div class="shelf-line">
               <div class="shelf-label"><strong>Rangée du calme</strong><span>humeurs lentes et confortables</span></div>
               <div class="slot-row">
-                <div class="slot"><button class="book-spine dark" data-book="beloved" type="button"><span class="spine-title">Beloved</span><span class="spine-author">Toni Morrison</span></button></div>
-                <div class="slot"><button class="book-spine rose" data-book="mohawk" type="button"><span class="spine-title">Crying in H Mart</span><span class="spine-author">Michelle Zauner</span></button></div>
+                <div class="slot"><button class="book-spine front dark" data-book="beloved" type="button"><span class="spine-title">Beloved</span><span class="spine-author">Toni Morrison</span></button></div>
+                <div class="slot"><button class="book-spine front rose" data-book="mohawk" type="button"><span class="spine-title">Crying in H Mart</span><span class="spine-author">Michelle Zauner</span></button></div>
                 <div class="slot empty"><div class="slot-empty"><strong>Case libre</strong><span>pour un ajout rapide</span></div></div>
-                <div class="slot"><button class="book-spine sand" data-book="norwegian" type="button"><span class="spine-title">Norwegian Wood</span><span class="spine-author">Haruki Murakami</span></button></div>
+                <div class="slot"><button class="book-spine front sand" data-book="norwegian" type="button"><span class="spine-title">Norwegian Wood</span><span class="spine-author">Haruki Murakami</span></button></div>
               </div>
             </div>
             <div class="shelf-line">
               <div class="shelf-label"><strong>Rangée des nuits</strong><span>livres étranges et plus intimes</span></div>
               <div class="slot-row">
-                <div class="slot"><button class="book-spine blue" data-book="gothic" type="button"><span class="spine-title">Mexican Gothic</span><span class="spine-author">Silvia Moreno-Garcia</span></button></div>
+                <div class="slot"><button class="book-spine front blue" data-book="gothic" type="button"><span class="spine-title">Mexican Gothic</span><span class="spine-author">Silvia Moreno-Garcia</span></button></div>
                 <div class="slot empty"><div class="slot-empty"><strong>Libre</strong><span>pour une future lecture</span></div></div>
-                <div class="slot"><button class="book-spine plum" data-book="left-hand" type="button"><span class="spine-title">The Left Hand of Darkness</span><span class="spine-author">Ursula K. Le Guin</span></button></div>
-                <div class="slot"><button class="book-spine gold" data-book="secret-salt" type="button"><span class="spine-title">The Price of Salt</span><span class="spine-author">Patricia Highsmith</span></button></div>
+                <div class="slot"><button class="book-spine front plum" data-book="left-hand" type="button"><span class="spine-title">The Left Hand of Darkness</span><span class="spine-author">Ursula K. Le Guin</span></button></div>
+                <div class="slot"><button class="book-spine front gold" data-book="secret-salt" type="button"><span class="spine-title">The Price of Salt</span><span class="spine-author">Patricia Highsmith</span></button></div>
               </div>
             </div>
           </div>
@@ -1765,7 +1770,7 @@
     };
 
     const libraryDetail = document.getElementById('libraryDetail');
-    const bookButtons = Array.from(document.querySelectorAll('.book-spine[data-book]'));
+    const bookButtons = Array.from(document.querySelectorAll('.book-spine[data-book], .book-cover[data-book]'));
 
     function setDetail(bookId) {
       const book = bookData[bookId];
