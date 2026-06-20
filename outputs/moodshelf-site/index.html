@@ -90,87 +90,6 @@
       z-index: 1;
     }
 
-    .topbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      padding: 12px 20px;
-      margin-bottom: 18px;
-      border-radius: 28px;
-      background: linear-gradient(135deg, rgba(13,26,18,0.98), rgba(27,48,34,0.98));
-      color: var(--text-on-dark);
-      box-shadow: var(--shadow-md);
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      min-width: max-content;
-    }
-
-    .mark {
-      width: 34px;
-      height: 34px;
-      flex: none;
-    }
-
-    .mark path,
-    .mark circle {
-      stroke: var(--text-on-dark);
-    }
-
-    .mark path[fill] {
-      fill: var(--gold-500);
-    }
-
-    .wordmark {
-      font-family: var(--font-display);
-      font-size: 28px;
-      line-height: 1;
-      font-weight: 600;
-      letter-spacing: -0.03em;
-      color: var(--text-on-dark);
-    }
-
-    .wordmark em {
-      font-style: italic;
-      color: var(--gold-300);
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    .nav button {
-      border: 0;
-      padding: 10px 14px;
-      border-radius: var(--radius-pill);
-      color: var(--text-on-dark-muted);
-      font-weight: 700;
-      background: transparent;
-      cursor: pointer;
-      transition: background 160ms ease, color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
-    }
-
-    .nav button:hover {
-      color: var(--text-on-dark);
-      background: rgba(255,255,255,0.10);
-      transform: translateY(-1px);
-    }
-
-    .nav button[aria-selected="true"] {
-      color: #fdfae7;
-      background: linear-gradient(135deg, rgba(62,87,66,1), rgba(27,48,34,1));
-      box-shadow: 0 14px 24px rgba(13, 26, 18, 0.24);
-    }
-
     .hero {
       display: grid;
       grid-template-columns: 1.05fr 0.95fr;
@@ -1251,8 +1170,6 @@
 
     @media (max-width: 760px) {
       .page { width: min(100%, calc(100% - 18px)); }
-      .topbar { flex-direction: column; align-items: flex-start; }
-      .nav { justify-content: flex-start; }
       .hero-copy, .hero-visual { border-radius: 26px; }
       .hero-copy { padding: 22px; }
       .hero h1 { font-size: clamp(2.9rem, 14vw, 4rem); }
@@ -1273,25 +1190,6 @@
 </head>
 <body>
   <main class="page">
-    <header class="topbar">
-      <a class="brand" href="#" aria-label="Book Nook accueil">
-        <svg class="mark" viewBox="0 0 64 64" fill="none" aria-hidden="true">
-          <path d="M32 22.5C26 18.8 19.5 18.4 11.8 20.4C10.7 20.7 10 21.7 10 22.8V43.3C10 44.8 11.4 45.9 12.8 45.6C19.4 44.1 25.7 44.6 32 47.8" stroke="#1F1914" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M32 22.5C38 18.8 44.5 18.4 52.2 20.4C53.3 20.7 54 21.7 54 22.8V43.3C54 44.8 52.6 45.9 51.2 45.6C44.6 44.1 38.3 44.6 32 47.8" stroke="#1F1914" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M32 23.5V47" stroke="#1F1914" stroke-width="2.6" stroke-linecap="round"/>
-          <path d="M32 6C32 6 27.5 10.2 27.5 13.4C27.5 15.9 29.5 17.6 32 17.6C34.5 17.6 36.5 15.9 36.5 13.4C36.5 10.2 32 6 32 6Z" fill="#D1A14F"/>
-        </svg>
-        <div class="wordmark">Book<em>Nook</em></div>
-      </a>
-      <nav class="nav" aria-label="Navigation principale">
-        <button data-tab="library" aria-selected="true" type="button">Bibliothèque</button>
-        <button data-tab="pal" aria-selected="false" type="button">Pile à lire (PAL)</button>
-        <button data-tab="moodboards" aria-selected="false" type="button">Fiches &amp; Moodboards</button>
-        <button data-tab="community" aria-selected="false" type="button">Communauté</button>
-        <button data-tab="profile" aria-selected="false" type="button">Profil</button>
-      </nav>
-    </header>
-
     <div class="tabbar" aria-label="Sections Book Nook">
       <nav>
         <button data-tab="library" aria-selected="true" type="button">Bibliothèque</button>
