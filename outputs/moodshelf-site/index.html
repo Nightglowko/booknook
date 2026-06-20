@@ -1,434 +1,1443 @@
-<!DOCTYPE html>
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Book Nook | Refuge des lecteurs</title>
+  <style>
+    :root {
+      --bg: #f6efe4;
+      --bg-deep: #ece1d2;
+      --surface: rgba(255, 250, 244, 0.9);
+      --surface-strong: #fffaf4;
+      --panel: #f5eadb;
+      --panel-2: #efe0cc;
+      --ink: #261a13;
+      --muted: #6f5a49;
+      --muted-2: #8f7a68;
+      --line: rgba(72, 51, 38, 0.14);
+      --line-strong: rgba(72, 51, 38, 0.22);
+      --accent: #b07b43;
+      --accent-deep: #7c5230;
+      --accent-soft: #d9b07d;
+      --good: #6f8f61;
+      --rose: #b36d6d;
+      --shadow: 0 24px 70px rgba(61, 38, 24, 0.12);
+      --shadow-soft: 0 12px 30px rgba(61, 38, 24, 0.08);
+      --radius-xl: 30px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --radius-sm: 12px;
+      --max: 1360px;
+      --tab-gap: 10px;
+      --ease: 180ms ease;
+    }
 
-<html class="light" lang="fr"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Book Nook | Your Digital Sanctuary</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Montserrat:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<!-- Tailwind Configuration -->
-<script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            "colors": {
-                    "outline-variant": "#d2c4bb",
-                    "surface-container-lowest": "#ffffff",
-                    "on-primary-container": "#bba08c",
-                    "on-tertiary-fixed-variant": "#444937",
-                    "on-error": "#ffffff",
-                    "on-surface": "#1d1c0d",
-                    "on-tertiary-fixed": "#191d0e",
-                    "surface-container-high": "#ede9cf",
-                    "primary-container": "#4a3728",
-                    "primary-fixed": "#fbddc7",
-                    "on-secondary-fixed-variant": "#623f18",
-                    "on-primary-fixed-variant": "#574333",
-                    "secondary-fixed-dim": "#f0bd8b",
-                    "background": "#fefae0",
-                    "inverse-surface": "#323120",
-                    "tertiary-container": "#383d2c",
-                    "surface": "#fefae0",
-                    "tertiary-fixed": "#e0e5cc",
-                    "on-error-container": "#93000a",
-                    "primary": "#322214",
-                    "on-background": "#1d1c0d",
-                    "surface-container-low": "#f8f4db",
-                    "on-surface-variant": "#4e453e",
-                    "secondary-container": "#ffca98",
-                    "inverse-primary": "#dec1ac",
-                    "primary-fixed-dim": "#dec1ac",
-                    "tertiary": "#232717",
-                    "on-tertiary-container": "#a3a891",
-                    "secondary-fixed": "#ffdcbd",
-                    "surface-dim": "#dedbc2",
-                    "outline": "#80756d",
-                    "error-container": "#ffdad6",
-                    "surface-container-highest": "#e7e3ca",
-                    "surface-container": "#f2efd5",
-                    "surface-bright": "#fefae0",
-                    "surface-variant": "#e7e3ca",
-                    "secondary": "#7d562d",
-                    "surface-tint": "#705a49",
-                    "on-secondary": "#ffffff",
-                    "on-tertiary": "#ffffff",
-                    "on-secondary-fixed": "#2c1600",
-                    "tertiary-fixed-dim": "#c4c9b1",
-                    "on-primary": "#ffffff",
-                    "inverse-on-surface": "#f5f1d8",
-                    "error": "#ba1a1a",
-                    "on-primary-fixed": "#28180b",
-                    "on-secondary-container": "#7a532a"
-            },
-            "borderRadius": {
-                    "DEFAULT": "0.125rem",
-                    "lg": "0.25rem",
-                    "xl": "0.5rem",
-                    "full": "0.75rem"
-            },
-            "spacing": {
-                    "sm": "12px",
-                    "gutter": "20px",
-                    "margin-mobile": "24px",
-                    "xs": "4px",
-                    "margin-desktop": "64px",
-                    "base": "8px",
-                    "md": "24px",
-                    "lg": "48px",
-                    "xl": "80px"
-            },
-            "fontFamily": {
-                    "body-md": ["Montserrat"],
-                    "headline-lg": ["Playfair Display"],
-                    "label-md": ["Montserrat"],
-                    "headline-md": ["Playfair Display"],
-                    "display-lg": ["Playfair Display"],
-                    "body-lg": ["Montserrat"],
-                    "headline-lg-mobile": ["Playfair Display"],
-                    "label-sm": ["Montserrat"]
-            },
-            "fontSize": {
-                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
-                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
-                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
-                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
-                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                    "body-lg": ["18px", {"lineHeight": "28px", "letterSpacing": "0.01em", "fontWeight": "400"}],
-                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
-                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}]
-            }
-          },
-        },
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(176, 123, 67, 0.14), transparent 28%),
+        radial-gradient(circle at 80% 10%, rgba(111, 143, 97, 0.12), transparent 22%),
+        linear-gradient(180deg, #f9f4ec 0%, #f2e6d6 100%);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.32), transparent 24%),
+        radial-gradient(circle at 80% 0%, rgba(255,255,255,0.16), transparent 18%),
+        linear-gradient(transparent, rgba(255,255,255,0.08));
+      mix-blend-mode: screen;
+      opacity: 0.45;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea { font: inherit; }
+
+    .shell {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+      padding: 20px 0 40px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .frame {
+      border: 1px solid var(--line);
+      border-radius: calc(var(--radius-xl) + 2px);
+      background: rgba(255, 250, 244, 0.7);
+      backdrop-filter: blur(18px);
+      box-shadow: var(--shadow);
+      overflow: clip;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--line);
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.65), rgba(255,255,255,0.22)),
+        linear-gradient(135deg, #faf4eb, #efe0cc);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .logo {
+      width: 50px;
+      height: 50px;
+      border-radius: 18px;
+      background:
+        radial-gradient(circle at 35% 30%, #f8e7b3 0 12%, transparent 13%),
+        linear-gradient(145deg, #3b291d, #7c5230);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.24);
+      position: relative;
+      flex: 0 0 auto;
+    }
+
+    .logo::before,
+    .logo::after {
+      content: "";
+      position: absolute;
+      inset: 11px 12px 10px;
+      border: 1.5px solid rgba(255,255,255,0.56);
+      border-radius: 11px;
+    }
+
+    .logo::after {
+      inset: 8px 17px 8px 17px;
+      border-top-width: 2px;
+      border-bottom-width: 2px;
+      opacity: 0.65;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-size: 1.25rem;
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+
+    .brand p {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.4;
+    }
+
+    .topbar-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .pill {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.7);
+      color: var(--muted);
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 0.84rem;
+      white-space: nowrap;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 18px;
+      padding: 24px;
+      border-bottom: 1px solid var(--line);
+      background:
+        radial-gradient(circle at 90% 10%, rgba(176,123,67,0.15), transparent 20%),
+        linear-gradient(180deg, rgba(255,255,255,0.28), transparent 40%);
+    }
+
+    .hero-card,
+    .stats-card {
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--line);
+      background: var(--surface);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero-card {
+      padding: 30px;
+      min-height: 320px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      right: -130px;
+      top: -110px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(176,123,67,0.18), transparent 70%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.76rem;
+      color: var(--accent-deep);
+      font-weight: 700;
+    }
+
+    .hero h2 {
+      margin: 0;
+      max-width: 11ch;
+      font-size: clamp(2.4rem, 5vw, 4.8rem);
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .hero h2 em {
+      font-style: normal;
+      color: var(--accent);
+    }
+
+    .hero-copy {
+      margin: 18px 0 0;
+      max-width: 64ch;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.75;
+    }
+
+    .hero-actions {
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      border: 0;
+      border-radius: 999px;
+      padding: 13px 18px;
+      font-weight: 700;
+      font-size: 0.92rem;
+      cursor: pointer;
+      transition: transform var(--ease), filter var(--ease), background var(--ease), color var(--ease);
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+    .btn:active { transform: translateY(0) scale(0.98); }
+
+    .btn.primary {
+      color: #fffaf4;
+      background: linear-gradient(180deg, var(--accent), var(--accent-deep));
+      box-shadow: 0 12px 24px rgba(124, 82, 48, 0.18);
+    }
+
+    .btn.secondary {
+      color: var(--ink);
+      border: 1px solid var(--line-strong);
+      background: rgba(255,255,255,0.75);
+    }
+
+    .stats-card {
+      padding: 18px;
+      display: grid;
+      gap: 12px;
+      align-content: start;
+    }
+
+    .metric {
+      padding: 18px;
+      border-radius: 20px;
+      background: linear-gradient(180deg, #fffdf8, #f5eadb);
+      border: 1px solid var(--line);
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 2rem;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .metric span {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
+    .tabrail {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(250, 245, 238, 0.92);
+      backdrop-filter: blur(14px);
+    }
+
+    .tabs {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: var(--tab-gap);
+    }
+
+    .tab {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 13px 14px;
+      background: rgba(255,255,255,0.72);
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 0.92rem;
+      cursor: pointer;
+      transition: all var(--ease);
+      min-width: 0;
+    }
+
+    .tab:hover {
+      border-color: rgba(124, 82, 48, 0.24);
+      color: var(--ink);
+      transform: translateY(-1px);
+    }
+
+    .tab[aria-selected="true"] {
+      background: linear-gradient(180deg, #3f2a1f, #7c5230);
+      color: #fffaf4;
+      border-color: transparent;
+      box-shadow: 0 14px 28px rgba(61, 38, 24, 0.2);
+    }
+
+    main {
+      padding: 20px 24px 28px;
+    }
+
+    .panel {
+      display: grid;
+      gap: 18px;
+    }
+
+    .panel[hidden] { display: none; }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .section-head h3 {
+      margin: 0;
+      font-size: 1.9rem;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .section-head p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      max-width: 68ch;
+      line-height: 1.65;
+    }
+
+    .section-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .ghost {
+      border: 1px solid var(--line-strong);
+      background: rgba(255,255,255,0.74);
+      color: var(--ink);
+      padding: 11px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+
+    .grid-12 {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      background: var(--surface);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
+
+    .card-inner {
+      padding: 20px;
+    }
+
+    .library-hero { grid-column: span 12; }
+    .library-shelves { grid-column: span 8; }
+    .library-side { grid-column: span 4; }
+    .pal-main { grid-column: span 7; }
+    .pal-side { grid-column: span 5; }
+    .mood-main { grid-column: span 7; }
+    .mood-side { grid-column: span 5; }
+    .community-main { grid-column: span 7; }
+    .community-side { grid-column: span 5; }
+    .profile-main { grid-column: span 7; }
+    .profile-side { grid-column: span 5; }
+
+    .subgrid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .shelf {
+      padding: 18px;
+      border-radius: 20px;
+      background: linear-gradient(180deg, #fbf7f0, #f0e1cf);
+      border: 1px solid var(--line);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.5);
+    }
+
+    .shelf + .shelf { margin-top: 14px; }
+
+    .shelf-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .shelf-top h4 {
+      margin: 0;
+      font-size: 1.08rem;
+      line-height: 1.2;
+    }
+
+    .shelf-top small {
+      color: var(--muted);
+    }
+
+    .books-row {
+      display: flex;
+      align-items: end;
+      gap: 8px;
+      min-height: 168px;
+      overflow: hidden;
+    }
+
+    .book {
+      min-width: 34px;
+      width: var(--w, 44px);
+      height: var(--h, 140px);
+      border-radius: 12px 12px 10px 10px;
+      background: var(--c, #b07b43);
+      box-shadow:
+        inset 1px 0 0 rgba(255,255,255,0.25),
+        4px 0 8px rgba(61, 38, 24, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 4px;
+      color: #fffaf4;
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .book.add {
+      writing-mode: horizontal-tb;
+      color: var(--muted);
+      background: transparent;
+      border: 2px dashed rgba(72, 51, 38, 0.18);
+      box-shadow: none;
+      font-size: 0.92rem;
+      text-transform: none;
+      align-items: center;
+      justify-content: center;
+      min-width: 120px;
+      width: 120px;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .book.add::before {
+      content: "+";
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      font-size: 1.2rem;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .shelf-base {
+      margin-top: 12px;
+      height: 16px;
+      border-radius: 0 0 14px 14px;
+      background: linear-gradient(180deg, #7d562d, #573622);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+
+    .tag-cloud,
+    .chip-cloud,
+    .palette,
+    .feed,
+    .stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tag,
+    .chip,
+    .badge {
+      border-radius: 999px;
+      padding: 9px 12px;
+      font-size: 0.83rem;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.76);
+      color: var(--muted);
+    }
+
+    .tag strong,
+    .badge strong { color: var(--ink); }
+
+    .field {
+      display: grid;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .field label {
+      font-size: 0.86rem;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .field input,
+    .field textarea,
+    .field select {
+      width: 100%;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.82);
+      padding: 14px 15px;
+      color: var(--ink);
+      outline: none;
+    }
+
+    .field textarea { min-height: 114px; resize: vertical; }
+
+    .note-card,
+    .feed-card,
+    .mood-card,
+    .profile-card,
+    .list-card {
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(245,234,219,0.72));
+      padding: 16px;
+    }
+
+    .note-card + .note-card,
+    .feed-card + .feed-card,
+    .list-card + .list-card { margin-top: 12px; }
+
+    .quote {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.05rem;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .meta {
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    .swatches {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .swatch {
+      border-radius: 18px;
+      min-height: 82px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: #fffaf4;
+      font-weight: 700;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .swatch small { font-weight: 600; opacity: 0.86; }
+
+    .feed-card {
+      display: grid;
+      gap: 12px;
+    }
+
+    .avatar {
+      width: 46px;
+      height: 46px;
+      border-radius: 16px;
+      background: linear-gradient(145deg, var(--accent-soft), var(--accent-deep));
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.22);
+      flex: 0 0 auto;
+    }
+
+    .feed-head {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .feed-head strong,
+    .profile-card h4,
+    .list-card h4 {
+      display: block;
+      margin: 0 0 4px;
+      font-size: 1rem;
+    }
+
+    .feed-head p,
+    .profile-card p,
+    .list-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .post-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .post {
+      padding: 12px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.72);
+    }
+
+    .post b { display: block; margin-bottom: 4px; }
+    .post small { color: var(--muted); line-height: 1.45; }
+
+    .timeline {
+      display: grid;
+      gap: 12px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: center;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.78);
+      border: 1px solid var(--line);
+    }
+
+    .timeline-item strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .timeline-item small {
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .rating {
+      color: #8f5e32;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+    }
+
+    .profile-summary {
+      display: grid;
+      gap: 14px;
+    }
+
+    .profile-head {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .profile-portrait {
+      width: 74px;
+      height: 74px;
+      border-radius: 24px;
+      background:
+        radial-gradient(circle at 35% 32%, rgba(255,255,255,0.22), transparent 18%),
+        linear-gradient(145deg, #4b382c, #8f5e32);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.16);
+    }
+
+    .settings-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .setting {
+      padding: 14px 16px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.76);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .toggle {
+      width: 46px;
+      height: 28px;
+      border-radius: 999px;
+      background: rgba(176,123,67,0.24);
+      position: relative;
+      flex: 0 0 auto;
+    }
+
+    .toggle::after {
+      content: "";
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #fffaf4;
+      position: absolute;
+      top: 3px;
+      right: 3px;
+      box-shadow: 0 2px 8px rgba(61, 38, 24, 0.16);
+    }
+
+    .footer {
+      padding: 12px 24px 26px;
+      color: var(--muted-2);
+      font-size: 0.84rem;
+    }
+
+    @media (max-width: 1140px) {
+      .hero,
+      .grid-12,
+      .subgrid,
+      .post-grid {
+        grid-template-columns: 1fr;
       }
-    </script>
-<style>
-        body {
-            background-color: #fefae0;
-            color: #322214;
-            scroll-behavior: smooth;
-        }
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
-        }
-        .shelf-depth {
-            box-shadow: inset 0 20px 40px -20px rgba(50, 34, 20, 0.1), inset 0 -2px 4px rgba(255, 255, 255, 0.5);
-            background: linear-gradient(180deg, rgba(50, 34, 20, 0.05) 0%, rgba(50, 34, 20, 0) 10%);
-        }
-        .book-shadow {
-            box-shadow: 4px 0 8px -2px rgba(50, 34, 20, 0.2), 1px 0 2px rgba(50, 34, 20, 0.1);
-        }
-        .vellum-effect {
-            backdrop-filter: blur(8px);
-            background-color: rgba(254, 250, 224, 0.85);
-        }
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: #d2c4bb; border-radius: 10px; }
-    </style>
-</head>
-<body class="font-body-md text-on-surface">
-<!-- Top Navigation Bar -->
-<nav class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-margin-desktop py-3 max-w-full backdrop-blur-md border-b border-white/10 text-[#F5EEDD] shadow-sm" style="background: linear-gradient(135deg, #243B2E 0%, #2B4536 100%);">
-<div class="flex items-center gap-3">
-<svg aria-hidden="true" class="h-7 w-7 shrink-0" viewBox="0 0 24 24" fill="none">
-<path d="M5.5 5.8C5.5 5.08 6.08 4.5 6.8 4.5H18.2C18.92 4.5 19.5 5.08 19.5 5.8V18.2C19.5 18.92 18.92 19.5 18.2 19.5H6.8C6.08 19.5 5.5 18.92 5.5 18.2V5.8Z" fill="none" stroke="#F5EEDD" stroke-width="1.6" stroke-linejoin="round"/>
-<path d="M8 7.2C8 6.87 8.27 6.6 8.6 6.6H15.4C15.73 6.6 16 6.87 16 7.2V16.8C16 17.13 15.73 17.4 15.4 17.4H8.6C8.27 17.4 8 17.13 8 16.8V7.2Z" fill="none" stroke="#F5EEDD" stroke-width="1.4" stroke-linejoin="round"/>
-<path d="M12 6.6V17.4" stroke="#F5EEDD" stroke-width="1.4" stroke-linecap="round"/>
-<path d="M15.5 4.8V12.4L17.2 11.2L18.9 12.4V4.8C18.9 4.36 18.54 4 18.1 4H16.3C15.86 4 15.5 4.36 15.5 4.8Z" fill="#8E7153"/>
-</svg>
-<div class="text-[22px] font-headline-md tracking-tight" style="color: #F5EEDD;">Book Nook</div>
-</div>
-<div class="flex items-center space-x-8">
-<a class="opacity-80 hover:opacity-100 transition-colors duration-300 text-label-sm font-label-md uppercase tracking-wider" href="#" style="color: #F5EEDD;">Profil</a>
-<a class="opacity-80 hover:opacity-100 transition-colors duration-300 text-label-sm font-label-md uppercase tracking-wider" href="#" style="color: #F5EEDD;">Paramètres</a>
-<a class="opacity-80 hover:opacity-100 transition-colors duration-300 text-label-sm font-label-md uppercase tracking-wider" href="#" style="color: #F5EEDD;">À propos</a>
-</div>
-</nav>
-<!-- Side Navigation (Desktop Only) -->
-<aside class="hidden lg:flex fixed left-0 top-0 h-[calc(100vh-2rem)] w-56 flex-col py-lg px-4 z-40 border border-white/10 rounded-r-3xl my-4 overflow-hidden shadow-2xl text-[#F5EEDD]" style="background: linear-gradient(180deg, #1B2E24 0%, #203528 52%, #16271E 100%);">
-<div class="h-6"></div>
-<nav class="flex-grow space-y-2">
-<div class="flex items-center space-x-sm font-bold transition-all hover:bg-white/8 px-3 py-2.5 rounded-xl cursor-pointer" style="color: #F5EEDD;">
-<span class="material-symbols-outlined">menu_book</span>
-<span class="text-label-md font-label-md">Bibliothèque</span>
-</div>
-<div class="flex items-center space-x-sm opacity-80 hover:bg-white/8 px-3 py-2.5 rounded-xl cursor-pointer transition-all" style="color: #F5EEDD;">
-<span class="material-symbols-outlined">hourglass_empty</span>
-<span class="text-label-md font-label-md">PAL</span>
-</div>
-<div class="flex items-center space-x-sm opacity-80 hover:bg-white/8 px-3 py-2.5 rounded-xl cursor-pointer transition-all" style="color: #F5EEDD;">
-<span class="material-symbols-outlined">edit_note</span>
-<span class="text-label-md font-label-md">Atelier</span>
-</div>
-<div class="flex items-center space-x-sm opacity-80 hover:bg-white/8 px-3 py-2.5 rounded-xl cursor-pointer transition-all" style="color: #F5EEDD;">
-<span class="material-symbols-outlined">auto_awesome</span>
-<span class="text-label-md font-label-md">Moods</span>
-</div>
-<div class="flex items-center space-x-sm opacity-80 hover:bg-white/8 px-3 py-2.5 rounded-xl cursor-pointer transition-all" style="color: #F5EEDD;">
-<span class="material-symbols-outlined">person</span>
-<span class="text-label-md font-label-md">Profil</span>
-</div>
-</nav>
-<div class="pt-6 mt-6 border-t border-white/10">
-<button class="w-full py-3 font-label-md uppercase tracking-wider hover:opacity-90 transition-opacity text-[#F5EEDD] rounded-xl" style="background: linear-gradient(180deg, #8E7153 0%, #6F5A42 100%);">
-            Add New Book
-        </button>
-</div>
-</aside>
-<main class="lg:ml-56 pt-32 pb-xl">
-<!-- Hero Section -->
-<header class="px-margin-mobile md:px-margin-desktop mb-xl">
-<div class="max-w-4xl">
-<h1 class="font-display-lg text-display-lg text-primary mb-md leading-tight">Une bibliothèque <br/> à habiter.</h1>
-<div class="flex flex-wrap gap-md">
-<button class="bg-primary text-surface-container-lowest px-lg py-md font-label-md uppercase tracking-widest hover:opacity-90 transition-all active:scale-95 shadow-lg shadow-primary/10">
-                        Entrer dans la bibliothèque
-                    </button>
-<button class="border border-primary text-primary px-lg py-md font-label-md uppercase tracking-widest hover:bg-primary/5 transition-all active:scale-95">
-                        Voir les espaces
-                    </button>
-</div>
-</div>
-</header>
-<!-- Main Content Area -->
-<div class="flex flex-col xl:flex-row px-margin-mobile md:px-margin-desktop gap-xl">
-<!-- Library Shelves (Center) -->
-<section class="flex-grow">
-<div class="flex items-center justify-between mb-lg">
-<h2 class="font-headline-lg text-headline-lg text-primary">Ma Bibliothèque</h2>
-<div class="flex space-x-sm">
-<button class="material-symbols-outlined p-xs border border-outline-variant rounded-full text-outline hover:bg-primary hover:text-white transition-all">chevron_left</button>
-<button class="material-symbols-outlined p-xs border border-outline-variant rounded-full text-outline hover:bg-primary hover:text-white transition-all">chevron_right</button>
-</div>
-</div>
-<!-- Shelf 1 -->
-<div class="relative w-full bg-surface-container mb-xl p-base rounded-lg shelf-depth">
-<div class="flex items-end gap-xs h-64 overflow-x-auto no-scrollbar pb-1">
-<!-- Book 1 -->
-<div class="h-full w-12 bg-primary-container shrink-0 rounded-l-sm book-shadow transform hover:-translate-y-2 transition-transform cursor-pointer group flex items-center justify-center relative">
-<span class="[writing-mode:vertical-rl] text-surface-container-lowest font-label-sm opacity-80 uppercase tracking-tighter">L'Étranger</span>
-</div>
-<!-- Book 2 -->
-<div class="h-[90%] w-10 bg-[#574333] shrink-0 book-shadow transform hover:-translate-y-2 transition-transform cursor-pointer flex items-center justify-center">
-<span class="[writing-mode:vertical-rl] text-primary-fixed font-label-sm text-[10px] uppercase">Camus</span>
-</div>
-<!-- Empty Spot -->
-<div class="h-full w-24 shrink-0 border-2 border-dashed border-outline-variant/30 flex items-center justify-center hover:bg-surface-variant/50 cursor-pointer transition-colors group">
-<span class="material-symbols-outlined text-outline-variant group-hover:scale-125 transition-transform">add</span>
-</div>
-<!-- Book 3 -->
-<div class="h-[95%] w-14 bg-secondary shrink-0 book-shadow transform hover:-translate-y-2 transition-transform cursor-pointer flex items-center justify-center">
-<span class="[writing-mode:vertical-rl] text-white font-label-sm uppercase">Proust</span>
-</div>
-<!-- Book 4 -->
-<div class="h-[80%] w-8 bg-tertiary-container shrink-0 book-shadow transform hover:-translate-y-2 transition-transform cursor-pointer flex items-center justify-center">
-<span class="[writing-mode:vertical-rl] text-tertiary-fixed text-[8px] uppercase">Balzac</span>
-</div>
-<!-- Book 5 -->
-<div class="h-full w-16 bg-primary shrink-0 book-shadow transform hover:-translate-y-2 transition-transform cursor-pointer flex items-center justify-center">
-<div class="absolute top-2 w-full h-[1px] bg-white/20"></div>
-<div class="absolute bottom-2 w-full h-[1px] bg-white/20"></div>
-<span class="[writing-mode:vertical-rl] text-surface-container-lowest font-label-sm uppercase">Hugo</span>
-</div>
-<!-- Book 6 -->
-<div class="h-[85%] w-12 bg-on-tertiary-container shrink-0 book-shadow transform hover:-translate-y-2 transition-transform cursor-pointer"></div>
-</div>
-<!-- Wooden Shelf Base -->
-<div class="h-4 w-full bg-[#4a3728] mt-1 rounded-b-sm shadow-md"></div>
-</div>
-<!-- Shelf 2 -->
-<div class="relative w-full bg-surface-container p-base rounded-lg shelf-depth">
-<div class="flex items-end gap-xs h-64 overflow-x-auto no-scrollbar pb-1">
-<div class="h-[75%] w-20 bg-outline shrink-0 book-shadow transform hover:-translate-y-2 transition-transform cursor-pointer"></div>
-<div class="h-full w-10 bg-on-primary-container shrink-0 book-shadow transform hover:-translate-y-2 transition-transform cursor-pointer"></div>
-<div class="h-[92%] w-14 bg-secondary-fixed-dim shrink-0 book-shadow transform hover:-translate-y-2 transition-transform cursor-pointer"></div>
-<div class="h-full w-24 shrink-0 border-2 border-dashed border-outline-variant/30 flex items-center justify-center hover:bg-surface-variant/50 cursor-pointer">
-<span class="material-symbols-outlined text-outline-variant">add</span>
-</div>
-<div class="h-[88%] w-9 bg-primary-fixed-dim shrink-0 book-shadow transform hover:-translate-y-2 transition-transform cursor-pointer"></div>
-<div class="h-full w-12 bg-on-secondary-container shrink-0 book-shadow transform hover:-translate-y-2 transition-transform cursor-pointer"></div>
-<div class="h-[95%] w-14 bg-tertiary shrink-0 book-shadow transform hover:-translate-y-2 transition-transform cursor-pointer"></div>
-</div>
-<!-- Wooden Shelf Base -->
-<div class="h-4 w-full bg-[#4a3728] mt-1 rounded-b-sm shadow-md"></div>
-</div>
-<!-- Navigation Slider -->
-<div class="mt-lg w-full flex items-center gap-md">
-<span class="text-label-sm text-outline">01</span>
-<div class="h-[2px] flex-grow bg-outline-variant overflow-hidden">
-<div class="h-full w-1/3 bg-primary transition-all duration-500"></div>
-</div>
-<span class="text-label-sm text-outline">12</span>
-</div>
-</section>
-<!-- PAL (Right Sidebar) -->
-<aside class="xl:w-80 shrink-0">
-<div class="bg-surface-container-low p-md border border-outline-variant/10 shadow-xl shadow-primary/5">
-<div class="flex items-center justify-between mb-lg">
-<h3 class="font-headline-md text-headline-md text-primary">À Lire (PAL)</h3>
-<span class="text-label-sm bg-primary/10 text-primary px-xs py-[2px]">8 livres</span>
-</div>
-<div class="space-y-lg">
-<!-- PAL Item 1 -->
-<div class="flex gap-md group cursor-pointer">
-<div class="w-16 h-24 bg-surface-container shadow-sm flex-shrink-0 relative overflow-hidden">
-<div class="w-full h-full bg-cover bg-center" data-alt="A vintage, slightly worn book cover for a classic French novel with elegant serif typography and muted earthy tones, set against a warm sun-drenched library background. The lighting is soft and directional, creating a sense of history and intellectual depth. High-end editorial photography style." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD1bNuuIq8egLklULJxkFR8htWKyELfFhwCmfhUQe0hVzt5ciDMfnbEJgOPqi09Y0urt81TZgMS1wsI8F_b4guH7hWPnL3fMGt1RMZrw-brEHkmOn8Gk_hziEHCQkm5HvSnFkh-O1RS1mlVTuGUAKgNcWNXdmkBHhQgqjyUgP3yL5pG-kStvdYwiNn3yIqp4lfuNcRIfwTuN9ywfqpBQP7M-7rZTLgsTD2ghsi3k9jiOtusG_wpEppu2vljDi7jZkHnBD8b7Gx4uHq-')"></div>
-</div>
-<div>
-<h4 class="font-bold text-body-md text-primary group-hover:text-secondary transition-colors">Les Liaisons Dangereuses</h4>
-<p class="text-label-sm text-on-surface-variant mb-xs">Laclos</p>
-<div class="flex items-center gap-xs">
-<div class="h-1 w-12 bg-outline-variant rounded-full overflow-hidden">
-<div class="h-full w-0 bg-primary"></div>
-</div>
-<span class="text-[10px] text-outline uppercase font-bold tracking-widest">En attente</span>
-</div>
-</div>
-</div>
-<!-- PAL Item 2 -->
-<div class="flex gap-md group cursor-pointer">
-<div class="w-16 h-24 bg-surface-container shadow-sm flex-shrink-0 overflow-hidden">
-<div class="w-full h-full bg-cover bg-center" data-alt="Close-up of a modern hardcover book with a minimalist white and gold design, featuring a single delicate botanical illustration. The background is a blurred high-end interior with warm wooden textures and soft ambient lighting. Luxury lifestyle book photography." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCs3MqsuU9VEyyKLtBq4GaHnnphgbmvsozW1gWubj5kN7iWWMwQsfKzd1YNP0GOtdFf13prexC3a87HwTOUTo5UegKo4emnkyhMx9eInKgF4Y0FqNFMNbDYVMx_wtQBBRoKPuNR62c3iOgskdGbZI0oULUTU3sdlM7SaPZ0U8e_XZYgmWYFT3zuJDWU6Djh_5OpztBXVa2Jvc4ZK1MMWslNoErLkyd-vhTFZQAYblW8Vtd60O6mSXIOfyg0tzkT2IYsbTKCYwg12aRc')"></div>
-</div>
-<div>
-<h4 class="font-bold text-body-md text-primary group-hover:text-secondary transition-colors">La Panthère des Neiges</h4>
-<p class="text-label-sm text-on-surface-variant mb-xs">Sylvain Tesson</p>
-<div class="flex items-center gap-xs">
-<div class="h-1 w-12 bg-outline-variant rounded-full overflow-hidden">
-<div class="h-full w-1/4 bg-primary"></div>
-</div>
-<span class="text-[10px] text-outline uppercase font-bold tracking-widest">Page 45</span>
-</div>
-</div>
-</div>
-<!-- PAL Item 3 -->
-<div class="flex gap-md group cursor-pointer opacity-80">
-<div class="w-16 h-24 bg-surface-container shadow-sm flex-shrink-0 overflow-hidden">
-<div class="w-full h-full bg-cover bg-center" data-alt="Detailed shot of an old leather-bound book spine with gold-leafed lettering, resting on a textured linen cloth in a warmly lit, intimate library nook. The scene suggests timelessness and the quiet luxury of digital minimalist study. Soft shadows and rich mahogany tones." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAe-Yg5Qt5I4Jv6tr0oNPfEBPrlZyhJD64aP-SHexF5Csdd_X9g5S6uA9xRWffaiNZthxhVuJOuW4J5c0wQSVgZ3PAgAh6uK3LU4fwZ0sobq5GeLF0_bqls-MR6u0EqlcKsZNjXNHgfmEPPID28zESuBILKa07Sq2ntoycaDB90LbylBlYPWi_H0_zSk7ud75wBkrOHLkcjO8YIslxOWpC0nmy2goU1OIMMbCQXT0NA9HLxYlpuM-pA4mORmU1KFffeBgwLENklvCn4')"></div>
-</div>
-<div>
-<h4 class="font-bold text-body-md text-primary group-hover:text-secondary transition-colors">Le Monde d'Hier</h4>
-<p class="text-label-sm text-on-surface-variant mb-xs">Stefan Zweig</p>
-<div class="flex items-center gap-xs">
-<div class="h-1 w-12 bg-outline-variant rounded-full"></div>
-<span class="text-[10px] text-outline uppercase font-bold tracking-widest">À venir</span>
-</div>
-</div>
-</div>
-</div>
-<button class="w-full mt-xl py-sm border border-outline text-label-sm uppercase tracking-widest hover:bg-primary hover:text-white transition-all">
-                        Gérer ma pile
-                    </button>
-</div>
-</aside>
-</div>
-<!-- Menu of Spaces (Bento Grid) -->
-<section class="mt-xl px-margin-mobile md:px-margin-desktop">
-<h2 class="font-headline-lg text-headline-lg text-primary mb-lg">Explorer vos Espaces</h2>
-<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-gutter">
-<!-- Card 1: Bibliothèque -->
-<div class="aspect-square bg-surface-container-high p-md flex flex-col justify-between hover:bg-secondary/5 transition-colors cursor-pointer group shadow-sm">
-<span class="material-symbols-outlined text-primary text-3xl">menu_book</span>
-<div>
-<h3 class="font-bold text-body-lg text-primary">Bibliothèque</h3>
-<p class="text-label-sm text-on-surface-variant opacity-70">124 volumes</p>
-</div>
-</div>
-<!-- Card 2: PAL -->
-<div class="aspect-square bg-surface-container p-md flex flex-col justify-between hover:bg-secondary/5 transition-colors cursor-pointer group shadow-sm">
-<span class="material-symbols-outlined text-primary text-3xl">hourglass_empty</span>
-<div>
-<h3 class="font-bold text-body-lg text-primary">PAL</h3>
-<p class="text-label-sm text-on-surface-variant opacity-70">8 en attente</p>
-</div>
-</div>
-<!-- Card 3: Notes -->
-<div class="aspect-square bg-surface-container-low p-md flex flex-col justify-between hover:bg-secondary/5 transition-colors cursor-pointer group shadow-sm">
-<span class="material-symbols-outlined text-primary text-3xl">edit_note</span>
-<div>
-<h3 class="font-bold text-body-lg text-primary">Notes</h3>
-<p class="text-label-sm text-on-surface-variant opacity-70">42 citations</p>
-</div>
-</div>
-<!-- Card 4: Moods -->
-<div class="aspect-square bg-primary-fixed p-md flex flex-col justify-between hover:bg-primary-fixed-dim transition-colors cursor-pointer group shadow-sm">
-<span class="material-symbols-outlined text-primary text-3xl">auto_awesome</span>
-<div>
-<h3 class="font-bold text-body-lg text-primary">Moods</h3>
-<p class="text-label-sm text-on-surface-variant opacity-70">Atmosphères</p>
-</div>
-</div>
-<!-- Card 5: Playlists -->
-<div class="aspect-square bg-surface-container p-md flex flex-col justify-between hover:bg-secondary/5 transition-colors cursor-pointer group shadow-sm">
-<span class="material-symbols-outlined text-primary text-3xl">queue_music</span>
-<div>
-<h3 class="font-bold text-body-lg text-primary">Playlists</h3>
-<p class="text-label-sm text-on-surface-variant opacity-70">6 ambiances</p>
-</div>
-</div>
-<!-- Card 6: Profil -->
-<div class="aspect-square bg-surface-container-high p-md flex flex-col justify-between hover:bg-secondary/5 transition-colors cursor-pointer group shadow-sm">
-<span class="material-symbols-outlined text-primary text-3xl">person</span>
-<div>
-<h3 class="font-bold text-body-lg text-primary">Profil</h3>
-<p class="text-label-sm text-on-surface-variant opacity-70">Paramètres</p>
-</div>
-</div>
-</div>
-</section>
-</main>
-<!-- Floating Action Button -->
-<div class="fixed bottom-margin-mobile right-margin-mobile z-50">
-<button class="bg-primary text-white w-14 h-14 rounded-full flex items-center justify-center shadow-xl shadow-primary/30 hover:scale-110 active:scale-95 transition-all">
-<span class="material-symbols-outlined">add</span>
-</button>
-</div>
-<!-- Mobile Bottom Navigation (Visible only on small screens) -->
-<nav class="md:hidden fixed bottom-0 left-0 w-full bg-surface/90 backdrop-blur-md flex justify-around items-center py-sm px-md z-50 border-t border-outline-variant/10">
-<button class="flex flex-col items-center gap-xs text-primary font-bold">
-<span class="material-symbols-outlined">menu_book</span>
-<span class="text-[10px] uppercase font-bold tracking-tighter">Library</span>
-</button>
-<button class="flex flex-col items-center gap-xs text-on-surface-variant opacity-60">
-<span class="material-symbols-outlined">hourglass_empty</span>
-<span class="text-[10px] uppercase font-bold tracking-tighter">PAL</span>
-</button>
-<button class="flex flex-col items-center gap-xs text-on-surface-variant opacity-60">
-<span class="material-symbols-outlined">edit_note</span>
-<span class="text-[10px] uppercase font-bold tracking-tighter">Notes</span>
-</button>
-<button class="flex flex-col items-center gap-xs text-on-surface-variant opacity-60">
-<span class="material-symbols-outlined">auto_awesome</span>
-<span class="text-[10px] uppercase font-bold tracking-tighter">Moods</span>
-</button>
-<button class="flex flex-col items-center gap-xs text-on-surface-variant opacity-60">
-<span class="material-symbols-outlined">person</span>
-<span class="text-[10px] uppercase font-bold tracking-tighter">Profile</span>
-</button>
-</nav>
-<script>
-        // Micro-interactions and subtle effects
-        document.addEventListener('DOMContentLoaded', () => {
-            const books = document.querySelectorAll('.book-shadow');
-            books.forEach(book => {
-                book.addEventListener('mouseenter', () => {
-                    book.style.transform = 'translateY(-8px) scale(1.02)';
-                });
-                book.addEventListener('mouseleave', () => {
-                    book.style.transform = 'translateY(0) scale(1)';
-                });
-            });
 
-            // Parallax-like movement on mouse move for the hero title
-            const hero = document.querySelector('h1');
-            document.addEventListener('mousemove', (e) => {
-                const moveX = (e.clientX - window.innerWidth / 2) / 100;
-                const moveY = (e.clientY - window.innerHeight / 2) / 100;
-                hero.style.transform = `translate(${moveX}px, ${moveY}px)`;
-            });
-        });
-    </script>
-</body></html>
+      .library-hero,
+      .library-shelves,
+      .library-side,
+      .pal-main,
+      .pal-side,
+      .mood-main,
+      .mood-side,
+      .community-main,
+      .community-side,
+      .profile-main,
+      .profile-side {
+        grid-column: auto;
+      }
+
+      .tabs {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 700px) {
+      .shell {
+        width: min(var(--max), calc(100% - 18px));
+        padding: 10px 0 24px;
+      }
+
+      .topbar,
+      .hero,
+      main,
+      .footer {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .hero-card {
+        min-height: auto;
+      }
+
+      .tabrail {
+        padding: 12px 10px;
+      }
+
+      .tabs {
+        grid-template-columns: 1fr;
+      }
+
+      .swatches {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <div class="frame">
+      <header class="topbar">
+        <div class="brand">
+          <div class="logo" aria-hidden="true"></div>
+          <div>
+            <h1>Book Nook</h1>
+            <p>Un refuge pour lecteurs: livres, traces, humeur et communauté</p>
+          </div>
+        </div>
+        <div class="topbar-right" aria-label="Repères rapides">
+          <span class="pill">47 livres lus</span>
+          <span class="pill">23 jours de streak</span>
+          <span class="pill">9 moods actifs</span>
+        </div>
+      </header>
+
+      <section class="hero">
+        <article class="hero-card">
+          <div>
+            <p class="eyebrow">Book Nook • refuge littéraire</p>
+            <h2>Une maison pour <em>les lectures</em> qui comptent.</h2>
+            <p class="hero-copy">
+              Book Nook rassemble tout ce qu’un lecteur veut garder près de lui:
+              une bibliothèque pour retrouver les livres déjà lus, une PAL pour
+              les envies à venir, des fiches & moodboards pour les notes, une
+              communauté pour les coups de coeur, et un profil qui raconte votre
+              manière de lire.
+            </p>
+          </div>
+          <div class="hero-actions">
+            <button class="btn primary" type="button">Ajouter un livre</button>
+            <button class="btn secondary" type="button">Créer une fiche moodboard</button>
+          </div>
+        </article>
+
+        <aside class="stats-card" aria-label="Résumé du lecteur">
+          <div class="metric">
+            <strong>124</strong>
+            <span>livres conservés dans la bibliothèque, triés par tags, catégories, séries, auteurs ou coups de coeur.</span>
+          </div>
+          <div class="metric">
+            <strong>18</strong>
+            <span>lectures en attente dans la PAL, prêtes à être organisées comme vous voulez.</span>
+          </div>
+          <div class="metric">
+            <strong>36</strong>
+            <span>notes, citations, palettes, images et playlists dans les fiches & moodboards.</span>
+          </div>
+        </aside>
+      </section>
+
+      <div class="tabrail">
+        <nav class="tabs" role="tablist" aria-label="Sections Book Nook">
+          <button class="tab" role="tab" aria-selected="true" aria-controls="panel-library" id="tab-library" data-tab="library" type="button">Bibliothèque</button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="panel-pal" id="tab-pal" data-tab="pal" type="button">Pile à lire (PAL)</button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="panel-moodboards" id="tab-moodboards" data-tab="moodboards" type="button">Fiches &amp; Moodboards</button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="panel-community" id="tab-community" data-tab="community" type="button">Communauté</button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="panel-profile" id="tab-profile" data-tab="profile" type="button">Profil</button>
+        </nav>
+      </div>
+
+      <main>
+        <section class="panel" id="panel-library" role="tabpanel" aria-labelledby="tab-library">
+          <div class="section-head">
+            <div>
+              <h3>Bibliothèque</h3>
+              <p>
+                Tous les livres déjà lus, avec la liberté de les ajouter simplement,
+                de les ranger comme vous voulez, puis de les filtrer par tags, catégories,
+                formats ou états d’âme.
+              </p>
+            </div>
+            <div class="section-actions">
+              <button class="ghost" type="button">Trier</button>
+              <button class="ghost" type="button">Filtrer par tag</button>
+              <button class="btn primary" type="button">+ Nouveau livre</button>
+            </div>
+          </div>
+
+          <div class="grid-12">
+            <article class="card library-hero">
+              <div class="card-inner">
+                <div class="subgrid">
+                  <div class="shelf">
+                    <div class="shelf-top">
+                      <div>
+                        <h4>Lectures marquantes</h4>
+                        <small>18 livres • classés par intensité émotionnelle</small>
+                      </div>
+                      <span class="badge"><strong>Top shelf</strong></span>
+                    </div>
+                    <div class="books-row" aria-label="Livres de la bibliothèque">
+                      <div class="book" style="--w:38px;--h:128px;--c:#613a2f;">L'Étranger</div>
+                      <div class="book" style="--w:42px;--h:150px;--c:#846049;">Proust</div>
+                      <div class="book" style="--w:34px;--h:118px;--c:#a36b44;">Borges</div>
+                      <div class="book add">Ajouter un livre</div>
+                      <div class="book" style="--w:46px;--h:160px;--c:#385242;">Woolf</div>
+                      <div class="book" style="--w:36px;--h:124px;--c:#2f3941;">Morrison</div>
+                    </div>
+                    <div class="shelf-base"></div>
+                  </div>
+
+                  <div class="shelf">
+                    <div class="shelf-top">
+                      <div>
+                        <h4>Classer comme on aime</h4>
+                        <small>tags, catégories, séries, couleurs, avis</small>
+                      </div>
+                      <span class="badge"><strong>Custom</strong></span>
+                    </div>
+                    <div class="tag-cloud">
+                      <span class="tag"><strong>tags</strong> : queer, pluie, lenteur</span>
+                      <span class="tag"><strong>catégories</strong> : roman, essai, poésie</span>
+                      <span class="tag"><strong>état</strong> : relu, annoté, offert</span>
+                      <span class="tag"><strong>tri</strong> : date, humeur, note</span>
+                    </div>
+                    <div class="card" style="margin-top:14px;border-radius:18px;">
+                      <div class="card-inner">
+                        <div class="field">
+                          <label for="book-title">Ajouter un livre</label>
+                          <input id="book-title" placeholder="Titre, auteur, édition..." />
+                        </div>
+                        <div class="field">
+                          <label for="book-tag">Tags rapides</label>
+                          <input id="book-tag" placeholder="ex: automne, chef-d'oeuvre, anti-héros" />
+                        </div>
+                        <div class="section-actions">
+                          <button class="btn primary" type="button">Enregistrer</button>
+                          <button class="ghost" type="button">Voir les champs avancés</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <aside class="card library-side">
+              <div class="card-inner">
+                <div class="timeline">
+                  <div class="timeline-item">
+                    <div>
+                      <strong>Dernier ajout</strong>
+                      <small>Le livre a été rangé dans “résonance et vertiges”.</small>
+                    </div>
+                    <span class="rating">+1</span>
+                  </div>
+                  <div class="timeline-item">
+                    <div>
+                      <strong>Recommandé à l’ordre</strong>
+                      <small>Les séries peuvent se suivre dans l’ordre de lecture.</small>
+                    </div>
+                    <span class="rating">ordre</span>
+                  </div>
+                  <div class="timeline-item">
+                    <div>
+                      <strong>Tri intelligent</strong>
+                      <small>Affichage par couleur, note, humeur ou auteur.</small>
+                    </div>
+                    <span class="rating">tri</span>
+                  </div>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section class="panel" id="panel-pal" role="tabpanel" aria-labelledby="tab-pal" hidden>
+          <div class="section-head">
+            <div>
+              <h3>Pile à lire (PAL)</h3>
+              <p>
+                Tous les livres que vous voulez lire, sans pression. Une pile claire,
+                modifiable, que l’on peut réorganiser au fil des envies, des saisons
+                ou des recommandations.
+              </p>
+            </div>
+            <div class="section-actions">
+              <button class="ghost" type="button">Déplacer</button>
+              <button class="ghost" type="button">Marquer “à venir”</button>
+              <button class="btn primary" type="button">+ Ajouter à la PAL</button>
+            </div>
+          </div>
+
+          <div class="grid-12">
+            <article class="card pal-main">
+              <div class="card-inner">
+                <div class="subgrid">
+                  <div class="shelf">
+                    <div class="shelf-top">
+                      <div>
+                        <h4>Ta pile principale</h4>
+                        <small>ordre flexible • lecture prioritaire</small>
+                      </div>
+                      <span class="badge"><strong>PAL</strong></span>
+                    </div>
+                    <div class="books-row">
+                      <div class="book" style="--w:40px;--h:138px;--c:#7a4d3a;">Sappho</div>
+                      <div class="book" style="--w:46px;--h:154px;--c:#2f4f45;">Le Guin</div>
+                      <div class="book" style="--w:38px;--h:122px;--c:#b07b43;">Sebald</div>
+                      <div class="book" style="--w:44px;--h:148px;--c:#5f5b6f;">Nguyen</div>
+                      <div class="book add">Ajouter une envie de lecture</div>
+                    </div>
+                    <div class="shelf-base"></div>
+                  </div>
+
+                  <div class="shelf">
+                    <div class="shelf-top">
+                      <div>
+                        <h4>Pourquoi il est là</h4>
+                        <small>notes, recommandations, saisons, clubs</small>
+                      </div>
+                      <span class="badge"><strong>why</strong></span>
+                    </div>
+                    <div class="tag-cloud">
+                      <span class="tag">“lu chez un ami”</span>
+                      <span class="tag">“vu dans un moodboard”</span>
+                      <span class="tag">“pour l’automne”</span>
+                      <span class="tag">“à lire en voyage”</span>
+                    </div>
+                    <div class="note-card" style="margin-top:14px;">
+                      <p class="quote">“À lire quand on a besoin de ralentir un peu et de laisser le texte faire le reste.”</p>
+                      <div class="meta">
+                        <span>Ajouté il y a 3 jours</span>
+                        <span>Priorité: haute</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <aside class="card pal-side">
+              <div class="card-inner">
+                <div class="settings-list">
+                  <div class="setting">
+                    <div>
+                      <strong>Haut de pile</strong>
+                      <p>les 5 livres à lire en premier</p>
+                    </div>
+                    <span class="toggle" aria-hidden="true"></span>
+                  </div>
+                  <div class="setting">
+                    <div>
+                      <strong>Historique de priorités</strong>
+                      <p>voir ce qui a déjà été déplacé</p>
+                    </div>
+                    <span class="toggle" aria-hidden="true"></span>
+                  </div>
+                  <div class="setting">
+                    <div>
+                      <strong>Suggestions automatiques</strong>
+                      <p>selon vos lectures et vos tags</p>
+                    </div>
+                    <span class="toggle" aria-hidden="true"></span>
+                  </div>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section class="panel" id="panel-moodboards" role="tabpanel" aria-labelledby="tab-moodboards" hidden>
+          <div class="section-head">
+            <div>
+              <h3>Fiches &amp; Moodboards</h3>
+              <p>
+                Des espaces pour prendre des notes sur les lectures en cours, ajouter
+                des citations, des images, des couleurs, des playlists et construire une
+                mémoire sensible autour d’un livre.
+              </p>
+            </div>
+            <div class="section-actions">
+              <button class="ghost" type="button">Ajouter une image</button>
+              <button class="ghost" type="button">Insérer une citation</button>
+              <button class="btn primary" type="button">Nouveau moodboard</button>
+            </div>
+          </div>
+
+          <div class="grid-12">
+            <article class="card mood-main">
+              <div class="card-inner">
+                <div class="subgrid">
+                  <div class="shelf">
+                    <div class="shelf-top">
+                      <div>
+                        <h4>Fiche de lecture</h4>
+                        <small>notes, citations, ressentis, pistes</small>
+                      </div>
+                      <span class="badge"><strong>notes</strong></span>
+                    </div>
+                    <div class="field">
+                      <label for="note-title">Titre de la fiche</label>
+                      <input id="note-title" value="Les heures calmes de novembre" />
+                    </div>
+                    <div class="field">
+                      <label for="note-body">Notes en cours</label>
+                      <textarea id="note-body">- La lumière du livre ressemble à une fin d'après-midi d'automne.
+- Les dialogues ont le rythme d'une marche lente dans une ville vide.
+- À relire pour la sensation de refuge.</textarea>
+                    </div>
+                    <div class="section-actions">
+                      <button class="btn primary" type="button">Sauvegarder</button>
+                      <button class="ghost" type="button">Ajouter à une collection</button>
+                    </div>
+                  </div>
+
+                  <div class="shelf">
+                    <div class="shelf-top">
+                      <div>
+                        <h4>Carte citation</h4>
+                        <small>un extrait à garder, partager, relire</small>
+                      </div>
+                      <span class="badge"><strong>quote</strong></span>
+                    </div>
+                    <div class="note-card">
+                      <p class="quote">“On garde les livres qui savent nous retrouver au bon moment.”</p>
+                      <div class="meta">
+                        <span>Chapitre 8</span>
+                        <span>format carte</span>
+                      </div>
+                    </div>
+                    <div class="note-card" style="margin-top:12px;">
+                      <p class="quote">“Cette lecture a la texture d’un carnet, d’une chanson et d’une fenêtre ouverte.”</p>
+                      <div class="meta">
+                        <span>Note perso</span>
+                        <span>partageable</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <aside class="card mood-side">
+              <div class="card-inner">
+                <div class="section-head" style="margin-bottom:14px;">
+                  <div>
+                    <h3 style="font-size:1.35rem;">Moodboard</h3>
+                    <p>Images, palette, playlist, ambiance</p>
+                  </div>
+                </div>
+                <div class="swatches">
+                  <div class="swatch" style="background: linear-gradient(180deg, #b07b43, #7c5230);"><span>candle</span><small>#B07B43</small></div>
+                  <div class="swatch" style="background: linear-gradient(180deg, #3a4f45, #22352d);"><span>sage</span><small>#3A4F45</small></div>
+                  <div class="swatch" style="background: linear-gradient(180deg, #6a5a7a, #463a52);"><span>dusk</span><small>#6A5A7A</small></div>
+                  <div class="swatch" style="background: linear-gradient(180deg, #c67c74, #8d564d);"><span>rose</span><small>#C67C74</small></div>
+                </div>
+                <div class="note-card" style="margin-top:14px;">
+                  <p class="quote">Playlist du livre</p>
+                  <div class="meta">
+                    <span>12 titres</span>
+                    <span>lectures nocturnes</span>
+                  </div>
+                </div>
+                <div class="note-card" style="margin-top:12px;">
+                  <p class="quote">Images épinglées</p>
+                  <div class="meta">
+                    <span>fenêtres, tasses, papier, lumière</span>
+                    <span>8 images</span>
+                  </div>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section class="panel" id="panel-community" role="tabpanel" aria-labelledby="tab-community" hidden>
+          <div class="section-head">
+            <div>
+              <h3>Communauté</h3>
+              <p>
+                Les retours des autres lecteurs, leurs suggestions, leurs coups de coeur,
+                et les petites découvertes qui donnent envie d’ouvrir un livre ce soir.
+              </p>
+            </div>
+            <div class="section-actions">
+              <button class="ghost" type="button">Suggestions</button>
+              <button class="ghost" type="button">Coups de coeur</button>
+              <button class="btn primary" type="button">Publier un retour</button>
+            </div>
+          </div>
+
+          <div class="grid-12">
+            <article class="card community-main">
+              <div class="card-inner">
+                <div class="feed">
+                  <div class="feed-card">
+                    <div class="feed-head">
+                      <div class="avatar"></div>
+                      <div>
+                        <strong>Lou • a partagé un coup de coeur</strong>
+                        <p>“Si vous aimez les livres qui réparent doucement, celui-ci vaut le détour.”</p>
+                      </div>
+                    </div>
+                    <div class="post-grid">
+                      <div class="post">
+                        <b>Pourquoi le lire</b>
+                        <small>langage doux, tension discrète, fin lumineuse</small>
+                      </div>
+                      <div class="post">
+                        <b>Tag de lecture</b>
+                        <small>triste mais réconfortant</small>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="feed-card">
+                    <div class="feed-head">
+                      <div class="avatar" style="background:linear-gradient(145deg,#d9b07d,#6f8f61);"></div>
+                      <div>
+                        <strong>Myriam • suggestion de la semaine</strong>
+                        <p>“Pour une PAL automnale: poésie, mémoire, voix très intime.”</p>
+                      </div>
+                    </div>
+                    <div class="post-grid">
+                      <div class="post">
+                        <b>Ce que la communauté en dit</b>
+                        <small>“à lire avec du thé et du silence”</small>
+                      </div>
+                      <div class="post">
+                        <b>Étiquette</b>
+                        <small>lecture de refuge</small>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="feed-card">
+                    <div class="feed-head">
+                      <div class="avatar" style="background:linear-gradient(145deg,#8f5e32,#3a4f45);"></div>
+                      <div>
+                        <strong>Nassim • retour de lecture</strong>
+                        <p>“J’ai noté 14 citations, mais c’est surtout l’atmosphère qui me suit encore.”</p>
+                      </div>
+                    </div>
+                    <div class="post-grid">
+                      <div class="post">
+                        <b>Format</b>
+                        <small>note longue + citations + photos</small>
+                      </div>
+                      <div class="post">
+                        <b>Reaction</b>
+                        <small>lecture marquante</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <aside class="card community-side">
+              <div class="card-inner">
+                <div class="timeline">
+                  <div class="timeline-item">
+                    <div>
+                      <strong>Suggestions du réseau</strong>
+                      <small>les livres qui reviennent souvent dans les coups de coeur</small>
+                    </div>
+                    <span class="rating">24</span>
+                  </div>
+                  <div class="timeline-item">
+                    <div>
+                      <strong>Lecture commune</strong>
+                      <small>un espace pour suivre les lectures du moment</small>
+                    </div>
+                    <span class="rating">live</span>
+                  </div>
+                  <div class="timeline-item">
+                    <div>
+                      <strong>Retours utiles</strong>
+                      <small>ce que les autres ont aimé, détesté, relu, souligné</small>
+                    </div>
+                    <span class="rating">social</span>
+                  </div>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section class="panel" id="panel-profile" role="tabpanel" aria-labelledby="tab-profile" hidden>
+          <div class="section-head">
+            <div>
+              <h3>Profil</h3>
+              <p>
+                Votre identité de lecture: statistiques, préférences, badges, visibilité
+                et habitudes. Ici, on raconte moins la performance que la manière de lire.
+              </p>
+            </div>
+            <div class="section-actions">
+              <button class="ghost" type="button">Modifier le profil</button>
+              <button class="ghost" type="button">Vie privée</button>
+              <button class="btn primary" type="button">Partager mon profil</button>
+            </div>
+          </div>
+
+          <div class="grid-12">
+            <article class="card profile-main">
+              <div class="card-inner">
+                <div class="profile-summary">
+                  <div class="profile-head">
+                    <div class="profile-portrait" aria-hidden="true"></div>
+                    <div>
+                      <h4 style="margin:0 0 6px;font-size:1.35rem;">Manon</h4>
+                      <p>Lectrice de refuges, de fins qui restent, de carnets pleins de notes et de livres qui font respirer plus lentement.</p>
+                    </div>
+                  </div>
+
+                  <div class="subgrid">
+                    <div class="note-card">
+                      <p class="quote">47 livres lus cette année</p>
+                      <div class="meta">
+                        <span>3 séries suivies</span>
+                        <span>9 moods actifs</span>
+                      </div>
+                    </div>
+                    <div class="note-card">
+                      <p class="quote">8 badges lecteurs</p>
+                      <div class="meta">
+                        <span>“relectrice”</span>
+                        <span>“annotatrice”</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="settings-list">
+                    <div class="setting">
+                      <div>
+                        <strong>Bibliothèque visible</strong>
+                        <p>vos livres lus sont publiables ou privés</p>
+                      </div>
+                      <span class="toggle" aria-hidden="true"></span>
+                    </div>
+                    <div class="setting">
+                      <div>
+                        <strong>Recommandations personnalisées</strong>
+                        <p>selon vos tags, moods et habitudes</p>
+                      </div>
+                      <span class="toggle" aria-hidden="true"></span>
+                    </div>
+                    <div class="setting">
+                      <div>
+                        <strong>Communauté</strong>
+                        <p>voir les retours, suggestions et coups de coeur</p>
+                      </div>
+                      <span class="toggle" aria-hidden="true"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <aside class="card profile-side">
+              <div class="card-inner">
+                <div class="settings-list">
+                  <div class="setting">
+                    <div>
+                      <strong>Goûts dominants</strong>
+                      <p>littérature intime, poésie, autofiction</p>
+                    </div>
+                    <span class="badge"><strong>profil</strong></span>
+                  </div>
+                  <div class="setting">
+                    <div>
+                      <strong>Lecture du moment</strong>
+                      <p>un roman de saison à rythme lent</p>
+                    </div>
+                    <span class="badge"><strong>en cours</strong></span>
+                  </div>
+                  <div class="setting">
+                    <div>
+                      <strong>Partage</strong>
+                      <p>cartes, fiches et coups de coeur</p>
+                    </div>
+                    <span class="badge"><strong>public</strong></span>
+                  </div>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </section>
+      </main>
+
+      <div class="footer">
+        Book Nook • maquette interactive / Bibliothèque / PAL / Fiches &amp; Moodboards / Communauté / Profil
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const tabs = Array.from(document.querySelectorAll('[data-tab]'));
+    const panels = {
+      library: document.getElementById('panel-library'),
+      pal: document.getElementById('panel-pal'),
+      moodboards: document.getElementById('panel-moodboards'),
+      community: document.getElementById('panel-community'),
+      profile: document.getElementById('panel-profile')
+    };
+
+    function showTab(name) {
+      tabs.forEach((tab) => {
+        const active = tab.dataset.tab === name;
+        tab.setAttribute('aria-selected', String(active));
+      });
+
+      Object.entries(panels).forEach(([key, panel]) => {
+        panel.hidden = key !== name;
+      });
+    }
+
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => showTab(tab.dataset.tab));
+    });
+
+    const initial = window.location.hash.replace('#', '');
+    if (initial && panels[initial]) {
+      showTab(initial);
+    }
+  </script>
+</body>
+</html>
