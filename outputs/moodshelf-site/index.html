@@ -463,6 +463,372 @@
       line-height: 1.62;
     }
 
+    .library-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 20px;
+      margin-top: 10px;
+      padding: 22px 24px;
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(248,243,233,0.96));
+      border: 1px solid rgba(85,111,89,0.12);
+      box-shadow: 0 14px 32px rgba(27,48,34,0.08);
+    }
+
+    .library-toolbar h2 {
+      margin: 8px 0 0;
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      line-height: 0.96;
+      letter-spacing: -0.04em;
+      color: var(--text-strong);
+      font-weight: 600;
+    }
+
+    .library-toolbar p {
+      margin: 12px 0 0;
+      max-width: 62ch;
+      color: var(--text-muted);
+      line-height: 1.62;
+    }
+
+    .library-tools {
+      display: flex;
+      align-items: end;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .library-count {
+      display: grid;
+      gap: 2px;
+      min-width: 108px;
+      padding: 12px 14px;
+      border-radius: 20px;
+      background: rgba(124,138,114,0.08);
+      border: 1px solid rgba(85,111,89,0.10);
+      text-align: right;
+    }
+
+    .library-count strong {
+      font-family: var(--font-display);
+      font-size: 2.1rem;
+      line-height: 1;
+      color: var(--section-accent, var(--sage-600));
+      font-weight: 600;
+    }
+
+    .library-count span {
+      color: var(--text-muted);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .library-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 312px;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .library-main {
+      display: grid;
+      gap: 16px;
+    }
+
+    .library-main .panel-head {
+      font-size: 2rem;
+    }
+
+    .book-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .book-grid .book-spine.front {
+      min-height: 184px;
+    }
+
+    .book-grid .book-spine.front .spine-title {
+      font-size: 1.46rem;
+    }
+
+    .book-grid .book-spine.front .spine-author {
+      color: rgba(255,248,240,0.88);
+    }
+
+    .detail-panel {
+      position: sticky;
+      top: 18px;
+      max-height: calc(100vh - 32px);
+      overflow: auto;
+    }
+
+    .detail-panel .panel-head {
+      font-size: 2rem;
+    }
+
+    .detail-shell {
+      display: grid;
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .detail-shell .detail-empty {
+      min-height: 260px;
+    }
+
+    .detail-meta {
+      display: grid;
+      gap: 10px;
+    }
+
+    .detail-meta-line {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: baseline;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(85,111,89,0.10);
+    }
+
+    .detail-meta-line span {
+      color: var(--text-soft);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .detail-meta-line strong {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      line-height: 1.1;
+      color: var(--text-strong);
+      font-weight: 600;
+      text-align: right;
+    }
+
+    .detail-note {
+      padding: 16px;
+      border-radius: 20px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(248,243,233,0.96));
+      border: 1px solid rgba(85,111,89,0.10);
+      font-family: var(--font-serif);
+      line-height: 1.7;
+      color: var(--text-body);
+    }
+
+    .detail-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: rgba(27,48,34,0.42);
+      backdrop-filter: blur(10px);
+      z-index: 50;
+      overflow: auto;
+    }
+
+    .modal-backdrop[hidden] {
+      display: none !important;
+    }
+
+    .modal-card {
+      width: min(760px, 100%);
+      max-height: calc(100vh - 48px);
+      border-radius: 32px;
+      padding: 26px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(248,243,233,0.98));
+      border: 1px solid rgba(85,111,89,0.14);
+      box-shadow: 0 28px 72px rgba(15,10,7,0.28);
+      overflow: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      padding-bottom: 14px;
+      margin-bottom: 8px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,255,255,0.92));
+    }
+
+    .modal-kicker {
+      display: inline-flex;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(124,138,114,0.12);
+      color: var(--sage-600);
+      border: 1px solid rgba(85,111,89,0.12);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .modal-header h3 {
+      margin: 14px 0 0;
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 3vw, 2.8rem);
+      line-height: 0.96;
+      font-weight: 600;
+      color: var(--text-strong);
+    }
+
+    .modal-note {
+      margin: 10px 0 0;
+      max-width: 60ch;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .modal-close {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1px solid rgba(85,111,89,0.14);
+      background: rgba(255,255,255,0.88);
+      color: var(--text-strong);
+      font-size: 1.4rem;
+      cursor: pointer;
+      box-shadow: 0 10px 18px rgba(27,48,34,0.06);
+    }
+
+    .modal-form {
+      display: grid;
+      gap: 16px;
+      margin-top: 0;
+      flex: 1;
+    }
+
+    .modal-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .field {
+      display: grid;
+      gap: 8px;
+    }
+
+    .field label {
+      color: var(--text-soft);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .field input,
+    .field textarea {
+      width: 100%;
+      border: 1px solid rgba(85,111,89,0.14);
+      border-radius: 18px;
+      padding: 13px 14px;
+      background: rgba(255,255,255,0.92);
+      color: var(--text-body);
+      outline: none;
+      transition: border-color 160ms ease, box-shadow 160ms ease;
+    }
+
+    .field input:focus,
+    .field textarea:focus {
+      border-color: rgba(85,111,89,0.28);
+      box-shadow: 0 0 0 3px rgba(124,138,114,0.12);
+    }
+
+    .field textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    .tags-input {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .tags-input input {
+      flex: 1;
+    }
+
+    .chip-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      min-height: 28px;
+      margin-top: 4px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(124,138,114,0.10);
+      border: 1px solid rgba(85,111,89,0.12);
+      color: var(--text-body);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .chip button {
+      border: 0;
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 1rem;
+      line-height: 1;
+      padding: 0;
+    }
+
+    .modal-check {
+      display: flex;
+      gap: 10px;
+      align-items: start;
+      color: var(--text-body);
+      line-height: 1.5;
+    }
+
+    .modal-check input {
+      margin-top: 4px;
+      accent-color: var(--sage-600);
+    }
+
+    .modal-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+      position: sticky;
+      bottom: 0;
+      padding: 14px 0 0;
+      background: linear-gradient(180deg, rgba(248,243,233,0), rgba(248,243,233,0.98) 28px, rgba(248,243,233,0.98));
+    }
+
     .panel .eyebrow {
       background: var(--section-accent-soft) !important;
       color: var(--section-accent) !important;
@@ -1216,6 +1582,7 @@
     @media (max-width: 1100px) {
       .hero,
       .workspace-grid,
+      .library-layout,
       .content-grid.library,
       .content-grid.pal,
       .content-grid.moodboards,
@@ -1225,30 +1592,43 @@
         grid-template-columns: 1fr;
       }
 
+      .book-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .pal-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .slot-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .feature-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .detail-panel { max-height: none; }
+      .detail-panel { position: static; }
     }
 
     @media (max-width: 760px) {
       .page { width: min(100%, calc(100% - 18px)); }
       .topbar { flex-direction: column; align-items: flex-start; }
       .nav { justify-content: flex-start; }
+      .library-toolbar { flex-direction: column; align-items: stretch; }
+      .library-tools { justify-content: space-between; }
       .hero-copy, .hero-visual { border-radius: 26px; }
       .hero-copy { padding: 22px; }
       .hero h1 { font-size: clamp(2.9rem, 14vw, 4rem); }
       .hero-stats { grid-template-columns: 1fr; }
+      .book-grid { grid-template-columns: 1fr; }
+      .library-toolbar { padding: 18px; }
+      .library-main, .detail-panel { padding: 18px; }
       .pal-list,
       .slot-row,
       .post-grid,
-      .feature-strip { grid-template-columns: 1fr; }
+      .feature-strip,
+      .modal-grid { grid-template-columns: 1fr; }
       .cta-card,
       .section-head { flex-direction: column; align-items: stretch; }
       .slot .book-spine { width: 52px; }
       .books { gap: 8px; }
       .book { width: 58px; height: 102px; }
       .book.wide { width: 72px; height: 110px; }
+      .modal-backdrop { padding: 12px; }
+      .modal-card { padding: 20px; border-radius: 26px; max-height: calc(100vh - 24px); }
+      .modal-header { padding-bottom: 10px; margin-bottom: 6px; }
+      .tags-input { flex-direction: column; align-items: stretch; }
+      .modal-actions { flex-direction: column-reverse; align-items: stretch; }
     }
   </style>
 </head>
@@ -1274,79 +1654,39 @@
     </header>
 
     <section class="panel" id="panel-library" role="tabpanel" aria-labelledby="tab-library">
-      <div class="section-head">
+      <div class="library-toolbar">
         <div>
           <div class="eyebrow">Bibliothèque</div>
           <h2>Les livres lus, rangés comme vous voulez.</h2>
+          <p>
+            Retrouvez vos lectures déjà lues, ajoutez-en de nouvelles et organisez-les par tags,
+            auteurs ou notes dans une bibliothèque claire et respirante.
+          </p>
         </div>
-        <p>
-          Retrouvez vos lectures déjà lues, ajoutez-en de nouvelles et organisez-les par tags,
-          couleurs, auteurs ou humeurs dans une bibliothèque claire et respirante.
-        </p>
+        <div class="library-tools">
+          <div class="library-count">
+            <strong id="libraryCount">9</strong>
+            <span>livres</span>
+          </div>
+          <button class="btn btn-primary" id="openBookModal" type="button">Nouveau livre</button>
+        </div>
       </div>
 
-      <div class="workspace-grid">
-        <aside class="panel-card pad">
-          <div class="panel-head">Classements</div>
-          <div class="panel-sub">Vos critères d’organisation les plus utiles.</div>
-          <div class="stack-list">
-            <div class="stack-item">
-              <strong>Tags</strong>
-              <small>Pluie, automne, queer, silence, obsession</small>
-            </div>
-            <div class="stack-item">
-              <strong>Catégories</strong>
-              <small>Roman, essai, poésie, relecture, cadeau</small>
-            </div>
-            <div class="stack-item">
-              <strong>Tri</strong>
-              <small>Date, note, humeur, auteur, ordre de lecture</small>
-            </div>
-          </div>
-        </aside>
-
-        <section class="panel-card pad">
-          <div class="panel-head">Étagères centrales</div>
-          <div class="panel-sub">Trois rangées, des cases libres, et des livres en vue de face comme sur une étagère ouverte.</div>
-          <div class="shelves-board">
-            <div class="shelf-line">
-              <div class="shelf-label"><strong>Rangée du matin</strong><span>pages lumineuses et calmes</span></div>
-              <div class="slot-row">
-                <div class="slot"><button class="book-spine front gold selected" data-book="secret-history" type="button"><span class="spine-title">The Secret History</span><span class="spine-author">Donna Tartt</span></button></div>
-                <div class="slot"><button class="book-spine front green" data-book="piranesi" type="button"><span class="spine-title">Piranesi</span><span class="spine-author">Susanna Clarke</span></button></div>
-                <div class="slot empty"><div class="slot-empty"><strong>Ajouter</strong><span>une nouvelle lecture</span></div></div>
-                <div class="slot"><button class="book-spine front plum" data-book="circe" type="button"><span class="spine-title">Circé</span><span class="spine-author">Madeline Miller</span></button></div>
-              </div>
-            </div>
-            <div class="shelf-line">
-              <div class="shelf-label"><strong>Rangée du calme</strong><span>humeurs lentes et confortables</span></div>
-              <div class="slot-row">
-                <div class="slot"><button class="book-spine front dark" data-book="beloved" type="button"><span class="spine-title">Beloved</span><span class="spine-author">Toni Morrison</span></button></div>
-                <div class="slot"><button class="book-spine front rose" data-book="mohawk" type="button"><span class="spine-title">Crying in H Mart</span><span class="spine-author">Michelle Zauner</span></button></div>
-                <div class="slot empty"><div class="slot-empty"><strong>Case libre</strong><span>pour un ajout rapide</span></div></div>
-                <div class="slot"><button class="book-spine front sand" data-book="norwegian" type="button"><span class="spine-title">Norwegian Wood</span><span class="spine-author">Haruki Murakami</span></button></div>
-              </div>
-            </div>
-            <div class="shelf-line">
-              <div class="shelf-label"><strong>Rangée des nuits</strong><span>livres étranges et plus intimes</span></div>
-              <div class="slot-row">
-                <div class="slot"><button class="book-spine front blue" data-book="gothic" type="button"><span class="spine-title">Mexican Gothic</span><span class="spine-author">Silvia Moreno-Garcia</span></button></div>
-                <div class="slot empty"><div class="slot-empty"><strong>Libre</strong><span>pour une future lecture</span></div></div>
-                <div class="slot"><button class="book-spine front plum" data-book="left-hand" type="button"><span class="spine-title">The Left Hand of Darkness</span><span class="spine-author">Ursula K. Le Guin</span></button></div>
-                <div class="slot"><button class="book-spine front gold" data-book="secret-salt" type="button"><span class="spine-title">The Price of Salt</span><span class="spine-author">Patricia Highsmith</span></button></div>
-              </div>
-            </div>
-          </div>
+      <div class="library-layout">
+        <section class="panel-card pad library-main">
+          <div class="panel-head">Collection</div>
+          <div class="panel-sub">Cliquez un livre pour voir ses tags, sa note et ouvrir sa fiche/moodboard.</div>
+          <div class="book-grid" id="libraryGrid"></div>
         </section>
 
         <aside class="panel-card pad detail-panel">
           <div class="panel-head">Caractéristiques</div>
-          <div class="panel-sub">Cliquez un livre pour voir ses tags, sa note et sa place dans votre bibliothèque.</div>
-          <div class="detail-view" id="libraryDetail">
+          <div class="panel-sub">Titre, auteur, tags, note et fiche/moodboard liée.</div>
+          <div class="detail-shell" id="libraryDetail">
             <div class="detail-empty">
               <div>
                 <strong style="font-family: var(--font-display); font-size: 1.6rem; color: var(--text-body); display:block; margin-bottom:8px;">Cliquez un livre</strong>
-                <span>Ses détails, son humeur et son statut apparaîtront ici.</span>
+                <span>Ses détails apparaîtront ici.</span>
               </div>
             </div>
           </div>
@@ -1444,14 +1784,16 @@
               <h3>Atmosphère du mois</h3>
               <p>Longing, calme, un peu de pluie et un grand besoin de douceur.</p>
             </div>
-            <div class="quote-card">
-              <div class="quote">“Cette lecture a la texture d’un carnet, d’une chanson et d’une fenêtre ouverte.”</div>
-              <div class="signature">Moodboard partagé</div>
-              <div class="detail-badges">
-                <span class="detail-badge">palette</span>
-                <span class="detail-badge">playlist</span>
-                <span class="detail-badge">images</span>
-                <span class="detail-badge">citations</span>
+            <div class="panel-card pad" id="moodboardFocus">
+              <div class="panel-head">Fiche liée</div>
+              <div class="panel-sub">Sélectionnez un livre dans la bibliothèque pour afficher ou créer sa fiche/moodboard.</div>
+              <div class="detail-shell">
+                <div class="detail-empty">
+                  <div>
+                    <strong style="font-family: var(--font-display); font-size: 1.6rem; color: var(--text-body); display:block; margin-bottom:8px;">Aucune fiche ouverte</strong>
+                    <span>La fiche apparaîtra ici dès que vous ouvrirez un livre.</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -1597,6 +1939,56 @@
     <div class="footer">Book Nook — direction artistique initiale conservée, onglets et contenus adaptés au refuge de lecture.</div>
   </main>
 
+  <div class="modal-backdrop" id="bookModal" aria-hidden="true" hidden>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="bookModalTitle">
+      <div class="modal-header">
+        <div>
+          <div class="modal-kicker">Nouveau livre</div>
+          <h3 id="bookModalTitle">Ajouter un livre à la bibliothèque</h3>
+          <p class="modal-note">Créez une entrée, ajoutez des tags et une note, puis ouvrez ou créez la fiche/moodboard liée.</p>
+        </div>
+        <button class="modal-close" id="closeBookModal" type="button" aria-label="Fermer la fenêtre">×</button>
+      </div>
+
+      <form class="modal-form" id="bookForm">
+        <div class="modal-grid">
+          <div class="field">
+            <label for="bookTitleInput">Titre</label>
+            <input id="bookTitleInput" name="title" type="text" placeholder="The Left Hand of Darkness" required />
+          </div>
+          <div class="field">
+            <label for="bookAuthorInput">Auteur</label>
+            <input id="bookAuthorInput" name="author" type="text" placeholder="Ursula K. Le Guin" required />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="bookTagInput">Tags</label>
+          <div class="tags-input">
+            <input id="bookTagInput" type="text" placeholder="gothique, pluie, silence..." />
+            <button class="btn btn-secondary" id="addBookTagButton" type="button">Ajouter</button>
+          </div>
+          <div class="chip-list" id="bookTagList"></div>
+        </div>
+
+        <div class="field">
+          <label for="bookNoteInput">Note</label>
+          <textarea id="bookNoteInput" name="note" placeholder="Ajoutez une courte note de lecture..." rows="5"></textarea>
+        </div>
+
+        <label class="modal-check">
+          <input id="bookMoodboardInput" type="checkbox" checked />
+          Créer la fiche / moodboard si elle n’existe pas déjà
+        </label>
+
+        <div class="modal-actions">
+          <button class="btn btn-secondary" id="cancelBookModal" type="button">Annuler</button>
+          <button class="btn btn-primary" type="submit">Créer le livre</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
   <script>
     const tabs = Array.from(document.querySelectorAll('[data-tab]'));
     const panels = {
@@ -1607,132 +1999,237 @@
       profile: document.getElementById('panel-profile')
     };
 
-    const bookData = {
+    const libraryGrid = document.getElementById('libraryGrid');
+    const libraryDetail = document.getElementById('libraryDetail');
+    const libraryCount = document.getElementById('libraryCount');
+    const moodboardFocus = document.getElementById('moodboardFocus');
+    const openBookModalBtn = document.getElementById('openBookModal');
+    const bookModal = document.getElementById('bookModal');
+    const closeBookModalBtn = document.getElementById('closeBookModal');
+    const cancelBookModalBtn = document.getElementById('cancelBookModal');
+    const bookForm = document.getElementById('bookForm');
+    const titleInput = document.getElementById('bookTitleInput');
+    const authorInput = document.getElementById('bookAuthorInput');
+    const tagInput = document.getElementById('bookTagInput');
+    const addTagButton = document.getElementById('addBookTagButton');
+    const tagList = document.getElementById('bookTagList');
+    const noteInput = document.getElementById('bookNoteInput');
+    const moodboardInput = document.getElementById('bookMoodboardInput');
+    const sectionLibrary = document.getElementById('panel-library');
+
+    const coverCycle = ['gold', 'green', 'plum', 'rose', 'dark', 'sand', 'blue'];
+    const books = {
       'secret-history': {
         title: 'The Secret History',
         author: 'Donna Tartt',
-        score: '9.8',
-        status: 'Terminé',
-        mood: 'Étrange, brillant, feutré',
-        year: 'Liseuse 2024',
         note: 'Un livre parfait pour une étagère de nuits longues et de conversations un peu trop brillantes.',
-        tags: ['dark academia', 'culpabilité', 'élégance']
+        tags: ['dark academia', 'culpabilité', 'élégance'],
+        cover: 'gold',
+        moodboard: null
       },
       piranesi: {
         title: 'Piranesi',
         author: 'Susanna Clarke',
-        score: '9.5',
-        status: 'Terminé',
-        mood: 'Silencieux, merveilleux',
-        year: 'Liseuse 2024',
         note: 'À ranger là où la lumière tombe doucement. Il a une présence calme, presque architecturale.',
-        tags: ['merveille', 'silence', 'imaginaire']
+        tags: ['merveille', 'silence', 'imaginaire'],
+        cover: 'green',
+        moodboard: null
       },
       circe: {
         title: 'Circé',
         author: 'Madeline Miller',
-        score: '9.2',
-        status: 'Relu',
-        mood: 'Magique, puissant',
-        year: 'Liseuse 2024',
         note: 'Une couverture à réserver à une étagère plus lumineuse, là où les livres de force trouvent leur place.',
-        tags: ['mythe', 'pouvoir', 'littéraire']
+        tags: ['mythe', 'pouvoir', 'littéraire'],
+        cover: 'plum',
+        moodboard: null
       },
       beloved: {
         title: 'Beloved',
         author: 'Toni Morrison',
-        score: '9.9',
-        status: 'En cours',
-        mood: 'Hanté, intense',
-        year: 'Lecture actuelle',
         note: 'Un livre à garder proche, comme un objet précieux et grave.',
-        tags: ['mémoire', 'hantise', 'force']
+        tags: ['mémoire', 'hantise', 'force'],
+        cover: 'dark',
+        moodboard: null
       },
       mohawk: {
         title: 'Crying in H Mart',
         author: 'Michelle Zauner',
-        score: '9.1',
-        status: 'Terminé',
-        mood: 'Douceur, deuil, cuisine',
-        year: 'Liseuse 2024',
         note: 'Une page à garder près du réconfort, pour les jours qui demandent beaucoup de douceur.',
-        tags: ['mémoire', 'famille', 'tendresse']
+        tags: ['mémoire', 'famille', 'tendresse'],
+        cover: 'rose',
+        moodboard: null
       },
       norwegian: {
         title: 'Norwegian Wood',
         author: 'Haruki Murakami',
-        score: '9.0',
-        status: 'Terminé',
-        mood: 'Nostalgique, doux',
-        year: 'Liseuse 2023',
-        note: 'Parfait pour une rangée calme, un peu plus basse, avec des matières chaudes autour.',
-        tags: ['nostalgie', 'pluie', 'mémoire']
+        note: 'Parfait pour une lecture plus calme, avec des matières chaudes autour.',
+        tags: ['nostalgie', 'pluie', 'mémoire'],
+        cover: 'sand',
+        moodboard: null
       },
       gothic: {
         title: 'Mexican Gothic',
         author: 'Silvia Moreno-Garcia',
-        score: '8.9',
-        status: 'À lire',
-        mood: 'Étrange, élégant',
-        year: 'PAL',
         note: 'Très bien pour la PAL si vous aimez les livres qui font penser aux couloirs humides et aux secrets.',
-        tags: ['gothique', 'brouillard', 'mystère']
+        tags: ['gothique', 'brouillard', 'mystère'],
+        cover: 'blue',
+        moodboard: null
       },
       'left-hand': {
         title: 'The Left Hand of Darkness',
         author: 'Ursula K. Le Guin',
-        score: '9.4',
-        status: 'À lire',
-        mood: 'Froid, clair, profond',
-        year: 'PAL',
         note: 'Une belle colonne de la PAL, fine et calme, qui attend sa place dans le bon rayon.',
-        tags: ['SF', 'intemporel', 'silence']
+        tags: ['SF', 'intemporel', 'silence'],
+        cover: 'plum',
+        moodboard: null
       },
       'secret-salt': {
         title: 'The Price of Salt',
         author: 'Patricia Highsmith',
-        score: '8.8',
-        status: 'À lire',
-        mood: 'Tendre, suspendu',
-        year: 'PAL',
         note: 'Je le laisserais volontiers en attente, tout près du regard, pour plus tard.',
-        tags: ['attente', 'désir', 'romance']
+        tags: ['attente', 'désir', 'romance'],
+        cover: 'gold',
+        moodboard: null
       }
     };
+    const bookOrder = ['secret-history', 'piranesi', 'circe', 'beloved', 'mohawk', 'norwegian', 'gothic', 'left-hand', 'secret-salt'];
+    let selectedBookId = 'secret-history';
+    let modalTags = [];
 
-    const libraryDetail = document.getElementById('libraryDetail');
-    const bookButtons = Array.from(document.querySelectorAll('.book-spine[data-book], .book-cover[data-book]'));
+    function slugify(value) {
+      return value
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '');
+    }
 
-    function setDetail(bookId) {
-      const book = bookData[bookId];
+    function uniqueBookId(base) {
+      let candidate = base || 'nouveau-livre';
+      let index = 2;
+      while (books[candidate]) {
+        candidate = `${base || 'nouveau-livre'}-${index}`;
+        index += 1;
+      }
+      return candidate;
+    }
+
+    function ensureMoodboard(bookId) {
+      const book = books[bookId];
+      if (!book) return null;
+      if (!book.moodboard) {
+        book.moodboard = {
+          title: book.title,
+          author: book.author,
+          note: book.note,
+          tags: [...book.tags],
+          palette: [book.cover, 'paper', 'sage']
+        };
+      }
+      return book.moodboard;
+    }
+
+    function renderLibraryGrid() {
+      libraryCount.textContent = String(bookOrder.length);
+      libraryGrid.innerHTML = bookOrder.map((bookId) => {
+        const book = books[bookId];
+        return `
+          <button class="book-spine front ${book.cover} ${bookId === selectedBookId ? 'selected' : ''}" data-book="${bookId}" type="button">
+            <span class="spine-title">${book.title}</span>
+            <span class="spine-author">${book.author}</span>
+          </button>
+        `;
+      }).join('');
+    }
+
+    function renderDetail(bookId) {
+      const book = books[bookId];
       if (!book) return;
+      selectedBookId = bookId;
+      renderLibraryGrid();
 
-      bookButtons.forEach((btn) => btn.classList.toggle('selected', btn.dataset.book === bookId));
-
+      const moodboardExists = Boolean(book.moodboard);
       libraryDetail.innerHTML = `
         <div class="detail-card">
-          <div class="detail-header">
-            <div>
-              <div class="detail-title">${book.title}</div>
-              <div class="detail-author">${book.author}</div>
+          <div class="detail-meta">
+            <div class="detail-meta-line">
+              <span>Titre</span>
+              <strong>${book.title}</strong>
             </div>
-            <div class="detail-score">${book.score}</div>
+            <div class="detail-meta-line">
+              <span>Auteur</span>
+              <strong>${book.author}</strong>
+            </div>
           </div>
-          <div class="detail-badges">
-            <span class="detail-badge">${book.status}</span>
-            <span class="detail-badge">${book.mood}</span>
-            <span class="detail-badge">${book.year}</span>
-          </div>
-          <div class="detail-note">${book.note}</div>
           <div class="detail-badges">
             ${book.tags.map((tag) => `<span class="detail-badge">${tag}</span>`).join('')}
           </div>
+          <div class="detail-note">${book.note}</div>
           <div class="detail-actions">
-            <button class="btn btn-primary" type="button">Modifier</button>
-            <button class="btn btn-secondary" type="button">Ajouter tag</button>
+            <button class="btn btn-primary" type="button" id="detailMoodboardButton">
+              ${moodboardExists ? 'Voir la fiche / moodboard' : 'Créer la fiche / moodboard'}
+            </button>
           </div>
         </div>
       `;
+
+      const detailMoodboardButton = document.getElementById('detailMoodboardButton');
+      detailMoodboardButton?.addEventListener('click', () => openMoodboard(bookId));
+      renderMoodboardPreview(bookId);
+    }
+
+    function renderMoodboardPreview(bookId) {
+      if (!moodboardFocus) return;
+      const book = books[bookId];
+      if (!book) return;
+      const moodboard = book.moodboard;
+
+      if (!moodboard) {
+        moodboardFocus.innerHTML = `
+          <div class="panel-head">Fiche liée</div>
+          <div class="panel-sub">Aucune fiche n’est encore liée à ce livre.</div>
+          <div class="detail-shell">
+            <div class="detail-empty">
+              <div>
+                <strong style="font-family: var(--font-display); font-size: 1.6rem; color: var(--text-body); display:block; margin-bottom:8px;">Créer pour continuer</strong>
+                <span>Ouvrez ce livre depuis la bibliothèque pour générer sa fiche/moodboard.</span>
+              </div>
+            </div>
+          </div>
+        `;
+        return;
+      }
+
+      moodboardFocus.innerHTML = `
+        <div class="panel-head">Fiche liée</div>
+        <div class="panel-sub">${moodboard.title} • ${moodboard.author}</div>
+        <div class="detail-shell">
+          <div class="detail-meta">
+            <div class="detail-meta-line">
+              <span>Ambiance</span>
+              <strong>${moodboard.palette.join(' • ')}</strong>
+            </div>
+            <div class="detail-meta-line">
+              <span>Tags</span>
+              <strong>${moodboard.tags.join(' · ')}</strong>
+            </div>
+          </div>
+          <div class="detail-note">${moodboard.note}</div>
+          <div class="detail-actions">
+            <button class="btn btn-secondary" type="button" id="moodboardBackButton">Retour à la bibliothèque</button>
+          </div>
+        </div>
+      `;
+
+      document.getElementById('moodboardBackButton')?.addEventListener('click', () => showTab('library'));
+    }
+
+    function openMoodboard(bookId) {
+      ensureMoodboard(bookId);
+      renderMoodboardPreview(bookId);
+      showTab('moodboards');
+      document.getElementById('panel-moodboards')?.scrollIntoView({ block: 'start', behavior: 'smooth' });
     }
 
     function showTab(name) {
@@ -1742,15 +2239,122 @@
       });
     }
 
+    function renderModalTags() {
+      tagList.innerHTML = modalTags.length
+        ? modalTags.map((tag) => `
+            <span class="chip">
+              ${tag}
+              <button type="button" aria-label="Retirer ${tag}" data-remove-tag="${tag}">×</button>
+            </span>
+          `).join('')
+        : `<div class="panel-sub" style="margin-top:0;">Ajoutez quelques mots-clés pour retrouver ce livre plus vite.</div>`;
+
+      tagList.querySelectorAll('[data-remove-tag]').forEach((button) => {
+        button.addEventListener('click', () => {
+          modalTags = modalTags.filter((tag) => tag !== button.dataset.removeTag);
+          renderModalTags();
+        });
+      });
+    }
+
+    function openBookModal() {
+      modalTags = [];
+      bookForm.reset();
+      renderModalTags();
+      bookModal.hidden = false;
+      bookModal.setAttribute('aria-hidden', 'false');
+      window.requestAnimationFrame(() => titleInput.focus());
+    }
+
+    function closeBookModal() {
+      bookModal.hidden = true;
+      bookModal.setAttribute('aria-hidden', 'true');
+      openBookModalBtn?.focus();
+    }
+
+    function addModalTag(value) {
+      const tag = value.trim();
+      if (!tag) return;
+      const normalized = tag.toLowerCase();
+      if (modalTags.some((existing) => existing.toLowerCase() === normalized)) return;
+      modalTags = [...modalTags, tag];
+      renderModalTags();
+      tagInput.value = '';
+      tagInput.focus();
+    }
+
+    function createBookFromModal() {
+      const title = titleInput.value.trim();
+      const author = authorInput.value.trim();
+      const note = noteInput.value.trim();
+      if (!title || !author) return;
+
+      const baseId = slugify(title);
+      const bookId = uniqueBookId(baseId);
+      const cover = coverCycle[bookOrder.length % coverCycle.length];
+
+      books[bookId] = {
+        title,
+        author,
+        note: note || 'Ajoutez une note pour garder le souvenir de cette lecture.',
+        tags: [...modalTags],
+        cover,
+        moodboard: null
+      };
+      bookOrder.unshift(bookId);
+      renderLibraryGrid();
+      renderDetail(bookId);
+      closeBookModal();
+
+      if (moodboardInput.checked) {
+        openMoodboard(bookId);
+      } else {
+        showTab('library');
+      }
+    }
+
     tabs.forEach((tab) => tab.addEventListener('click', () => showTab(tab.dataset.tab)));
-    bookButtons.forEach((btn) => btn.addEventListener('click', () => setDetail(btn.dataset.book)));
+
+    libraryGrid.addEventListener('click', (event) => {
+      const button = event.target.closest('[data-book]');
+      if (!button || !libraryGrid.contains(button)) return;
+      renderDetail(button.dataset.book);
+    });
+
+    openBookModalBtn?.addEventListener('click', openBookModal);
+    closeBookModalBtn?.addEventListener('click', closeBookModal);
+    cancelBookModalBtn?.addEventListener('click', closeBookModal);
+    bookModal.addEventListener('click', (event) => {
+      if (event.target === bookModal) closeBookModal();
+    });
+
+    addTagButton.addEventListener('click', () => addModalTag(tagInput.value));
+    tagInput.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        addModalTag(tagInput.value);
+      }
+    });
+
+    bookForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      createBookFromModal();
+    });
+
+    window.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && !bookModal.hidden) {
+        closeBookModal();
+      }
+    });
 
     const initialTab = window.location.hash.replace('#', '');
     if (initialTab && panels[initialTab]) {
       showTab(initialTab);
     }
 
-    setDetail('secret-history');
+    renderLibraryGrid();
+    renderDetail(selectedBookId);
+    renderMoodboardPreview(selectedBookId);
   </script>
 </body>
 </html>
