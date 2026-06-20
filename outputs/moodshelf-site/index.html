@@ -4,45 +4,66 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Book Nook | Refuge des lecteurs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #f6efe4;
-      --bg-deep: #ece1d2;
-      --surface: rgba(255, 250, 244, 0.9);
-      --surface-strong: #fffaf4;
-      --panel: #f5eadb;
-      --panel-2: #efe0cc;
-      --ink: #261a13;
-      --muted: #6f5a49;
-      --muted-2: #8f7a68;
-      --line: rgba(72, 51, 38, 0.14);
-      --line-strong: rgba(72, 51, 38, 0.22);
-      --accent: #b07b43;
-      --accent-deep: #7c5230;
-      --accent-soft: #d9b07d;
-      --good: #6f8f61;
-      --rose: #b36d6d;
-      --shadow: 0 24px 70px rgba(61, 38, 24, 0.12);
-      --shadow-soft: 0 12px 30px rgba(61, 38, 24, 0.08);
-      --radius-xl: 30px;
-      --radius-lg: 22px;
+      --ink-900: #1f1914;
+      --ink-800: #2a221c;
+      --ink-700: #3a3129;
+      --ink-600: #4c433a;
+      --paper-200: #e8ddcf;
+      --paper-100: #f5eedf;
+      --paper-50: #fbf7f0;
+      --paper-0: #fffdfc;
+      --gold-600: #b9893a;
+      --gold-500: #d1a14f;
+      --gold-300: #e7c580;
+      --sage-600: #55604e;
+      --sage-400: #7c8a72;
+      --rose-500: #b97c70;
+      --plum-500: #73516f;
+      --surface-page: #faf5ed;
+      --surface-card: #ffffff;
+      --surface-quiet: #f4ebdd;
+      --surface-dark: #201913;
+      --border: rgba(58,49,41,0.12);
+      --border-strong: rgba(58,49,41,0.18);
+      --text-strong: var(--ink-900);
+      --text-body: var(--ink-700);
+      --text-muted: #72665b;
+      --text-soft: #8e8072;
+      --text-on-dark: #faf5ed;
+      --text-on-dark-muted: rgba(250,245,237,0.74);
+      --accent: var(--gold-500);
+      --accent-strong: var(--gold-600);
+      --shadow-sm: 0 8px 20px rgba(43, 32, 24, 0.08);
+      --shadow-md: 0 24px 60px rgba(43, 32, 24, 0.14);
+      --shadow-lg: 0 32px 80px rgba(43, 32, 24, 0.18);
       --radius-md: 16px;
-      --radius-sm: 12px;
-      --max: 1360px;
-      --tab-gap: 10px;
-      --ease: 180ms ease;
+      --radius-lg: 22px;
+      --radius-xl: 30px;
+      --radius-pill: 999px;
+      --radius-book: 4px;
+      --wash-hero: radial-gradient(circle at 20% 18%, rgba(232, 197, 128, 0.92), rgba(209, 161, 79, 0.74) 38%, rgba(98, 115, 92, 0.58) 78%, rgba(32, 25, 19, 0.96) 100%);
+      --wash-soft: radial-gradient(circle at 12% 16%, rgba(240, 228, 210, 0.9), rgba(245, 235, 221, 0.72) 34%, rgba(250, 245, 237, 0.96) 100%);
+      --wash-aura: radial-gradient(circle at 35% 15%, rgba(184, 124, 112, 0.92), rgba(115, 81, 111, 0.88) 44%, rgba(32, 25, 19, 0.96) 100%);
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-serif: 'Spectral', Georgia, serif;
+      --font-sans: 'Hanken Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
     }
 
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    html, body { margin: 0; min-height: 100%; scroll-behavior: smooth; }
     body {
-      margin: 0;
-      color: var(--ink);
+      font-family: var(--font-sans);
+      color: var(--text-body);
       background:
-        radial-gradient(circle at top left, rgba(176, 123, 67, 0.14), transparent 28%),
-        radial-gradient(circle at 80% 10%, rgba(111, 143, 97, 0.12), transparent 22%),
-        linear-gradient(180deg, #f9f4ec 0%, #f2e6d6 100%);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        radial-gradient(1000px 600px at 50% 0%, rgba(209,161,79,0.12), transparent 55%),
+        radial-gradient(800px 500px at 12% 10%, rgba(124,138,114,0.10), transparent 44%),
+        radial-gradient(800px 500px at 100% 6%, rgba(185,124,112,0.08), transparent 40%),
+        var(--surface-page);
     }
 
     body::before {
@@ -51,95 +72,60 @@
       inset: 0;
       pointer-events: none;
       background:
-        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.32), transparent 24%),
-        radial-gradient(circle at 80% 0%, rgba(255,255,255,0.16), transparent 18%),
+        radial-gradient(circle at 18% 18%, rgba(255,255,255,0.34), transparent 22%),
+        radial-gradient(circle at 80% 8%, rgba(255,255,255,0.14), transparent 16%),
         linear-gradient(transparent, rgba(255,255,255,0.08));
       mix-blend-mode: screen;
-      opacity: 0.45;
+      opacity: 0.5;
     }
 
     a { color: inherit; text-decoration: none; }
     button, input, textarea { font: inherit; }
 
-    .shell {
-      width: min(var(--max), calc(100% - 32px));
+    .page {
+      width: min(1360px, calc(100% - 32px));
       margin: 0 auto;
-      padding: 20px 0 40px;
+      padding: 20px 0 32px;
       position: relative;
       z-index: 1;
-    }
-
-    .frame {
-      border: 1px solid var(--line);
-      border-radius: calc(var(--radius-xl) + 2px);
-      background: rgba(255, 250, 244, 0.7);
-      backdrop-filter: blur(18px);
-      box-shadow: var(--shadow);
-      overflow: clip;
     }
 
     .topbar {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
-      padding: 20px 24px;
-      border-bottom: 1px solid var(--line);
-      background:
-        linear-gradient(135deg, rgba(255,255,255,0.65), rgba(255,255,255,0.22)),
-        linear-gradient(135deg, #faf4eb, #efe0cc);
+      gap: 20px;
+      padding: 10px 0 22px;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 14px;
-      min-width: 0;
+      gap: 12px;
+      min-width: max-content;
     }
 
-    .logo {
-      width: 50px;
-      height: 50px;
-      border-radius: 18px;
-      background:
-        radial-gradient(circle at 35% 30%, #f8e7b3 0 12%, transparent 13%),
-        linear-gradient(145deg, #3b291d, #7c5230);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.24);
-      position: relative;
-      flex: 0 0 auto;
+    .mark {
+      width: 34px;
+      height: 34px;
+      flex: none;
     }
 
-    .logo::before,
-    .logo::after {
-      content: "";
-      position: absolute;
-      inset: 11px 12px 10px;
-      border: 1.5px solid rgba(255,255,255,0.56);
-      border-radius: 11px;
-    }
-
-    .logo::after {
-      inset: 8px 17px 8px 17px;
-      border-top-width: 2px;
-      border-bottom-width: 2px;
-      opacity: 0.65;
-    }
-
-    .brand h1 {
-      margin: 0;
-      font-size: 1.25rem;
+    .wordmark {
+      font-family: var(--font-display);
+      font-size: 28px;
       line-height: 1;
+      font-weight: 600;
       letter-spacing: -0.03em;
+      color: var(--text-strong);
     }
 
-    .brand p {
-      margin: 6px 0 0;
-      color: var(--muted);
-      font-size: 0.92rem;
-      line-height: 1.4;
+    .wordmark em {
+      font-style: italic;
+      color: var(--accent);
     }
 
-    .topbar-right {
+    .nav {
       display: flex;
       align-items: center;
       gap: 10px;
@@ -147,481 +133,859 @@
       justify-content: flex-end;
     }
 
-    .pill {
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.7);
-      color: var(--muted);
+    .nav button {
+      border: 0;
       padding: 10px 14px;
-      border-radius: 999px;
-      font-size: 0.84rem;
-      white-space: nowrap;
+      border-radius: var(--radius-pill);
+      color: var(--text-muted);
+      font-weight: 700;
+      background: transparent;
+      cursor: pointer;
+      transition: background 160ms ease, color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .nav button:hover {
+      color: var(--text-strong);
+      background: rgba(255,255,255,0.72);
+      transform: translateY(-1px);
+    }
+
+    .nav button[aria-selected="true"] {
+      color: #281B0B;
+      background: linear-gradient(135deg, rgba(225,187,107,1), rgba(209,161,79,1));
+      box-shadow: 0 14px 24px rgba(209,161,79,0.18);
     }
 
     .hero {
       display: grid;
-      grid-template-columns: 1.25fr 0.75fr;
-      gap: 18px;
-      padding: 24px;
-      border-bottom: 1px solid var(--line);
-      background:
-        radial-gradient(circle at 90% 10%, rgba(176,123,67,0.15), transparent 20%),
-        linear-gradient(180deg, rgba(255,255,255,0.28), transparent 40%);
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 24px;
+      align-items: stretch;
+      margin-top: 8px;
     }
 
-    .hero-card,
-    .stats-card {
-      border-radius: var(--radius-xl);
-      border: 1px solid var(--line);
-      background: var(--surface);
-      box-shadow: var(--shadow-soft);
-    }
-
-    .hero-card {
-      padding: 30px;
-      min-height: 320px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      position: relative;
+    .hero-copy,
+    .hero-visual {
+      border-radius: 32px;
       overflow: hidden;
-    }
-
-    .hero-card::after {
-      content: "";
-      position: absolute;
-      width: 280px;
-      height: 280px;
-      right: -130px;
-      top: -110px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(176,123,67,0.18), transparent 70%);
-      pointer-events: none;
-    }
-
-    .eyebrow {
-      margin: 0 0 14px;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      font-size: 0.76rem;
-      color: var(--accent-deep);
-      font-weight: 700;
-    }
-
-    .hero h2 {
-      margin: 0;
-      max-width: 11ch;
-      font-size: clamp(2.4rem, 5vw, 4.8rem);
-      line-height: 0.95;
-      letter-spacing: -0.05em;
-      font-family: Georgia, "Times New Roman", serif;
-    }
-
-    .hero h2 em {
-      font-style: normal;
-      color: var(--accent);
+      box-shadow: var(--shadow-md);
     }
 
     .hero-copy {
+      padding: 34px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.76), rgba(255,255,255,0.92)),
+        var(--wash-soft);
+      border: 1px solid rgba(58,49,41,0.08);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: var(--radius-pill);
+      background: rgba(255,255,255,0.86);
+      border: 1px solid rgba(58,49,41,0.08);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-soft);
+    }
+
+    .hero h1 {
       margin: 18px 0 0;
-      max-width: 64ch;
-      color: var(--muted);
-      font-size: 1rem;
-      line-height: 1.75;
+      font-family: var(--font-display);
+      font-size: clamp(3.2rem, 5.2vw, 5.5rem);
+      line-height: 0.92;
+      letter-spacing: -0.04em;
+      color: var(--text-strong);
+      font-weight: 600;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero p {
+      margin: 18px 0 0;
+      max-width: 58ch;
+      font-family: var(--font-serif);
+      font-size: 1.06rem;
+      line-height: 1.74;
+      color: var(--text-body);
     }
 
     .hero-actions {
-      margin-top: 20px;
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
+      margin-top: 24px;
     }
 
     .btn {
+      min-height: 48px;
       border: 0;
-      border-radius: 999px;
-      padding: 13px 18px;
+      border-radius: var(--radius-pill);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 18px;
       font-weight: 700;
-      font-size: 0.92rem;
       cursor: pointer;
-      transition: transform var(--ease), filter var(--ease), background var(--ease), color var(--ease);
+      transition: transform 160ms ease, box-shadow 160ms ease, filter 160ms ease;
     }
 
     .btn:hover { transform: translateY(-1px); }
     .btn:active { transform: translateY(0) scale(0.98); }
 
-    .btn.primary {
-      color: #fffaf4;
-      background: linear-gradient(180deg, var(--accent), var(--accent-deep));
-      box-shadow: 0 12px 24px rgba(124, 82, 48, 0.18);
+    .btn-primary {
+      color: #271A0B;
+      background: linear-gradient(135deg, rgba(225,187,107,1), rgba(209,161,79,1));
+      box-shadow: 0 16px 28px rgba(209,161,79,0.24);
     }
 
-    .btn.secondary {
-      color: var(--ink);
-      border: 1px solid var(--line-strong);
-      background: rgba(255,255,255,0.75);
+    .btn-secondary {
+      color: var(--text-strong);
+      background: rgba(255,255,255,0.9);
+      border: 1px solid rgba(58,49,41,0.12);
     }
 
-    .stats-card {
-      padding: 18px;
+    .hero-stats {
       display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 12px;
-      align-content: start;
+      margin-top: 28px;
     }
 
-    .metric {
-      padding: 18px;
-      border-radius: 20px;
-      background: linear-gradient(180deg, #fffdf8, #f5eadb);
-      border: 1px solid var(--line);
+    .stat {
+      padding: 16px 14px;
+      border-radius: var(--radius-lg);
+      background: rgba(255,255,255,0.78);
+      border: 1px solid rgba(58,49,41,0.08);
     }
 
-    .metric strong {
+    .stat strong {
       display: block;
+      font-family: var(--font-display);
       font-size: 2rem;
       line-height: 1;
-      margin-bottom: 8px;
+      color: var(--text-strong);
+      font-weight: 600;
     }
 
-    .metric span {
-      color: var(--muted);
-      font-size: 0.92rem;
-      line-height: 1.55;
+    .stat span {
+      display: block;
+      margin-top: 6px;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-soft);
     }
 
-    .tabrail {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      padding: 14px 18px;
-      border-bottom: 1px solid var(--line);
-      background: rgba(250, 245, 238, 0.92);
-      backdrop-filter: blur(14px);
+    .hero-visual {
+      background:
+        radial-gradient(circle at 18% 14%, rgba(240,228,210,0.12), transparent 30%),
+        var(--wash-hero);
+      border: 1px solid rgba(58,49,41,0.08);
+      display: grid;
+      grid-template-rows: auto auto;
+      gap: 14px;
+      padding: 18px;
     }
 
-    .tabs {
+    .shelf-scene {
+      display: grid;
+      gap: 14px;
+      min-height: 420px;
+      padding: 12px 6px 4px;
+    }
+
+    .shelf-row {
+      position: relative;
+      min-height: 120px;
+      border-bottom: 14px solid rgba(38, 30, 23, 0.42);
+      border-radius: 0 0 18px 18px;
+    }
+
+    .shelf-row::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -14px;
+      height: 14px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(0,0,0,0.22));
+      border-radius: 0 0 18px 18px;
+    }
+
+    .books {
+      position: absolute;
+      inset: 16px 0 0;
+      display: flex;
+      align-items: end;
+      gap: 12px;
+      padding: 0 10px;
+      overflow: hidden;
+    }
+
+    .book {
+      position: relative;
+      width: 70px;
+      height: 108px;
+      border-radius: var(--radius-book);
+      overflow: hidden;
+      box-shadow: 0 12px 18px rgba(15, 10, 7, 0.22);
+      border: 1px solid rgba(255,255,255,0.12);
+      flex: none;
+      display: flex;
+      align-items: end;
+      justify-content: center;
+      color: #fff7ed;
+      text-align: center;
+      padding: 14px 10px 12px;
+    }
+
+    .book.wide { width: 84px; height: 120px; }
+    .book.tall { height: 132px; }
+    .book.gold { background: linear-gradient(180deg, #e0b963, #b9893a 68%, #85551b); }
+    .book.green { background: linear-gradient(180deg, #8ca084, #55604e 72%, #364037); }
+    .book.rose { background: linear-gradient(180deg, #d39a91, #b97c70 72%, #7b453f); }
+    .book.plum { background: linear-gradient(180deg, #92708d, #73516f 72%, #46324a); }
+    .book.dark { background: linear-gradient(180deg, #5e5146, #302722 72%, #1e1814); }
+    .book.blue { background: linear-gradient(180deg, #90a2b3, #607287 72%, #465261); }
+    .book.sand { background: linear-gradient(180deg, #c9b49d, #a88e73 72%, #7b654f); }
+
+    .book .label {
+      display: grid;
+      gap: 4px;
+      text-align: center;
+    }
+
+    .book .label strong {
+      font-family: var(--font-display);
+      font-size: 15px;
+      line-height: 1;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    .book .label span {
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.82;
+    }
+
+    .shelf-note {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 16px;
+      border-radius: var(--radius-lg);
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: var(--text-on-dark);
+    }
+
+    .shelf-note strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 1.7rem;
+      line-height: 1;
+      font-weight: 600;
+    }
+
+    .shelf-note p {
+      margin: 8px 0 0;
+      max-width: 34ch;
+      color: var(--text-on-dark-muted);
+      line-height: 1.58;
+      font-family: var(--font-serif);
+    }
+
+    .shelf-count {
+      font-family: var(--font-display);
+      font-size: 2.8rem;
+      line-height: 1;
+      font-weight: 600;
+      color: var(--gold-300);
+      align-self: end;
+    }
+
+    .section {
+      margin-top: 28px;
+      display: grid;
+      gap: 18px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 3.2vw, 3rem);
+      line-height: 0.96;
+      color: var(--text-strong);
+      font-weight: 600;
+    }
+
+    .section-head p {
+      margin: 0;
+      max-width: 56ch;
+      color: var(--text-muted);
+      line-height: 1.62;
+    }
+
+    .tabbar {
+      margin-top: 22px;
+      padding: 8px;
+      border-radius: 28px;
+      background: rgba(255,255,255,0.8);
+      border: 1px solid rgba(58,49,41,0.08);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .tabbar nav {
       display: grid;
       grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: var(--tab-gap);
+      gap: 10px;
     }
 
-    .tab {
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 13px 14px;
-      background: rgba(255,255,255,0.72);
-      color: var(--muted);
+    .tabbar button {
+      border: 1px solid rgba(58,49,41,0.08);
+      background: rgba(255,255,255,0.84);
+      color: var(--text-muted);
+      border-radius: 22px;
+      padding: 14px 12px;
       font-weight: 700;
-      font-size: 0.92rem;
       cursor: pointer;
-      transition: all var(--ease);
-      min-width: 0;
+      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease, color 160ms ease;
     }
 
-    .tab:hover {
-      border-color: rgba(124, 82, 48, 0.24);
-      color: var(--ink);
+    .tabbar button:hover {
       transform: translateY(-1px);
+      color: var(--text-strong);
+      box-shadow: var(--shadow-sm);
     }
 
-    .tab[aria-selected="true"] {
-      background: linear-gradient(180deg, #3f2a1f, #7c5230);
-      color: #fffaf4;
+    .tabbar button[aria-selected="true"] {
+      background: linear-gradient(135deg, rgba(225,187,107,0.96), rgba(209,161,79,0.98));
+      color: #271A0B;
+      box-shadow: 0 16px 28px rgba(209,161,79,0.18);
       border-color: transparent;
-      box-shadow: 0 14px 28px rgba(61, 38, 24, 0.2);
-    }
-
-    main {
-      padding: 20px 24px 28px;
     }
 
     .panel {
+      margin-top: 18px;
       display: grid;
       gap: 18px;
     }
 
     .panel[hidden] { display: none; }
 
-    .section-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    .section-head h3 {
-      margin: 0;
-      font-size: 1.9rem;
-      line-height: 1;
-      letter-spacing: -0.04em;
-      font-family: Georgia, "Times New Roman", serif;
-    }
-
-    .section-head p {
-      margin: 8px 0 0;
-      color: var(--muted);
-      max-width: 68ch;
-      line-height: 1.65;
-    }
-
-    .section-actions {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .ghost {
-      border: 1px solid var(--line-strong);
-      background: rgba(255,255,255,0.74);
-      color: var(--ink);
-      padding: 11px 14px;
-      border-radius: 999px;
-      cursor: pointer;
-    }
-
-    .grid-12 {
+    .workspace-grid,
+    .content-grid {
       display: grid;
-      grid-template-columns: repeat(12, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .card {
-      border: 1px solid var(--line);
-      border-radius: var(--radius-xl);
-      background: var(--surface);
-      box-shadow: var(--shadow-soft);
-      overflow: hidden;
-    }
-
-    .card-inner {
-      padding: 20px;
-    }
-
-    .library-hero { grid-column: span 12; }
-    .library-shelves { grid-column: span 8; }
-    .library-side { grid-column: span 4; }
-    .pal-main { grid-column: span 7; }
-    .pal-side { grid-column: span 5; }
-    .mood-main { grid-column: span 7; }
-    .mood-side { grid-column: span 5; }
-    .community-main { grid-column: span 7; }
-    .community-side { grid-column: span 5; }
-    .profile-main { grid-column: span 7; }
-    .profile-side { grid-column: span 5; }
-
-    .subgrid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 16px;
     }
 
-    .shelf {
-      padding: 18px;
-      border-radius: 20px;
-      background: linear-gradient(180deg, #fbf7f0, #f0e1cf);
-      border: 1px solid var(--line);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.5);
+    .workspace-grid {
+      grid-template-columns: 280px minmax(0, 1fr) 340px;
+      align-items: start;
     }
 
-    .shelf + .shelf { margin-top: 14px; }
-
-    .shelf-top {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      align-items: center;
-      margin-bottom: 12px;
+    .content-grid.library {
+      grid-template-columns: 300px minmax(0, 1fr) 320px;
     }
 
-    .shelf-top h4 {
-      margin: 0;
-      font-size: 1.08rem;
-      line-height: 1.2;
+    .content-grid.pal,
+    .content-grid.moodboards,
+    .content-grid.community,
+    .content-grid.profile {
+      grid-template-columns: minmax(0, 1fr) 340px;
     }
 
-    .shelf-top small {
-      color: var(--muted);
+    .panel-card {
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-sm);
     }
 
-    .books-row {
-      display: flex;
-      align-items: end;
-      gap: 8px;
-      min-height: 168px;
-      overflow: hidden;
+    .panel-card.pad { padding: 18px; }
+
+    .panel-head {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      line-height: 1;
+      font-weight: 600;
+      color: var(--text-strong);
     }
 
-    .book {
-      min-width: 34px;
-      width: var(--w, 44px);
-      height: var(--h, 140px);
-      border-radius: 12px 12px 10px 10px;
-      background: var(--c, #b07b43);
-      box-shadow:
-        inset 1px 0 0 rgba(255,255,255,0.25),
-        4px 0 8px rgba(61, 38, 24, 0.12);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 8px 4px;
-      color: #fffaf4;
-      font-size: 0.68rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      writing-mode: vertical-rl;
-      text-orientation: mixed;
-      text-align: center;
-      flex-shrink: 0;
-    }
-
-    .book.add {
-      writing-mode: horizontal-tb;
-      color: var(--muted);
-      background: transparent;
-      border: 2px dashed rgba(72, 51, 38, 0.18);
-      box-shadow: none;
-      font-size: 0.92rem;
-      text-transform: none;
-      align-items: center;
-      justify-content: center;
-      min-width: 120px;
-      width: 120px;
-      cursor: pointer;
-      position: relative;
-    }
-
-    .book.add::before {
-      content: "+";
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      font-size: 1.2rem;
-      color: var(--accent);
-      font-weight: 700;
-    }
-
-    .shelf-base {
-      margin-top: 12px;
-      height: 16px;
-      border-radius: 0 0 14px 14px;
-      background: linear-gradient(180deg, #7d562d, #573622);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
-    }
-
-    .tag-cloud,
-    .chip-cloud,
-    .palette,
-    .feed,
-    .stack {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .tag,
-    .chip,
-    .badge {
-      border-radius: 999px;
-      padding: 9px 12px;
-      font-size: 0.83rem;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.76);
-      color: var(--muted);
-    }
-
-    .tag strong,
-    .badge strong { color: var(--ink); }
-
-    .field {
-      display: grid;
-      gap: 8px;
-      margin-bottom: 14px;
-    }
-
-    .field label {
-      font-size: 0.86rem;
-      color: var(--muted);
-      font-weight: 700;
-    }
-
-    .field input,
-    .field textarea,
-    .field select {
-      width: 100%;
-      border-radius: 16px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.82);
-      padding: 14px 15px;
-      color: var(--ink);
-      outline: none;
-    }
-
-    .field textarea { min-height: 114px; resize: vertical; }
-
-    .note-card,
-    .feed-card,
-    .mood-card,
-    .profile-card,
-    .list-card {
-      border-radius: 20px;
-      border: 1px solid var(--line);
-      background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(245,234,219,0.72));
-      padding: 16px;
-    }
-
-    .note-card + .note-card,
-    .feed-card + .feed-card,
-    .list-card + .list-card { margin-top: 12px; }
-
-    .quote {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 1.05rem;
+    .panel-sub {
+      margin-top: 6px;
+      color: var(--text-soft);
       line-height: 1.5;
-      margin: 0;
     }
 
-    .meta {
-      margin-top: 10px;
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-      color: var(--muted);
-      font-size: 0.86rem;
+    .panel-foot {
+      margin-top: 14px;
+      font-size: 12px;
+      color: var(--text-soft);
     }
 
-    .swatches {
+    .pal-list {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 10px;
+      margin-top: 14px;
+      max-height: 720px;
+      overflow: auto;
+      padding-right: 4px;
+      align-items: start;
     }
 
-    .swatch {
-      border-radius: 18px;
-      min-height: 82px;
-      padding: 12px;
+    .pal-list::-webkit-scrollbar,
+    .detail-panel::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .pal-list::-webkit-scrollbar-thumb,
+    .detail-panel::-webkit-scrollbar-thumb {
+      background: rgba(58,49,41,0.18);
+      border-radius: 999px;
+    }
+
+    .book-spine {
+      border: 0;
+      width: 100%;
+      min-height: 104px;
+      border-radius: 14px 14px 8px 8px;
+      padding: 12px 10px;
+      color: #FFF8F0;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      color: #fffaf4;
-      font-weight: 700;
-      box-shadow: var(--shadow-soft);
+      text-align: left;
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      cursor: pointer;
+      box-shadow: 0 14px 18px rgba(15,10,7,0.16);
+      transition: transform 160ms ease, box-shadow 160ms ease, outline-color 160ms ease, opacity 160ms ease;
+      outline: 2px solid transparent;
+      user-select: none;
     }
 
-    .swatch small { font-weight: 600; opacity: 0.86; }
+    .book-spine:hover,
+    .book-spine:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 24px rgba(15,10,7,0.18);
+    }
 
-    .feed-card {
+    .book-spine.selected {
+      outline-color: rgba(231,197,128,0.9);
+      box-shadow: 0 18px 26px rgba(15,10,7,0.22);
+    }
+
+    .book-spine .spine-title {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+    }
+
+    .book-spine .spine-author {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      opacity: 0.84;
+    }
+
+    .book-spine.gold { background: linear-gradient(180deg, #e1bc6a, #c5953b 60%, #8b5b1f); }
+    .book-spine.green { background: linear-gradient(180deg, #97a98d, #667359 60%, #425040); }
+    .book-spine.rose { background: linear-gradient(180deg, #d39a91, #b97c70 60%, #824d44); }
+    .book-spine.plum { background: linear-gradient(180deg, #a0809c, #73516f 60%, #4d394e); }
+    .book-spine.dark { background: linear-gradient(180deg, #685a4e, #3d342d 60%, #241f1b); }
+    .book-spine.sand { background: linear-gradient(180deg, #c9b49d, #a88e73 60%, #7b654f); }
+    .book-spine.blue { background: linear-gradient(180deg, #90a2b3, #607287 60%, #465261); }
+
+    .shelves-board {
+      display: grid;
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .shelf-line {
+      padding: 14px 12px 16px;
+      border-radius: 24px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.68), rgba(255,255,255,0.94)),
+        linear-gradient(180deg, rgba(58,49,41,0.06), rgba(58,49,41,0.02));
+      border: 1px solid var(--border);
+    }
+
+    .shelf-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .shelf-label strong {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+
+    .shelf-label span {
+      color: var(--text-soft);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .slot-row {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .slot {
+      min-height: 184px;
+      padding: 8px;
+      border-radius: 18px;
+      background: rgba(244, 235, 221, 0.72);
+      border: 1px dashed rgba(58,49,41,0.16);
+      display: flex;
+      align-items: end;
+      justify-content: center;
+      transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
+    }
+
+    .slot.drag-over {
+      background: rgba(209,161,79,0.10);
+      border-color: rgba(209,161,79,0.38);
+      transform: translateY(-2px);
+    }
+
+    .slot.empty .slot-empty { display: grid; }
+
+    .slot-empty {
+      display: none;
+      place-items: center;
+      gap: 4px;
+      min-height: 100%;
+      color: var(--text-soft);
+      text-align: center;
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .slot-empty strong {
+      font-size: 14px;
+      color: var(--text-body);
+    }
+
+    .slot .book-spine {
+      width: 58px;
+      min-height: 160px;
+    }
+
+    .detail-panel {
+      max-height: calc(100vh - 40px);
+      overflow: auto;
+    }
+
+    .detail-view {
+      margin-top: 14px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .detail-empty {
+      min-height: 420px;
+      padding: 24px;
+      border-radius: 22px;
+      border: 1px dashed var(--border);
+      background: var(--surface-quiet);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      color: var(--text-soft);
+      line-height: 1.6;
+    }
+
+    .detail-card {
+      display: grid;
+      gap: 14px;
+    }
+
+    .detail-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      gap: 12px;
+    }
+
+    .detail-title {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      line-height: 0.94;
+      font-weight: 600;
+      color: var(--text-strong);
+    }
+
+    .detail-author {
+      margin-top: 6px;
+      color: var(--text-soft);
+    }
+
+    .detail-score {
+      font-family: var(--font-display);
+      font-size: 2.4rem;
+      line-height: 1;
+      font-weight: 600;
+      color: var(--accent-strong);
+    }
+
+    .detail-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .detail-badge {
+      padding: 7px 10px;
+      border-radius: var(--radius-pill);
+      background: var(--surface-quiet);
+      border: 1px solid var(--border);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-body);
+    }
+
+    .detail-note {
+      padding: 16px;
+      border-radius: 20px;
+      background: var(--surface-quiet);
+      border: 1px solid var(--border);
+      font-family: var(--font-serif);
+      line-height: 1.7;
+      color: var(--text-body);
+    }
+
+    .detail-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .feature-strip {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .feature-pill {
+      padding: 16px;
+      border-radius: 22px;
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      display: grid;
+      gap: 6px;
+      min-height: 110px;
+    }
+
+    .feature-pill strong {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      line-height: 1;
+      font-weight: 600;
+    }
+
+    .feature-pill span {
+      color: var(--text-muted);
+      line-height: 1.5;
+      font-size: 0.95rem;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 12px;
+      border-radius: var(--radius-pill);
+      background: var(--surface-quiet);
+      border: 1px solid rgba(58,49,41,0.08);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-body);
+    }
+
+    .tag.gold { background: rgba(209,161,79,0.12); border-color: rgba(209,161,79,0.18); }
+    .tag.sage { background: rgba(124,138,114,0.10); border-color: rgba(124,138,114,0.16); }
+    .tag.rose { background: rgba(185,124,112,0.12); border-color: rgba(185,124,112,0.18); }
+    .tag.plum { background: rgba(115,81,111,0.10); border-color: rgba(115,81,111,0.16); }
+
+    .aura-row {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 16px;
+    }
+
+    .aura-card {
+      padding: 22px;
+      border-radius: var(--radius-xl);
+      background: var(--wash-aura);
+      color: var(--text-on-dark);
+      box-shadow: var(--shadow-md);
+      display: grid;
+      gap: 14px;
+      align-content: start;
+    }
+
+    .orb {
+      width: 154px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 28% 22%, rgba(255,255,255,0.36), transparent 24%),
+        radial-gradient(circle at 48% 52%, rgba(255,255,255,0.08), transparent 56%),
+        linear-gradient(135deg, rgba(245, 232, 239, 0.42), rgba(115,81,111,0.92));
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,0.12) inset,
+        0 28px 40px rgba(15,10,7,0.26);
+    }
+
+    .aura-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      line-height: 1;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .aura-card p {
+      margin: 0;
+      color: var(--text-on-dark-muted);
+      line-height: 1.6;
+      max-width: 32ch;
+    }
+
+    .quote-card {
+      padding: 22px;
+      border-radius: var(--radius-xl);
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      display: grid;
+      gap: 12px;
+      align-content: start;
+    }
+
+    .quote-card .quote {
+      font-family: var(--font-serif);
+      font-size: 1.03rem;
+      line-height: 1.72;
+      color: var(--text-body);
+      font-style: italic;
+    }
+
+    .quote-card .signature {
+      font-size: 1.2rem;
+      color: var(--accent-strong);
+      font-weight: 700;
+    }
+
+    .cta-card {
+      margin-top: 18px;
+      padding: 24px;
+      border-radius: 32px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.62), rgba(255,255,255,0.92)),
+        radial-gradient(circle at 10% 15%, rgba(209,161,79,0.12), transparent 26%),
+        radial-gradient(circle at 90% 20%, rgba(124,138,114,0.10), transparent 24%);
+      border: 1px solid rgba(58,49,41,0.10);
+      box-shadow: var(--shadow-md);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .cta-card h3 {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: 2rem;
+      line-height: 1;
+      font-weight: 600;
+      color: var(--text-strong);
+    }
+
+    .cta-card p {
+      margin: 8px 0 0;
+      color: var(--text-muted);
+      line-height: 1.6;
+      max-width: 56ch;
+    }
+
+    .cta-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .stack-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .stack-item {
+      padding: 14px 16px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,0.88), rgba(245,235,221,0.88));
+    }
+
+    .stack-item strong {
+      display: block;
+      margin-bottom: 4px;
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      line-height: 1;
+      font-weight: 600;
+    }
+
+    .stack-item small {
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .feed {
       display: grid;
       gap: 12px;
     }
 
-    .avatar {
-      width: 46px;
-      height: 46px;
-      border-radius: 16px;
-      background: linear-gradient(145deg, var(--accent-soft), var(--accent-deep));
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.22);
-      flex: 0 0 auto;
+    .feed-card {
+      padding: 18px;
+      border-radius: 22px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(245,235,221,0.74));
+      border: 1px solid var(--border);
+      display: grid;
+      gap: 12px;
+      box-shadow: var(--shadow-sm);
     }
 
     .feed-head {
@@ -630,19 +994,29 @@
       align-items: center;
     }
 
+    .avatar {
+      width: 46px;
+      height: 46px;
+      border-radius: 16px;
+      background: linear-gradient(145deg, #d9b07d, #7c5230);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.22);
+      flex: 0 0 auto;
+    }
+
     .feed-head strong,
     .profile-card h4,
     .list-card h4 {
       display: block;
       margin: 0 0 4px;
       font-size: 1rem;
+      color: var(--text-strong);
     }
 
     .feed-head p,
     .profile-card p,
     .list-card p {
       margin: 0;
-      color: var(--muted);
+      color: var(--text-muted);
       line-height: 1.6;
     }
 
@@ -655,12 +1029,12 @@
     .post {
       padding: 12px;
       border-radius: 16px;
-      border: 1px solid var(--line);
+      border: 1px solid var(--border);
       background: rgba(255,255,255,0.72);
     }
 
-    .post b { display: block; margin-bottom: 4px; }
-    .post small { color: var(--muted); line-height: 1.45; }
+    .post b { display: block; margin-bottom: 4px; color: var(--text-strong); }
+    .post small { color: var(--text-muted); line-height: 1.45; }
 
     .timeline {
       display: grid;
@@ -675,7 +1049,7 @@
       padding: 14px 16px;
       border-radius: 18px;
       background: rgba(255,255,255,0.78);
-      border: 1px solid var(--line);
+      border: 1px solid var(--border);
     }
 
     .timeline-item strong {
@@ -684,7 +1058,7 @@
     }
 
     .timeline-item small {
-      color: var(--muted);
+      color: var(--text-muted);
       line-height: 1.45;
     }
 
@@ -724,7 +1098,7 @@
     .setting {
       padding: 14px 16px;
       border-radius: 18px;
-      border: 1px solid var(--line);
+      border: 1px solid var(--border);
       background: rgba(255,255,255,0.76);
       display: flex;
       justify-content: space-between;
@@ -754,660 +1128,470 @@
     }
 
     .footer {
-      padding: 12px 24px 26px;
-      color: var(--muted-2);
-      font-size: 0.84rem;
+      padding: 18px 2px 8px;
+      text-align: center;
+      color: var(--text-soft);
+      font-size: 12px;
     }
 
-    @media (max-width: 1140px) {
+    @media (max-width: 1100px) {
       .hero,
-      .grid-12,
-      .subgrid,
-      .post-grid {
+      .workspace-grid,
+      .content-grid.library,
+      .content-grid.pal,
+      .content-grid.moodboards,
+      .content-grid.community,
+      .content-grid.profile,
+      .aura-row {
         grid-template-columns: 1fr;
       }
 
-      .library-hero,
-      .library-shelves,
-      .library-side,
-      .pal-main,
-      .pal-side,
-      .mood-main,
-      .mood-side,
-      .community-main,
-      .community-side,
-      .profile-main,
-      .profile-side {
-        grid-column: auto;
-      }
-
-      .tabs {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
+      .tabbar nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .pal-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .slot-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .feature-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .detail-panel { max-height: none; }
     }
 
-    @media (max-width: 700px) {
-      .shell {
-        width: min(var(--max), calc(100% - 18px));
-        padding: 10px 0 24px;
-      }
-
-      .topbar,
-      .hero,
-      main,
-      .footer {
-        padding-left: 16px;
-        padding-right: 16px;
-      }
-
-      .hero-card {
-        min-height: auto;
-      }
-
-      .tabrail {
-        padding: 12px 10px;
-      }
-
-      .tabs {
-        grid-template-columns: 1fr;
-      }
-
-      .swatches {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
+    @media (max-width: 760px) {
+      .page { width: min(100%, calc(100% - 18px)); }
+      .topbar { flex-direction: column; align-items: flex-start; }
+      .nav { justify-content: flex-start; }
+      .hero-copy, .hero-visual { border-radius: 26px; }
+      .hero-copy { padding: 22px; }
+      .hero h1 { font-size: clamp(2.9rem, 14vw, 4rem); }
+      .hero-stats { grid-template-columns: 1fr; }
+      .tabbar nav { grid-template-columns: 1fr; }
+      .pal-list,
+      .slot-row,
+      .post-grid,
+      .feature-strip { grid-template-columns: 1fr; }
+      .cta-card,
+      .section-head { flex-direction: column; align-items: stretch; }
+      .slot .book-spine { width: 52px; }
+      .books { gap: 8px; }
+      .book { width: 58px; height: 102px; }
+      .book.wide { width: 72px; height: 110px; }
     }
   </style>
 </head>
 <body>
-  <div class="shell">
-    <div class="frame">
-      <header class="topbar">
-        <div class="brand">
-          <div class="logo" aria-hidden="true"></div>
+  <main class="page">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Book Nook accueil">
+        <svg class="mark" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <path d="M32 22.5C26 18.8 19.5 18.4 11.8 20.4C10.7 20.7 10 21.7 10 22.8V43.3C10 44.8 11.4 45.9 12.8 45.6C19.4 44.1 25.7 44.6 32 47.8" stroke="#1F1914" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M32 22.5C38 18.8 44.5 18.4 52.2 20.4C53.3 20.7 54 21.7 54 22.8V43.3C54 44.8 52.6 45.9 51.2 45.6C44.6 44.1 38.3 44.6 32 47.8" stroke="#1F1914" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M32 23.5V47" stroke="#1F1914" stroke-width="2.6" stroke-linecap="round"/>
+          <path d="M32 6C32 6 27.5 10.2 27.5 13.4C27.5 15.9 29.5 17.6 32 17.6C34.5 17.6 36.5 15.9 36.5 13.4C36.5 10.2 32 6 32 6Z" fill="#D1A14F"/>
+        </svg>
+        <div class="wordmark">Book<em>Nook</em></div>
+      </a>
+      <nav class="nav" aria-label="Navigation principale">
+        <button data-tab="library" aria-selected="true" type="button">Bibliothèque</button>
+        <button data-tab="pal" aria-selected="false" type="button">Pile à lire (PAL)</button>
+        <button data-tab="moodboards" aria-selected="false" type="button">Fiches &amp; Moodboards</button>
+        <button data-tab="community" aria-selected="false" type="button">Communauté</button>
+        <button data-tab="profile" aria-selected="false" type="button">Profil</button>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <article class="hero-copy">
+        <div class="eyebrow">Refuge des lecteurs</div>
+        <h1>Une maison pour <em>les lectures</em> qui comptent.</h1>
+        <p>
+          Book Nook rassemble tout ce qu’un lecteur veut garder près de lui:
+          une bibliothèque pour retrouver les livres déjà lus, une PAL pour
+          les envies à venir, des fiches &amp; moodboards pour les notes, une
+          communauté pour les coups de coeur, et un profil qui raconte votre
+          manière de lire.
+        </p>
+        <div class="hero-actions">
+          <button class="btn btn-primary" type="button">Ajouter un livre</button>
+          <button class="btn btn-secondary" type="button">Créer une fiche moodboard</button>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><strong>124</strong><span>Livres rangés</span></div>
+          <div class="stat"><strong>18</strong><span>Lectures en attente</span></div>
+          <div class="stat"><strong>36</strong><span>Notes et moodboards</span></div>
+        </div>
+      </article>
+
+      <aside class="hero-visual">
+        <div class="shelf-note">
           <div>
-            <h1>Book Nook</h1>
-            <p>Un refuge pour lecteurs: livres, traces, humeur et communauté</p>
+            <div class="eyebrow" style="background: rgba(255,255,255,0.88); color: var(--text-soft);">Toujours à portée</div>
+            <strong>Les livres font la maison.</strong>
+            <p>Une bibliothèque intime, des piles vivantes, des traces de lecture, et une communauté qui parle la même langue.</p>
+          </div>
+          <div class="shelf-count">47</div>
+        </div>
+
+        <div class="shelf-scene" aria-hidden="true">
+          <div class="shelf-row">
+            <div class="books">
+              <div class="book gold"><div class="label"><strong>Woolf</strong><span>Rangé</span></div></div>
+              <div class="book green tall"><div class="label"><strong>Le Guin</strong><span>PAL</span></div></div>
+              <div class="book plum wide"><div class="label"><strong>Murakami</strong><span>Annoté</span></div></div>
+              <div class="book dark"><div class="label"><strong>Morrison</strong><span>Relu</span></div></div>
+              <div class="book rose"><div class="label"><strong>Clarke</strong><span>Citation</span></div></div>
+            </div>
+          </div>
+          <div class="shelf-row">
+            <div class="books">
+              <div class="book sand tall"><div class="label"><strong>Hugo</strong><span>Classique</span></div></div>
+              <div class="book gold"><div class="label"><strong>Borges</strong><span>Bel objet</span></div></div>
+              <div class="book green"><div class="label"><strong>Zauner</strong><span>Souvenir</span></div></div>
+              <div class="book rose wide"><div class="label"><strong>Awad</strong><span>Étrange</span></div></div>
+            </div>
+          </div>
+          <div class="shelf-row">
+            <div class="books">
+              <div class="book plum"><div class="label"><strong>Salt</strong><span>En attente</span></div></div>
+              <div class="book blue"><div class="label"><strong>Gothic</strong><span>Moodboard</span></div></div>
+              <div class="book dark tall"><div class="label"><strong>Piranesi</strong><span>Regard</span></div></div>
+              <div class="book gold"><div class="label"><strong>Circé</strong><span>Palette</span></div></div>
+              <div class="book sand"><div class="label"><strong>Longing</strong><span>Lecture</span></div></div>
+            </div>
           </div>
         </div>
-        <div class="topbar-right" aria-label="Repères rapides">
-          <span class="pill">47 livres lus</span>
-          <span class="pill">23 jours de streak</span>
-          <span class="pill">9 moods actifs</span>
+      </aside>
+    </section>
+
+    <div class="tabbar" aria-label="Sections Book Nook">
+      <nav>
+        <button data-tab="library" aria-selected="true" type="button">Bibliothèque</button>
+        <button data-tab="pal" aria-selected="false" type="button">PAL</button>
+        <button data-tab="moodboards" aria-selected="false" type="button">Fiches &amp; Moodboards</button>
+        <button data-tab="community" aria-selected="false" type="button">Communauté</button>
+        <button data-tab="profile" aria-selected="false" type="button">Profil</button>
+      </nav>
+    </div>
+
+    <section class="panel" id="panel-library" role="tabpanel" aria-labelledby="tab-library">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow" style="background: rgba(255,255,255,0.84); color: var(--text-soft);">Bibliothèque</div>
+          <h2>Les livres lus, rangés comme vous voulez.</h2>
         </div>
-      </header>
+        <p>
+          Retrouvez tous les livres déjà lus, ajoutez-en de nouveaux en quelques secondes,
+          et organisez-les avec tags, catégories, couleurs, auteurs ou humeurs.
+        </p>
+      </div>
 
-      <section class="hero">
-        <article class="hero-card">
-          <div>
-            <p class="eyebrow">Book Nook • refuge littéraire</p>
-            <h2>Une maison pour <em>les lectures</em> qui comptent.</h2>
-            <p class="hero-copy">
-              Book Nook rassemble tout ce qu’un lecteur veut garder près de lui:
-              une bibliothèque pour retrouver les livres déjà lus, une PAL pour
-              les envies à venir, des fiches & moodboards pour les notes, une
-              communauté pour les coups de coeur, et un profil qui raconte votre
-              manière de lire.
-            </p>
-          </div>
-          <div class="hero-actions">
-            <button class="btn primary" type="button">Ajouter un livre</button>
-            <button class="btn secondary" type="button">Créer une fiche moodboard</button>
-          </div>
-        </article>
-
-        <aside class="stats-card" aria-label="Résumé du lecteur">
-          <div class="metric">
-            <strong>124</strong>
-            <span>livres conservés dans la bibliothèque, triés par tags, catégories, séries, auteurs ou coups de coeur.</span>
-          </div>
-          <div class="metric">
-            <strong>18</strong>
-            <span>lectures en attente dans la PAL, prêtes à être organisées comme vous voulez.</span>
-          </div>
-          <div class="metric">
-            <strong>36</strong>
-            <span>notes, citations, palettes, images et playlists dans les fiches & moodboards.</span>
+      <div class="workspace-grid">
+        <aside class="panel-card pad">
+          <div class="panel-head">Classements</div>
+          <div class="panel-sub">Vos critères d’organisation les plus utiles.</div>
+          <div class="stack-list">
+            <div class="stack-item">
+              <strong>Tags</strong>
+              <small>Pluie, automne, queer, silence, obsession</small>
+            </div>
+            <div class="stack-item">
+              <strong>Catégories</strong>
+              <small>Roman, essai, poésie, relecture, cadeau</small>
+            </div>
+            <div class="stack-item">
+              <strong>Tri</strong>
+              <small>Date, note, humeur, auteur, ordre de lecture</small>
+            </div>
           </div>
         </aside>
-      </section>
 
-      <div class="tabrail">
-        <nav class="tabs" role="tablist" aria-label="Sections Book Nook">
-          <button class="tab" role="tab" aria-selected="true" aria-controls="panel-library" id="tab-library" data-tab="library" type="button">Bibliothèque</button>
-          <button class="tab" role="tab" aria-selected="false" aria-controls="panel-pal" id="tab-pal" data-tab="pal" type="button">Pile à lire (PAL)</button>
-          <button class="tab" role="tab" aria-selected="false" aria-controls="panel-moodboards" id="tab-moodboards" data-tab="moodboards" type="button">Fiches &amp; Moodboards</button>
-          <button class="tab" role="tab" aria-selected="false" aria-controls="panel-community" id="tab-community" data-tab="community" type="button">Communauté</button>
-          <button class="tab" role="tab" aria-selected="false" aria-controls="panel-profile" id="tab-profile" data-tab="profile" type="button">Profil</button>
-        </nav>
+        <section class="panel-card pad">
+          <div class="panel-head">Étagères centrales</div>
+          <div class="panel-sub">Trois rangées, des cases libres, et des livres que vous organisez comme vous voulez.</div>
+          <div class="shelves-board">
+            <div class="shelf-line">
+              <div class="shelf-label"><strong>Rangée du matin</strong><span>pages lumineuses et calmes</span></div>
+              <div class="slot-row">
+                <div class="slot"><button class="book-spine gold selected" data-book="secret-history" type="button"><span class="spine-title">The Secret History</span><span class="spine-author">Donna Tartt</span></button></div>
+                <div class="slot"><button class="book-spine green" data-book="piranesi" type="button"><span class="spine-title">Piranesi</span><span class="spine-author">Susanna Clarke</span></button></div>
+                <div class="slot empty"><div class="slot-empty"><strong>Ajouter</strong><span>une nouvelle lecture</span></div></div>
+                <div class="slot"><button class="book-spine plum" data-book="circe" type="button"><span class="spine-title">Circé</span><span class="spine-author">Madeline Miller</span></button></div>
+              </div>
+            </div>
+            <div class="shelf-line">
+              <div class="shelf-label"><strong>Rangée du calme</strong><span>humeurs lentes et confortables</span></div>
+              <div class="slot-row">
+                <div class="slot"><button class="book-spine dark" data-book="beloved" type="button"><span class="spine-title">Beloved</span><span class="spine-author">Toni Morrison</span></button></div>
+                <div class="slot"><button class="book-spine rose" data-book="mohawk" type="button"><span class="spine-title">Crying in H Mart</span><span class="spine-author">Michelle Zauner</span></button></div>
+                <div class="slot empty"><div class="slot-empty"><strong>Case libre</strong><span>pour un ajout rapide</span></div></div>
+                <div class="slot"><button class="book-spine sand" data-book="norwegian" type="button"><span class="spine-title">Norwegian Wood</span><span class="spine-author">Haruki Murakami</span></button></div>
+              </div>
+            </div>
+            <div class="shelf-line">
+              <div class="shelf-label"><strong>Rangée des nuits</strong><span>livres étranges et plus intimes</span></div>
+              <div class="slot-row">
+                <div class="slot"><button class="book-spine blue" data-book="gothic" type="button"><span class="spine-title">Mexican Gothic</span><span class="spine-author">Silvia Moreno-Garcia</span></button></div>
+                <div class="slot empty"><div class="slot-empty"><strong>Libre</strong><span>pour une future lecture</span></div></div>
+                <div class="slot"><button class="book-spine plum" data-book="left-hand" type="button"><span class="spine-title">The Left Hand of Darkness</span><span class="spine-author">Ursula K. Le Guin</span></button></div>
+                <div class="slot"><button class="book-spine gold" data-book="secret-salt" type="button"><span class="spine-title">The Price of Salt</span><span class="spine-author">Patricia Highsmith</span></button></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <aside class="panel-card pad detail-panel">
+          <div class="panel-head">Caractéristiques</div>
+          <div class="panel-sub">Cliquez un livre pour voir ses tags, sa note et sa place dans votre bibliothèque.</div>
+          <div class="detail-view" id="libraryDetail">
+            <div class="detail-empty">
+              <div>
+                <strong style="font-family: var(--font-display); font-size: 1.6rem; color: var(--text-body); display:block; margin-bottom:8px;">Cliquez un livre</strong>
+                <span>Ses détails, son humeur et son statut apparaîtront ici.</span>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="panel" id="panel-pal" role="tabpanel" aria-labelledby="tab-pal" hidden>
+      <div class="section-head">
+        <div>
+          <div class="eyebrow" style="background: rgba(255,255,255,0.8); color: var(--text-soft);">Pile à lire</div>
+          <h2>Les livres qu’on veut lire, sans pression.</h2>
+        </div>
+        <p>
+          La PAL garde vos envies de lecture vivantes. Réorganisez les titres, attribuez des priorités,
+          ou laissez simplement la pile respirer jusqu’au bon moment.
+        </p>
       </div>
 
-      <main>
-        <section class="panel" id="panel-library" role="tabpanel" aria-labelledby="tab-library">
-          <div class="section-head">
-            <div>
-              <h3>Bibliothèque</h3>
-              <p>
-                Tous les livres déjà lus, avec la liberté de les ajouter simplement,
-                de les ranger comme vous voulez, puis de les filtrer par tags, catégories,
-                formats ou états d’âme.
-              </p>
-            </div>
-            <div class="section-actions">
-              <button class="ghost" type="button">Trier</button>
-              <button class="ghost" type="button">Filtrer par tag</button>
-              <button class="btn primary" type="button">+ Nouveau livre</button>
-            </div>
+      <div class="content-grid pal">
+        <div class="panel-card pad">
+          <div class="panel-head">La pile principale</div>
+          <div class="panel-sub">Les livres en attente, visibles de côté comme une vraie pile sur une table.</div>
+          <div class="pal-list" style="max-height: none;">
+            <button class="book-spine rose" type="button"><span class="spine-title">A Little Life</span><span class="spine-author">Hanya Yanagihara</span></button>
+            <button class="book-spine gold" type="button"><span class="spine-title">Sappho</span><span class="spine-author">Fragments</span></button>
+            <button class="book-spine plum" type="button"><span class="spine-title">Bunny</span><span class="spine-author">Mona Awad</span></button>
+            <button class="book-spine green" type="button"><span class="spine-title">Le Guin</span><span class="spine-author">Autres mondes</span></button>
+            <button class="book-spine dark" type="button"><span class="spine-title">Sebald</span><span class="spine-author">Promenade</span></button>
+            <button class="book-spine sand" type="button"><span class="spine-title">Poésie</span><span class="spine-author">à venir</span></button>
           </div>
+        </div>
 
-          <div class="grid-12">
-            <article class="card library-hero">
-              <div class="card-inner">
-                <div class="subgrid">
-                  <div class="shelf">
-                    <div class="shelf-top">
-                      <div>
-                        <h4>Lectures marquantes</h4>
-                        <small>18 livres • classés par intensité émotionnelle</small>
-                      </div>
-                      <span class="badge"><strong>Top shelf</strong></span>
-                    </div>
-                    <div class="books-row" aria-label="Livres de la bibliothèque">
-                      <div class="book" style="--w:38px;--h:128px;--c:#613a2f;">L'Étranger</div>
-                      <div class="book" style="--w:42px;--h:150px;--c:#846049;">Proust</div>
-                      <div class="book" style="--w:34px;--h:118px;--c:#a36b44;">Borges</div>
-                      <div class="book add">Ajouter un livre</div>
-                      <div class="book" style="--w:46px;--h:160px;--c:#385242;">Woolf</div>
-                      <div class="book" style="--w:36px;--h:124px;--c:#2f3941;">Morrison</div>
-                    </div>
-                    <div class="shelf-base"></div>
-                  </div>
-
-                  <div class="shelf">
-                    <div class="shelf-top">
-                      <div>
-                        <h4>Classer comme on aime</h4>
-                        <small>tags, catégories, séries, couleurs, avis</small>
-                      </div>
-                      <span class="badge"><strong>Custom</strong></span>
-                    </div>
-                    <div class="tag-cloud">
-                      <span class="tag"><strong>tags</strong> : queer, pluie, lenteur</span>
-                      <span class="tag"><strong>catégories</strong> : roman, essai, poésie</span>
-                      <span class="tag"><strong>état</strong> : relu, annoté, offert</span>
-                      <span class="tag"><strong>tri</strong> : date, humeur, note</span>
-                    </div>
-                    <div class="card" style="margin-top:14px;border-radius:18px;">
-                      <div class="card-inner">
-                        <div class="field">
-                          <label for="book-title">Ajouter un livre</label>
-                          <input id="book-title" placeholder="Titre, auteur, édition..." />
-                        </div>
-                        <div class="field">
-                          <label for="book-tag">Tags rapides</label>
-                          <input id="book-tag" placeholder="ex: automne, chef-d'oeuvre, anti-héros" />
-                        </div>
-                        <div class="section-actions">
-                          <button class="btn primary" type="button">Enregistrer</button>
-                          <button class="ghost" type="button">Voir les champs avancés</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <aside class="card library-side">
-              <div class="card-inner">
-                <div class="timeline">
-                  <div class="timeline-item">
-                    <div>
-                      <strong>Dernier ajout</strong>
-                      <small>Le livre a été rangé dans “résonance et vertiges”.</small>
-                    </div>
-                    <span class="rating">+1</span>
-                  </div>
-                  <div class="timeline-item">
-                    <div>
-                      <strong>Recommandé à l’ordre</strong>
-                      <small>Les séries peuvent se suivre dans l’ordre de lecture.</small>
-                    </div>
-                    <span class="rating">ordre</span>
-                  </div>
-                  <div class="timeline-item">
-                    <div>
-                      <strong>Tri intelligent</strong>
-                      <small>Affichage par couleur, note, humeur ou auteur.</small>
-                    </div>
-                    <span class="rating">tri</span>
-                  </div>
-                </div>
-              </div>
-            </aside>
+        <div class="panel-card pad">
+          <div class="panel-head">Pourquoi il est là</div>
+          <div class="panel-sub">Notes, recommandations, saisons, clubs, promesses de lecture.</div>
+          <div class="quote-card" style="margin-top:14px;">
+            <div class="quote">“À lire quand on a besoin de ralentir un peu et de laisser le texte faire le reste.”</div>
+            <div class="signature">— PAL de saison</div>
           </div>
-        </section>
-
-        <section class="panel" id="panel-pal" role="tabpanel" aria-labelledby="tab-pal" hidden>
-          <div class="section-head">
-            <div>
-              <h3>Pile à lire (PAL)</h3>
-              <p>
-                Tous les livres que vous voulez lire, sans pression. Une pile claire,
-                modifiable, que l’on peut réorganiser au fil des envies, des saisons
-                ou des recommandations.
-              </p>
-            </div>
-            <div class="section-actions">
-              <button class="ghost" type="button">Déplacer</button>
-              <button class="ghost" type="button">Marquer “à venir”</button>
-              <button class="btn primary" type="button">+ Ajouter à la PAL</button>
-            </div>
+          <div class="feature-strip" style="margin-top:14px; grid-template-columns: repeat(2, minmax(0, 1fr));">
+            <article class="feature-pill"><strong>Priorité haute</strong><span>Les 5 lectures à ouvrir en premier.</span></article>
+            <article class="feature-pill"><strong>Idées reçues</strong><span>“lu chez un ami”, “pour l’automne”, “à lire en voyage”.</span></article>
           </div>
+        </div>
 
-          <div class="grid-12">
-            <article class="card pal-main">
-              <div class="card-inner">
-                <div class="subgrid">
-                  <div class="shelf">
-                    <div class="shelf-top">
-                      <div>
-                        <h4>Ta pile principale</h4>
-                        <small>ordre flexible • lecture prioritaire</small>
-                      </div>
-                      <span class="badge"><strong>PAL</strong></span>
-                    </div>
-                    <div class="books-row">
-                      <div class="book" style="--w:40px;--h:138px;--c:#7a4d3a;">Sappho</div>
-                      <div class="book" style="--w:46px;--h:154px;--c:#2f4f45;">Le Guin</div>
-                      <div class="book" style="--w:38px;--h:122px;--c:#b07b43;">Sebald</div>
-                      <div class="book" style="--w:44px;--h:148px;--c:#5f5b6f;">Nguyen</div>
-                      <div class="book add">Ajouter une envie de lecture</div>
-                    </div>
-                    <div class="shelf-base"></div>
-                  </div>
-
-                  <div class="shelf">
-                    <div class="shelf-top">
-                      <div>
-                        <h4>Pourquoi il est là</h4>
-                        <small>notes, recommandations, saisons, clubs</small>
-                      </div>
-                      <span class="badge"><strong>why</strong></span>
-                    </div>
-                    <div class="tag-cloud">
-                      <span class="tag">“lu chez un ami”</span>
-                      <span class="tag">“vu dans un moodboard”</span>
-                      <span class="tag">“pour l’automne”</span>
-                      <span class="tag">“à lire en voyage”</span>
-                    </div>
-                    <div class="note-card" style="margin-top:14px;">
-                      <p class="quote">“À lire quand on a besoin de ralentir un peu et de laisser le texte faire le reste.”</p>
-                      <div class="meta">
-                        <span>Ajouté il y a 3 jours</span>
-                        <span>Priorité: haute</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <aside class="card pal-side">
-              <div class="card-inner">
-                <div class="settings-list">
-                  <div class="setting">
-                    <div>
-                      <strong>Haut de pile</strong>
-                      <p>les 5 livres à lire en premier</p>
-                    </div>
-                    <span class="toggle" aria-hidden="true"></span>
-                  </div>
-                  <div class="setting">
-                    <div>
-                      <strong>Historique de priorités</strong>
-                      <p>voir ce qui a déjà été déplacé</p>
-                    </div>
-                    <span class="toggle" aria-hidden="true"></span>
-                  </div>
-                  <div class="setting">
-                    <div>
-                      <strong>Suggestions automatiques</strong>
-                      <p>selon vos lectures et vos tags</p>
-                    </div>
-                    <span class="toggle" aria-hidden="true"></span>
-                  </div>
-                </div>
-              </div>
-            </aside>
+        <aside class="panel-card pad">
+          <div class="panel-head">Gestion de la pile</div>
+          <div class="panel-sub">Réorganisation rapide et tri sans effort.</div>
+          <div class="settings-list" style="margin-top:14px;">
+            <div class="setting"><div><strong>Haut de pile</strong><p>Mettre les futurs coups de coeur au-dessus</p></div><span class="toggle" aria-hidden="true"></span></div>
+            <div class="setting"><div><strong>Historique</strong><p>Retrouver ce qui a déjà été déplacé</p></div><span class="toggle" aria-hidden="true"></span></div>
+            <div class="setting"><div><strong>Suggestions</strong><p>Classement automatique selon vos lectures</p></div><span class="toggle" aria-hidden="true"></span></div>
           </div>
-        </section>
-
-        <section class="panel" id="panel-moodboards" role="tabpanel" aria-labelledby="tab-moodboards" hidden>
-          <div class="section-head">
-            <div>
-              <h3>Fiches &amp; Moodboards</h3>
-              <p>
-                Des espaces pour prendre des notes sur les lectures en cours, ajouter
-                des citations, des images, des couleurs, des playlists et construire une
-                mémoire sensible autour d’un livre.
-              </p>
-            </div>
-            <div class="section-actions">
-              <button class="ghost" type="button">Ajouter une image</button>
-              <button class="ghost" type="button">Insérer une citation</button>
-              <button class="btn primary" type="button">Nouveau moodboard</button>
-            </div>
-          </div>
-
-          <div class="grid-12">
-            <article class="card mood-main">
-              <div class="card-inner">
-                <div class="subgrid">
-                  <div class="shelf">
-                    <div class="shelf-top">
-                      <div>
-                        <h4>Fiche de lecture</h4>
-                        <small>notes, citations, ressentis, pistes</small>
-                      </div>
-                      <span class="badge"><strong>notes</strong></span>
-                    </div>
-                    <div class="field">
-                      <label for="note-title">Titre de la fiche</label>
-                      <input id="note-title" value="Les heures calmes de novembre" />
-                    </div>
-                    <div class="field">
-                      <label for="note-body">Notes en cours</label>
-                      <textarea id="note-body">- La lumière du livre ressemble à une fin d'après-midi d'automne.
-- Les dialogues ont le rythme d'une marche lente dans une ville vide.
-- À relire pour la sensation de refuge.</textarea>
-                    </div>
-                    <div class="section-actions">
-                      <button class="btn primary" type="button">Sauvegarder</button>
-                      <button class="ghost" type="button">Ajouter à une collection</button>
-                    </div>
-                  </div>
-
-                  <div class="shelf">
-                    <div class="shelf-top">
-                      <div>
-                        <h4>Carte citation</h4>
-                        <small>un extrait à garder, partager, relire</small>
-                      </div>
-                      <span class="badge"><strong>quote</strong></span>
-                    </div>
-                    <div class="note-card">
-                      <p class="quote">“On garde les livres qui savent nous retrouver au bon moment.”</p>
-                      <div class="meta">
-                        <span>Chapitre 8</span>
-                        <span>format carte</span>
-                      </div>
-                    </div>
-                    <div class="note-card" style="margin-top:12px;">
-                      <p class="quote">“Cette lecture a la texture d’un carnet, d’une chanson et d’une fenêtre ouverte.”</p>
-                      <div class="meta">
-                        <span>Note perso</span>
-                        <span>partageable</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <aside class="card mood-side">
-              <div class="card-inner">
-                <div class="section-head" style="margin-bottom:14px;">
-                  <div>
-                    <h3 style="font-size:1.35rem;">Moodboard</h3>
-                    <p>Images, palette, playlist, ambiance</p>
-                  </div>
-                </div>
-                <div class="swatches">
-                  <div class="swatch" style="background: linear-gradient(180deg, #b07b43, #7c5230);"><span>candle</span><small>#B07B43</small></div>
-                  <div class="swatch" style="background: linear-gradient(180deg, #3a4f45, #22352d);"><span>sage</span><small>#3A4F45</small></div>
-                  <div class="swatch" style="background: linear-gradient(180deg, #6a5a7a, #463a52);"><span>dusk</span><small>#6A5A7A</small></div>
-                  <div class="swatch" style="background: linear-gradient(180deg, #c67c74, #8d564d);"><span>rose</span><small>#C67C74</small></div>
-                </div>
-                <div class="note-card" style="margin-top:14px;">
-                  <p class="quote">Playlist du livre</p>
-                  <div class="meta">
-                    <span>12 titres</span>
-                    <span>lectures nocturnes</span>
-                  </div>
-                </div>
-                <div class="note-card" style="margin-top:12px;">
-                  <p class="quote">Images épinglées</p>
-                  <div class="meta">
-                    <span>fenêtres, tasses, papier, lumière</span>
-                    <span>8 images</span>
-                  </div>
-                </div>
-              </div>
-            </aside>
-          </div>
-        </section>
-
-        <section class="panel" id="panel-community" role="tabpanel" aria-labelledby="tab-community" hidden>
-          <div class="section-head">
-            <div>
-              <h3>Communauté</h3>
-              <p>
-                Les retours des autres lecteurs, leurs suggestions, leurs coups de coeur,
-                et les petites découvertes qui donnent envie d’ouvrir un livre ce soir.
-              </p>
-            </div>
-            <div class="section-actions">
-              <button class="ghost" type="button">Suggestions</button>
-              <button class="ghost" type="button">Coups de coeur</button>
-              <button class="btn primary" type="button">Publier un retour</button>
-            </div>
-          </div>
-
-          <div class="grid-12">
-            <article class="card community-main">
-              <div class="card-inner">
-                <div class="feed">
-                  <div class="feed-card">
-                    <div class="feed-head">
-                      <div class="avatar"></div>
-                      <div>
-                        <strong>Lou • a partagé un coup de coeur</strong>
-                        <p>“Si vous aimez les livres qui réparent doucement, celui-ci vaut le détour.”</p>
-                      </div>
-                    </div>
-                    <div class="post-grid">
-                      <div class="post">
-                        <b>Pourquoi le lire</b>
-                        <small>langage doux, tension discrète, fin lumineuse</small>
-                      </div>
-                      <div class="post">
-                        <b>Tag de lecture</b>
-                        <small>triste mais réconfortant</small>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="feed-card">
-                    <div class="feed-head">
-                      <div class="avatar" style="background:linear-gradient(145deg,#d9b07d,#6f8f61);"></div>
-                      <div>
-                        <strong>Myriam • suggestion de la semaine</strong>
-                        <p>“Pour une PAL automnale: poésie, mémoire, voix très intime.”</p>
-                      </div>
-                    </div>
-                    <div class="post-grid">
-                      <div class="post">
-                        <b>Ce que la communauté en dit</b>
-                        <small>“à lire avec du thé et du silence”</small>
-                      </div>
-                      <div class="post">
-                        <b>Étiquette</b>
-                        <small>lecture de refuge</small>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="feed-card">
-                    <div class="feed-head">
-                      <div class="avatar" style="background:linear-gradient(145deg,#8f5e32,#3a4f45);"></div>
-                      <div>
-                        <strong>Nassim • retour de lecture</strong>
-                        <p>“J’ai noté 14 citations, mais c’est surtout l’atmosphère qui me suit encore.”</p>
-                      </div>
-                    </div>
-                    <div class="post-grid">
-                      <div class="post">
-                        <b>Format</b>
-                        <small>note longue + citations + photos</small>
-                      </div>
-                      <div class="post">
-                        <b>Reaction</b>
-                        <small>lecture marquante</small>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <aside class="card community-side">
-              <div class="card-inner">
-                <div class="timeline">
-                  <div class="timeline-item">
-                    <div>
-                      <strong>Suggestions du réseau</strong>
-                      <small>les livres qui reviennent souvent dans les coups de coeur</small>
-                    </div>
-                    <span class="rating">24</span>
-                  </div>
-                  <div class="timeline-item">
-                    <div>
-                      <strong>Lecture commune</strong>
-                      <small>un espace pour suivre les lectures du moment</small>
-                    </div>
-                    <span class="rating">live</span>
-                  </div>
-                  <div class="timeline-item">
-                    <div>
-                      <strong>Retours utiles</strong>
-                      <small>ce que les autres ont aimé, détesté, relu, souligné</small>
-                    </div>
-                    <span class="rating">social</span>
-                  </div>
-                </div>
-              </div>
-            </aside>
-          </div>
-        </section>
-
-        <section class="panel" id="panel-profile" role="tabpanel" aria-labelledby="tab-profile" hidden>
-          <div class="section-head">
-            <div>
-              <h3>Profil</h3>
-              <p>
-                Votre identité de lecture: statistiques, préférences, badges, visibilité
-                et habitudes. Ici, on raconte moins la performance que la manière de lire.
-              </p>
-            </div>
-            <div class="section-actions">
-              <button class="ghost" type="button">Modifier le profil</button>
-              <button class="ghost" type="button">Vie privée</button>
-              <button class="btn primary" type="button">Partager mon profil</button>
-            </div>
-          </div>
-
-          <div class="grid-12">
-            <article class="card profile-main">
-              <div class="card-inner">
-                <div class="profile-summary">
-                  <div class="profile-head">
-                    <div class="profile-portrait" aria-hidden="true"></div>
-                    <div>
-                      <h4 style="margin:0 0 6px;font-size:1.35rem;">Manon</h4>
-                      <p>Lectrice de refuges, de fins qui restent, de carnets pleins de notes et de livres qui font respirer plus lentement.</p>
-                    </div>
-                  </div>
-
-                  <div class="subgrid">
-                    <div class="note-card">
-                      <p class="quote">47 livres lus cette année</p>
-                      <div class="meta">
-                        <span>3 séries suivies</span>
-                        <span>9 moods actifs</span>
-                      </div>
-                    </div>
-                    <div class="note-card">
-                      <p class="quote">8 badges lecteurs</p>
-                      <div class="meta">
-                        <span>“relectrice”</span>
-                        <span>“annotatrice”</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="settings-list">
-                    <div class="setting">
-                      <div>
-                        <strong>Bibliothèque visible</strong>
-                        <p>vos livres lus sont publiables ou privés</p>
-                      </div>
-                      <span class="toggle" aria-hidden="true"></span>
-                    </div>
-                    <div class="setting">
-                      <div>
-                        <strong>Recommandations personnalisées</strong>
-                        <p>selon vos tags, moods et habitudes</p>
-                      </div>
-                      <span class="toggle" aria-hidden="true"></span>
-                    </div>
-                    <div class="setting">
-                      <div>
-                        <strong>Communauté</strong>
-                        <p>voir les retours, suggestions et coups de coeur</p>
-                      </div>
-                      <span class="toggle" aria-hidden="true"></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <aside class="card profile-side">
-              <div class="card-inner">
-                <div class="settings-list">
-                  <div class="setting">
-                    <div>
-                      <strong>Goûts dominants</strong>
-                      <p>littérature intime, poésie, autofiction</p>
-                    </div>
-                    <span class="badge"><strong>profil</strong></span>
-                  </div>
-                  <div class="setting">
-                    <div>
-                      <strong>Lecture du moment</strong>
-                      <p>un roman de saison à rythme lent</p>
-                    </div>
-                    <span class="badge"><strong>en cours</strong></span>
-                  </div>
-                  <div class="setting">
-                    <div>
-                      <strong>Partage</strong>
-                      <p>cartes, fiches et coups de coeur</p>
-                    </div>
-                    <span class="badge"><strong>public</strong></span>
-                  </div>
-                </div>
-              </div>
-            </aside>
-          </div>
-        </section>
-      </main>
-
-      <div class="footer">
-        Book Nook • maquette interactive / Bibliothèque / PAL / Fiches &amp; Moodboards / Communauté / Profil
+        </aside>
       </div>
-    </div>
-  </div>
+    </section>
+
+    <section class="panel" id="panel-moodboards" role="tabpanel" aria-labelledby="tab-moodboards" hidden>
+      <div class="section-head">
+        <div>
+          <div class="eyebrow" style="background: rgba(255,255,255,0.8); color: var(--text-soft);">Fiches &amp; Moodboards</div>
+          <h2>Notes, citations, images, couleurs et playlists.</h2>
+        </div>
+        <p>
+          L’espace pour garder trace des lectures en cours, construire des moodboards,
+          et faire de chaque livre une petite matière sensible à collectionner.
+        </p>
+      </div>
+
+      <div class="content-grid moodboards">
+        <div class="panel-card pad">
+          <div class="panel-head">Fiche de lecture</div>
+          <div class="panel-sub">Vos annotations et ressentis, au fil de la lecture.</div>
+          <div class="stack-list">
+            <div class="stack-item">
+              <strong>Notes en cours</strong>
+              <small>La lumière du livre ressemble à une fin d’après-midi d’automne.</small>
+            </div>
+            <div class="stack-item">
+              <strong>Citations</strong>
+              <small>“On garde les livres qui savent nous retrouver au bon moment.”</small>
+            </div>
+            <div class="stack-item">
+              <strong>Images et couleurs</strong>
+              <small>Fenêtres, papier, tasses, doré, plum, rose fanée.</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel-card pad">
+          <div class="aura-row">
+            <div class="aura-card">
+              <div class="orb"></div>
+              <h3>Atmosphère du mois</h3>
+              <p>Longing, calme, un peu de pluie et un grand besoin de douceur.</p>
+            </div>
+            <div class="quote-card">
+              <div class="quote">“Cette lecture a la texture d’un carnet, d’une chanson et d’une fenêtre ouverte.”</div>
+              <div class="signature">Moodboard partagé</div>
+              <div class="detail-badges">
+                <span class="detail-badge">palette</span>
+                <span class="detail-badge">playlist</span>
+                <span class="detail-badge">images</span>
+                <span class="detail-badge">citations</span>
+              </div>
+            </div>
+          </div>
+          <div class="feature-strip" style="margin-top:14px; grid-template-columns: repeat(4, minmax(0, 1fr));">
+            <article class="feature-pill"><strong>Candle</strong><span>#D1A14F • chaleur, dorure, refuge.</span></article>
+            <article class="feature-pill"><strong>Sage</strong><span>#7C8A72 • calme, respiration, silence.</span></article>
+            <article class="feature-pill"><strong>Plum</strong><span>#73516F • mystère, nuit, intimité.</span></article>
+            <article class="feature-pill"><strong>Rose</strong><span>#B97C70 • tendresse, peau, mémoire.</span></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="panel-community" role="tabpanel" aria-labelledby="tab-community" hidden>
+      <div class="section-head">
+        <div>
+          <div class="eyebrow" style="background: rgba(255,255,255,0.8); color: var(--text-soft);">Communauté</div>
+          <h2>Les retours des autres lecteurs, leurs suggestions et leurs coups de coeur.</h2>
+        </div>
+        <p>
+          Un espace pour découvrir ce que les autres lisent, ce qui les a touchés,
+          et les recommandations qui donnent envie d’ouvrir un livre ce soir.
+        </p>
+      </div>
+
+      <div class="content-grid community">
+        <div class="panel-card pad">
+          <div class="feed">
+            <article class="feed-card">
+              <div class="feed-head">
+                <div class="avatar"></div>
+                <div>
+                  <strong>Lou • coup de coeur</strong>
+                  <p>“Si vous aimez les livres qui réparent doucement, celui-ci vaut le détour.”</p>
+                </div>
+              </div>
+              <div class="post-grid">
+                <div class="post"><b>Pourquoi le lire</b><small>langage doux, tension discrète, fin lumineuse</small></div>
+                <div class="post"><b>Tag</b><small>triste mais réconfortant</small></div>
+              </div>
+            </article>
+            <article class="feed-card">
+              <div class="feed-head">
+                <div class="avatar" style="background:linear-gradient(145deg,#d9b07d,#6f8f61);"></div>
+                <div>
+                  <strong>Myriam • suggestion de la semaine</strong>
+                  <p>“Pour une PAL automnale: poésie, mémoire, voix très intime.”</p>
+                </div>
+              </div>
+              <div class="post-grid">
+                <div class="post"><b>Ce que la communauté en dit</b><small>“à lire avec du thé et du silence”</small></div>
+                <div class="post"><b>Étiquette</b><small>lecture de refuge</small></div>
+              </div>
+            </article>
+            <article class="feed-card">
+              <div class="feed-head">
+                <div class="avatar" style="background:linear-gradient(145deg,#8f5e32,#3a4f45);"></div>
+                <div>
+                  <strong>Nassim • retour de lecture</strong>
+                  <p>“J’ai noté 14 citations, mais c’est surtout l’atmosphère qui me suit encore.”</p>
+                </div>
+              </div>
+              <div class="post-grid">
+                <div class="post"><b>Format</b><small>note longue + citations + photos</small></div>
+                <div class="post"><b>Réaction</b><small>lecture marquante</small></div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <aside class="panel-card pad">
+          <div class="panel-head">Ce qu’on partage</div>
+          <div class="panel-sub">Suggestions, retours et coups de coeur réunis dans un même espace.</div>
+          <div class="stack-list">
+            <div class="stack-item"><strong>Suggestions du réseau</strong><small>Les livres qui reviennent souvent dans les coups de coeur.</small></div>
+            <div class="stack-item"><strong>Lecture commune</strong><small>Suivre les lectures du moment avec d’autres lecteurs.</small></div>
+            <div class="stack-item"><strong>Retours utiles</strong><small>Ce qui a été aimé, relu, souligné ou recommandé.</small></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="panel" id="panel-profile" role="tabpanel" aria-labelledby="tab-profile" hidden>
+      <div class="section-head">
+        <div>
+          <div class="eyebrow" style="background: rgba(255,255,255,0.8); color: var(--text-soft);">Profil</div>
+          <h2>Votre identité de lecture, simple et chaleureuse.</h2>
+        </div>
+        <p>
+          On y retrouve vos préférences, vos statistiques, vos badges et vos réglages,
+          avec une présentation qui raconte la manière de lire plutôt qu’un tableau de bord.
+        </p>
+      </div>
+
+      <div class="content-grid profile">
+        <div class="panel-card pad">
+          <div class="profile-summary">
+            <div class="profile-head">
+              <div class="profile-portrait" aria-hidden="true"></div>
+              <div>
+                <h4 style="margin:0 0 6px;font-size:1.35rem;font-family:var(--font-display);font-weight:600;">Manon</h4>
+                <p>Lectrice de refuges, de fins qui restent, de carnets pleins de notes et de livres qui font respirer plus lentement.</p>
+              </div>
+            </div>
+            <div class="feature-strip" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+              <article class="feature-pill"><strong>47</strong><span>livres lus cette année.</span></article>
+              <article class="feature-pill"><strong>8</strong><span>badges lecteurs et habitudes de lecture.</span></article>
+            </div>
+            <div class="settings-list">
+              <div class="setting"><div><strong>Bibliothèque visible</strong><p>Vos livres lus peuvent rester privés ou partagés.</p></div><span class="toggle" aria-hidden="true"></span></div>
+              <div class="setting"><div><strong>Recommandations personnalisées</strong><p>Selon vos tags, moods et habitudes.</p></div><span class="toggle" aria-hidden="true"></span></div>
+              <div class="setting"><div><strong>Communauté</strong><p>Voir les retours, suggestions et coups de coeur.</p></div><span class="toggle" aria-hidden="true"></span></div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="panel-card pad">
+          <div class="panel-head">Préférences</div>
+          <div class="panel-sub">Ce que votre profil met en avant.</div>
+          <div class="stack-list">
+            <div class="stack-item"><strong>Goûts dominants</strong><small>Littérature intime, poésie, autofiction.</small></div>
+            <div class="stack-item"><strong>Lecture du moment</strong><small>Un roman de saison à rythme lent.</small></div>
+            <div class="stack-item"><strong>Partage</strong><small>Cartes, fiches et coups de coeur.</small></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="cta-card">
+        <div>
+          <div class="eyebrow" style="background: rgba(255,255,255,0.84); color: var(--text-soft);">Book Nook</div>
+          <h3>Un refuge pour ranger, noter, partager et revenir aux livres qui comptent.</h3>
+          <p>Bibliothèque, PAL, Fiches &amp; Moodboards, Communauté et Profil vivent désormais dans une DA papier, dorée et éditoriale.</p>
+        </div>
+        <div class="cta-actions">
+          <button class="btn btn-secondary" type="button">Voir la bibliothèque</button>
+          <button class="btn btn-primary" type="button">Ajouter un livre</button>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">Book Nook — direction artistique initiale conservée, onglets et contenus adaptés au refuge de lecture.</div>
+  </main>
 
   <script>
     const tabs = Array.from(document.querySelectorAll('[data-tab]'));
@@ -1419,25 +1603,150 @@
       profile: document.getElementById('panel-profile')
     };
 
-    function showTab(name) {
-      tabs.forEach((tab) => {
-        const active = tab.dataset.tab === name;
-        tab.setAttribute('aria-selected', String(active));
-      });
+    const bookData = {
+      'secret-history': {
+        title: 'The Secret History',
+        author: 'Donna Tartt',
+        score: '9.8',
+        status: 'Terminé',
+        mood: 'Étrange, brillant, feutré',
+        year: 'Liseuse 2024',
+        note: 'Un livre parfait pour une étagère de nuits longues et de conversations un peu trop brillantes.',
+        tags: ['dark academia', 'culpabilité', 'élégance']
+      },
+      piranesi: {
+        title: 'Piranesi',
+        author: 'Susanna Clarke',
+        score: '9.5',
+        status: 'Terminé',
+        mood: 'Silencieux, merveilleux',
+        year: 'Liseuse 2024',
+        note: 'À ranger là où la lumière tombe doucement. Il a une présence calme, presque architecturale.',
+        tags: ['merveille', 'silence', 'imaginaire']
+      },
+      circe: {
+        title: 'Circé',
+        author: 'Madeline Miller',
+        score: '9.2',
+        status: 'Relu',
+        mood: 'Magique, puissant',
+        year: 'Liseuse 2024',
+        note: 'Une couverture à réserver à une étagère plus lumineuse, là où les livres de force trouvent leur place.',
+        tags: ['mythe', 'pouvoir', 'littéraire']
+      },
+      beloved: {
+        title: 'Beloved',
+        author: 'Toni Morrison',
+        score: '9.9',
+        status: 'En cours',
+        mood: 'Hanté, intense',
+        year: 'Lecture actuelle',
+        note: 'Un livre à garder proche, comme un objet précieux et grave.',
+        tags: ['mémoire', 'hantise', 'force']
+      },
+      mohawk: {
+        title: 'Crying in H Mart',
+        author: 'Michelle Zauner',
+        score: '9.1',
+        status: 'Terminé',
+        mood: 'Douceur, deuil, cuisine',
+        year: 'Liseuse 2024',
+        note: 'Une page à garder près du réconfort, pour les jours qui demandent beaucoup de douceur.',
+        tags: ['mémoire', 'famille', 'tendresse']
+      },
+      norwegian: {
+        title: 'Norwegian Wood',
+        author: 'Haruki Murakami',
+        score: '9.0',
+        status: 'Terminé',
+        mood: 'Nostalgique, doux',
+        year: 'Liseuse 2023',
+        note: 'Parfait pour une rangée calme, un peu plus basse, avec des matières chaudes autour.',
+        tags: ['nostalgie', 'pluie', 'mémoire']
+      },
+      gothic: {
+        title: 'Mexican Gothic',
+        author: 'Silvia Moreno-Garcia',
+        score: '8.9',
+        status: 'À lire',
+        mood: 'Étrange, élégant',
+        year: 'PAL',
+        note: 'Très bien pour la PAL si vous aimez les livres qui font penser aux couloirs humides et aux secrets.',
+        tags: ['gothique', 'brouillard', 'mystère']
+      },
+      'left-hand': {
+        title: 'The Left Hand of Darkness',
+        author: 'Ursula K. Le Guin',
+        score: '9.4',
+        status: 'À lire',
+        mood: 'Froid, clair, profond',
+        year: 'PAL',
+        note: 'Une belle colonne de la PAL, fine et calme, qui attend sa place dans le bon rayon.',
+        tags: ['SF', 'intemporel', 'silence']
+      },
+      'secret-salt': {
+        title: 'The Price of Salt',
+        author: 'Patricia Highsmith',
+        score: '8.8',
+        status: 'À lire',
+        mood: 'Tendre, suspendu',
+        year: 'PAL',
+        note: 'Je le laisserais volontiers en attente, tout près du regard, pour plus tard.',
+        tags: ['attente', 'désir', 'romance']
+      }
+    };
 
+    const libraryDetail = document.getElementById('libraryDetail');
+    const bookButtons = Array.from(document.querySelectorAll('.book-spine[data-book]'));
+
+    function setDetail(bookId) {
+      const book = bookData[bookId];
+      if (!book) return;
+
+      bookButtons.forEach((btn) => btn.classList.toggle('selected', btn.dataset.book === bookId));
+
+      libraryDetail.innerHTML = `
+        <div class="detail-card">
+          <div class="detail-header">
+            <div>
+              <div class="detail-title">${book.title}</div>
+              <div class="detail-author">${book.author}</div>
+            </div>
+            <div class="detail-score">${book.score}</div>
+          </div>
+          <div class="detail-badges">
+            <span class="detail-badge">${book.status}</span>
+            <span class="detail-badge">${book.mood}</span>
+            <span class="detail-badge">${book.year}</span>
+          </div>
+          <div class="detail-note">${book.note}</div>
+          <div class="detail-badges">
+            ${book.tags.map((tag) => `<span class="detail-badge">${tag}</span>`).join('')}
+          </div>
+          <div class="detail-actions">
+            <button class="btn btn-primary" type="button">Modifier</button>
+            <button class="btn btn-secondary" type="button">Ajouter tag</button>
+          </div>
+        </div>
+      `;
+    }
+
+    function showTab(name) {
+      tabs.forEach((tab) => tab.setAttribute('aria-selected', String(tab.dataset.tab === name)));
       Object.entries(panels).forEach(([key, panel]) => {
         panel.hidden = key !== name;
       });
     }
 
-    tabs.forEach((tab) => {
-      tab.addEventListener('click', () => showTab(tab.dataset.tab));
-    });
+    tabs.forEach((tab) => tab.addEventListener('click', () => showTab(tab.dataset.tab)));
+    bookButtons.forEach((btn) => btn.addEventListener('click', () => setDetail(btn.dataset.book)));
 
-    const initial = window.location.hash.replace('#', '');
-    if (initial && panels[initial]) {
-      showTab(initial);
+    const initialTab = window.location.hash.replace('#', '');
+    if (initialTab && panels[initialTab]) {
+      showTab(initialTab);
     }
+
+    setDetail('secret-history');
   </script>
 </body>
 </html>
